@@ -93,6 +93,14 @@ function viewsTemplate (pathObject) {
   utils.writeComponent(pathObject.join('views.js'), content);
 }
 
+function routerTemplate (pathObject) {
+  var content = utils.buildTemplate(fs.readFileSync(__dirname + '/../templates/app/router.template'), {
+    namespace: pathObject.namespace(),
+    routeName: pathObject.relativePath()
+  });
+  utils.writeComponent(pathObject.join('router.js'), content);
+}
+
 function indexTemplate (pathObject) {
   var content = utils.buildTemplate(fs.readFileSync(__dirname + '/../templates/app/main.template'), {
     appName: pathObject.templateRoute(),
@@ -107,6 +115,7 @@ APP_COMPONENTS = [
   modelsTemplate,
   collectionsTemplate,
   viewsTemplate,
+  routerTemplate,
   indexTemplate
 ];
 

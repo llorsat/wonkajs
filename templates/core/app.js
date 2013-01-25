@@ -4,7 +4,7 @@ window.App = {
 
   init: function(libraries, applications, scripts, callback) {
 
-    var components = ['init', 'models', 'collections', 'views'];
+    var components = ['init', 'models', 'collections', 'views', 'router'];
     var requirements = [];
 
     //loading libraries

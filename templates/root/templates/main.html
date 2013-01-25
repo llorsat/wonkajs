@@ -11,33 +11,6 @@
     <ol>
       <li>
         Run <strong>wonkajs app books</strong> to create your first application.
-
-      </li>
-      <li>
-        <p>
-          After you need to modify the router file on <strong>main/router.js</strong> to route your app.
-        </p>
-        <pre>
-          routes: {
-            '': 'root',
-            /*Add your routes by level priority*/
-            'books': 'books',
-            '*actions': 'defaultRoute'
-          },
-          
-          /*Define your function*/
-          books: function() {
-            new books.views.Main();
-          },
-
-          root: function() {
-            new root.views.Main();
-          },
-
-          defaultRoute: function() {
-            new root.views.Main();
-          }
-        </pre>
       </li>
       <li>
         Then run the local server with command: <strong>wonkajs server</strong>.
