@@ -1,5 +1,0 @@
-(function() {
-
-    App.namespace('root');
-
-})();
