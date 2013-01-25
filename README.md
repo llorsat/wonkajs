@@ -1,76 +1,76 @@
 # Install
 
-Primero debes clonar este proyecto, como sigue:
+First clone:
 
 ```
 $ git clone https://bitbucket.org/amllorden/wonkajs
 ```
 
-Posteriormente debes instalar wonkajs como global, solo basta con colocarte en el directorio que contiene la carpeta wonkajs que acabas de clonar y ejecutar el siguiente comando:
+Then you must install wonkajs as global node module, just have to be on the folder that contains wonkajs cloned and run install command:
 
 ```
 $ sudo npm install -g wonkajs
 ```
 
-# Primeros pasos
+# Getting started
 
-## Crear un proyecto
+## Create a project
 
-Para crear un proyecto nuevo, solo basta con hacer:
+To create new project, run command:
 
 ```
 $ wonkajs project demo
 ```
 
-## Correr servidor
+## Run server
 
-Para correr el servidor de wonkajs y verificar que esta funcionando, solo basta con hacer:
+To run wonkajs server and verify that's working, just must run inside the project folder:
 
 ```
 $ wonkajs server
 ```
 
-Dentro de la carpeta del proyecto
+## First application
 
-## Crear una aplicación
-
-Para crear una aplicación es necesario colocarse en la raíz del proyecto y ejecutar el siguiente comando:
+To create an app, is necessary be on the project folder and run the app commando:
 
 ```
 $ wonkajs app appdemo
 ```
 
-## Internacionalizacion
+## Internacionalization (i18n)
 
-Para generar archivos de idioma, solo basta con ejecutar el comando:
+To generate language files:
 
 ```
 $ wonkajs i18n
 ```
 
-Este comando ira a buscar cadenas en los archivos html y js para localizar.
+This command will find string on html and javascript file to localize.
 
-Para que ello suceda debes de definir en tus javascript, las cadenas para localizar con la funcion **__**, por ejemplo:
-
-```
-var message = __('Cadena a localizar');
-```
-
-O si quieres localizar una cadena en alguna plantilla solo bastará con hacer:
+To get this works, you must declare your string on javascript files with function **__**, for example:
 
 ```
-<p>{{ __ "Cadena a localizar" }}</p>
+var message = __('String to locale');
 ```
 
-## Producción
+Or if you want to locale any string on any template, just use the handlebars helper:
 
-Para poner tu proyecto en producción, te recomendamos comprimir todo el proyecto y levantar un servidor de contenido estatico, para que devuelva tu proyecto. Para comprimir tu proyecto solo bastará con hacer:
+```
+<p>{{ __ "String to locale" }}</p>
+```
+
+## Deploy
+
+To deploy your project, we recommend compress the project and upload to a server ready to display static content.
+
+To deploy your project, just need to run:
 
 ```
 $ wonkajs deploy
 ```
 
-Con esto se generará una carpeta **deploy** dentro de tu carpeta, que tendra el siguiente contenido:
+With this commando, will be created a **deploy** folder, that will has the files:
 
 * index.html
 * main.css
@@ -79,7 +79,5 @@ Con esto se generará una carpeta **deploy** dentro de tu carpeta, que tendra el
 * icons
 * languages
 
-Esa carpeta subela a tu servidor, apunta a ella y listo. Tu aplicacion estará funcionando.
+Upload this folder to your server, target to your web server and ready, your application will works.
 
-
-** Aun estan pendientes algunas validaciones para los comandos sé noble.**</p>
