@@ -1,0 +1,17 @@
+(function(namespace) {
+
+  namespace.Router = Backbone.Router.extend({
+    
+    routes: {
+      '%(routeName)s': 'main',
+    },
+
+    main: function() {
+      new namespace.views.Main();
+    },
+
+  });
+
+  new namespace.Router();
+
+})(%(namespace)s);
