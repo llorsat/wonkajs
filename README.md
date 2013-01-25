@@ -32,7 +32,7 @@ $ wonkajs server
 
 ## First application
 
-To create an app, is necessary be on the project folder and run the app commando:
+To create an app, is necessary be on the project folder and run the app command:
 
 ```
 $ wonkajs app appdemo
