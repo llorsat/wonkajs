@@ -30,32 +30,79 @@
 
       </header>
       <section>
-        <h3>Welcome to GitHub Pages.</h3>
+        <h1>Install</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>First clone:</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<pre><code>$ git clone https://bitbucket.org/amllorden/wonkajs
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>Then you must install wonkajs as global node module, just have to be on the folder that contains wonkajs cloned and run install command:</p>
 
-<h3>Designer Templates</h3>
+<pre><code>$ sudo npm install -g wonkajs
+</code></pre>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<h1>Getting started</h1>
 
-<h3>Rather Drive Stick?</h3>
+<h2>Create a project</h2>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>To create new project, run command:</p>
 
-<h3>Authors and Contributors</h3>
+<pre><code>$ wonkajs project demo
+</code></pre>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<h2>Run server</h2>
 
-<h3>Support or Contact</h3>
+<p>To run wonkajs server and verify that's working, just must run inside the project folder:</p>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<pre><code>$ wonkajs server
+</code></pre>
+
+<h2>First application</h2>
+
+<p>To create an app, is necessary be on the project folder and run the app command:</p>
+
+<pre><code>$ wonkajs app appdemo
+</code></pre>
+
+<h2>Internacionalization (i18n)</h2>
+
+<p>To generate language files:</p>
+
+<pre><code>$ wonkajs i18n
+</code></pre>
+
+<p>This command will find string on html and javascript file to localize.</p>
+
+<p>To get this works, you must declare your string on javascript files with function <strong>__</strong>, for example:</p>
+
+<pre><code>var message = __('String to locale');
+</code></pre>
+
+<p>Or if you want to locale any string on any template, just use the handlebars helper:</p>
+
+<pre><code>&lt;p&gt;{{ __ "String to locale" }}&lt;/p&gt;
+</code></pre>
+
+<h2>Deploy</h2>
+
+<p>To deploy your project, we recommend compress the project and upload to a server ready to display static content.</p>
+
+<p>To deploy your project, just need to run:</p>
+
+<pre><code>$ wonkajs deploy
+</code></pre>
+
+<p>With this commando, will be created a <strong>deploy</strong> folder, that will has the files:</p>
+
+<ul>
+<li>index.html</li>
+<li>main.css</li>
+<li>main.js</li>
+<li>images</li>
+<li>icons</li>
+<li>languages</li>
+</ul><p>Upload this folder to your server, target to your web server and ready, your application will works.</p>
       </section>
       <footer>
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
