@@ -1,0 +1,49 @@
+{
+  "name": "wonkajs",
+  "description": "Frontend framework for backend developers",
+  "keywords": ["framework", "frontend", "javascript", "MVT", "REST", "Web"],
+  "version": "0.0.1",
+  "author": {
+    "name": "Julian Ceballos",
+    "email": "julian@pikhub.com",
+    "url": "http://jceb.info"
+  },
+  "contributors": [{
+    "name": "Vicente Mendoza",
+    "email": "chentepixtol@gmail.com",
+    "url": "http://github.com/chentepixtol"
+  }, {
+    "name": "Josue Camara",
+    "email": "picharras@gmail.com",
+    "url": "http://picharras.net"
+  }, {
+    "name": "Juan Purata",
+    "email": "jpurata@llorsat.com.mx",
+    "url": "http://bitbucket.org/jpurata"
+  }],
+  "homepage": "",
+  "dependencies": {
+    "mime": "",
+    "ncp": "",
+    "less": "",
+    "uglify-js2": "https://github.com/mishoo/UglifyJS/archive/v1.3.4.tar.gz"
+  },
+  "bin": {
+    "wonkajs": "bin/wonkajs"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "preferGlobal": true,
+  "engines": {
+    "node": "*"
+  },
+  "_id": "wonkajs@0.0.1",
+  "optionalDependencies": {},
+  "_engineSupported": true,
+  "_npmVersion": "1.1.16",
+  "_nodeVersion": "v0.6.15",
+  "_defaultsLoaded": true,
+  "_from": "wonkajs"
+}

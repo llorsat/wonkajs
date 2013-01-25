@@ -1,0 +1,61 @@
+#!/usr/bin/env node
+
+require('../lib/wonka.js');
+
+var fs = require('fs'),
+    args = process.argv.slice(2),
+    params = process.argv.slice(3),
+    pkg = JSON.parse(fs.readFileSync(__dirname + '/../package.json').toString());
+
+wonkajs.version = pkg.version;
+
+var usage = '\nWonkajs frontend framework for backend developers\n\n'
+  + '{usage} wonkajs subcommand [options] [args]\n\n'
+  + 'Options:\n'
+  + '   -v,   --version   Outputs the version of wonka js that you have installed\n'
+  + '   -h,   --help      Outputs help information\n\n'
+  + 'Available subcommands:\n'
+  + '   p,    project     Create new project\n'
+  + '   a,    app         Create new application\n'
+  + '   s,    server      Run server for development\n'
+  + '   i,    i18n        Generate internationalization files\n'
+  + '   d,    deploy      Compile js, css and html files for deploy\n'
+
+var command = args[0];
+
+var commands = {
+  'p': wonkajs.proj.builder,
+  'project': wonkajs.proj.builder,
+  's': wonkajs.server.builder,
+  'server': wonkajs.server.builder,
+  'a': wonkajs.app.builder,
+  'app': wonkajs.app.builder,
+  'd': wonkajs.deploy.builder,
+  'deploy': wonkajs.deploy.builder,
+  'i': wonkajs.i18n.builder,
+  'i18n': wonkajs.i18n.builder
+};
+
+var run = function(args) {
+  if(args.length == 2) {
+    var param = args[1];
+    commands[command](param);
+  } else {
+    commands[command](params);
+  }
+}
+
+var stop = function(message) {
+  console.log(message);
+  process.exit();
+}
+
+if(args.length == 0) {
+  stop(usage);
+} else if(command == '-h' || command == '--help') {
+  stop(usage);
+} else if(command == '-v' || command == '--version') {
+  stop(wonkajs.version);
+} else {
+  run(args);
+}

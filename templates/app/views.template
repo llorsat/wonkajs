@@ -1,0 +1,24 @@
+(function(namespace) {
+
+  var views = namespace.views;
+  var collections = namespace.collections;
+  var models = namespace.models;
+
+  var getTemplate = function(name) {
+    return hbs.compile($('#%(appName)s-' + name + '-template').html());
+  }
+
+  views.Main = Bb.View.extend({
+    el: '#container',
+    template: getTemplate('main'),
+    initialize: function() {
+      var me = this;
+      me.render();
+    },
+    render: function() {
+      var me = this;
+      me.$html(me.template());
+    }
+  });
+
+})(%(namespace)s);
