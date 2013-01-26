@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Wonka.js - Frontend framework for backend framework</title>
+        <title>Wonka.js - Frontend framework for backend developers</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" type="text/css" href="main.css">
@@ -43,52 +43,65 @@
 
       <h1>Install</h1>
 
-      <p>Install wonka.js as global node module on your shell with the install command:</p>
+      <p>Install wonka.js as global node module, on your shell type the command:</p>
 
-      <pre><code>$ sudo npm install -g wonkajs
-      </code></pre>
+      <pre><code>$ sudo npm install -g wonkajs</code></pre>
 
       <h1>Getting started</h1>
 
       <h2>Create a project</h2>
 
-      <p>To create new project, run command:</p>
+      <p>First step is create a new project:</p>
 
-      <pre><code>$ wonkajs project demo
-      </code></pre>
+      <pre><code>$ wonkajs project library</code></pre>
+
+      <p>This will create a project template that you can use as base for many kinds of web applications.</p>
 
       <h2>Run server</h2>
 
-      <p>To run wonkajs server and verify that is working, just must run inside the project folder:</p>
+      <p>To run wonka.js server and verify that is working, just must run inside the project folder:</p>
 
-      <pre><code>$ wonkajs server
-      </code></pre>
+      <pre><code>$ wonkajs server</code></pre>
+
+      <p>With this command we launch a server on port 9300 by default, but you can change it:</p>
+
+      <pre><code>$ wonkajs server 9700</code></pre>
+
+      <p>Visit your project on:</p>
+
+      <pre><code>http:&#47;&#47;localhost:9300</code></pre>
+
+      <p>or in their case on:</p>
+
+      <pre><code>http:&#47;&#47;localhost:9700</code></pre>
 
       <h2>First application</h2>
 
       <p>To create an app, is necessary be on the project folder and run the app command:</p>
 
-      <pre><code>$ wonkajs app appdemo
-      </code></pre>
+      <pre><code>$ wonkajs app books</code></pre>
 
-      <h2>Internacionalization (i18n)</h2>
+      <p>When this command run, a router links the Main view on application with a url.</p>
 
-      <p>To generate language files:</p>
+      <p>The nomenclature is similar to:</p>
 
-      <pre><code>$ wonkajs i18n
-      </code></pre>
+      <pre><code>/#books -> books.views.Main</code></pre>
 
-      <p>This command will find string on html and javascript file to localize.</p>
+      <p>When the app is more complex than one level you can create it typing:</p>
 
-      <p>To get this works, you must declare your string on javascript files with function <strong>__</strong>, for example:</p>
+      <pre><code>$ wonkajs app books science</code></pre>
 
-      <pre><code>var message = __('String to locale');
-      </code></pre>
+      <p>And the router will build:</p>
 
-      <p>Or if you want to locale any string on any template, just use the handlebars helper:</p>
+      <pre><code>/#books/science -> books.science.views.Main</code></pre>
 
-      <pre><code>&lt;p&gt;&#123;&#123; __ "String to locale" &#125;&#125;&lt;/p&gt;
-      </code></pre>
+      <p>So finally you can visit your new application on:</p>
+
+      <pre><code>http:&#47;&#47;localhost:9300&#47;#books</code></pre>
+
+      <p>Or in their case:</p>
+
+      <pre><code>http:&#47;&#47;localhost:9300&#47;#books&#47;science</code></pre>
 
       <h2>Deploy</h2>
 
@@ -99,7 +112,7 @@
       <pre><code>$ wonkajs deploy
       </code></pre>
 
-      <p>With this commando, will be created a <strong>deploy</strong> folder, that will has the files:</p>
+      <p>With this command, will be created a <strong>deploy</strong> folder, that will has the files:</p>
 
       <ul>
       <li>index.html</li>
@@ -108,7 +121,7 @@
       <li>images</li>
       <li>icons</li>
       <li>languages</li>
-      </ul><p>Upload this folder to your server, target to your web server and ready, your application will works.</p>
+      </ul><p>Upload this folder to any server path, and points your web server to this path and your application will works.</p>
     </section>
     <footer>
       <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> based on Dinky theme</small></p>
