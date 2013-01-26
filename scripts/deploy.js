@@ -61,6 +61,7 @@ var joinHTMLCode = function() {
 }
 
 module.exports.compress = function() {
+  var existsSync = fs.existsSync || path.existsSync;
   projectDir = process.cwd();
   var pkgPath = path.join(projectDir, 'package.json');
   var pkg = JSON.parse(fs.readFileSync(pkgPath).toString());
@@ -84,9 +85,10 @@ module.exports.compress = function() {
   exec('lessc -x ' + cssSrc + ' ' + cssDest);
 
   var languagesSrc = path.join(projectDir, 'languages');
-  var languagesDest = path.join(projectDir, 'deploy', 'languages');
-
-  utils.copy(languagesSrc, languagesDest);
-
+  if (existsSync(languagesSrc)) {
+    var languagesDest = path.join(projectDir, 'deploy', 'languages');  
+    utils.copy(languagesSrc, languagesDest);
+  }
+  
   console.log('Project ready for deploy');
 }
