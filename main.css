@@ -1271,5 +1271,6 @@ a{color:#130722;}
 header{background:#130722;}
 pre{height:25px;}
 .nodejs-button{background:#8BC84B;color:#46483e;text-decoration:none;font-size:14px;font-weight:bold;padding:14px;}
+.spectacular{font-size:48px;}
 #message-container{background:rgba(255, 255, 255, 0.75);position:fixed;top:0;left:0;width:100%;height:100%;}#message-container #message{width:400px;margin:40px auto;border:1px black solid;}#message-container #message .title,#message-container #message .message{padding:10px;}
 #message-container #message .form-actions{margin:0;}
