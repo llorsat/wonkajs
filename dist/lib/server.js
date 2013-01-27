@@ -1,15 +1,16 @@
 module.exports.builder = function() {
   var path = require('path');
-  if (!path.existsSync(path.join(process.cwd(), 'package.json'))) {
-    console.info('You need to be on root of your project folder');
-    return false;
-  }
   // fuente: https://gist.github.com/701407
   var http = require("http"),
   url = require("url"),
-  path = require("path"),
   fs = require("fs"),
   port = process.argv[3] || 9300;
+
+  var existsSync = fs.existsSync || path.existsSync;
+  if (!existsSync(path.join(process.cwd(), 'package.json'))) {
+    console.info('You need to be on root of your project folder');
+    return false;
+  }
 
   function directoryTemplate(files) {
     var html = '<html><head></head><body>';
@@ -26,7 +27,8 @@ module.exports.builder = function() {
     if (filename == process.cwd() + '/') {
       filename += 'index.html';
     }
-    path.exists(filename, function(exists) {
+    var isExists = fs.exists || path.exists;
+    isExists(filename, function(exists) {
       if(!exists) {
         response.writeHead(404, {"Content-Type": "text/plain"});
         response.write("404 Not Found\n");

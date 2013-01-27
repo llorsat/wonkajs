@@ -39,7 +39,6 @@ function setLanguage(language) {
       messages: response,
     });
   }
-
 }
 
 function __(stringToTranslate){
