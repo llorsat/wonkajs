@@ -82,7 +82,17 @@ module.exports.compress = function() {
   var cssSrc = path.join(projectDir, 'stylesheets', 'ui.less');
   var cssDest = path.join(projectDir, 'deploy', 'main.css');
 
-  exec('lessc -x ' + cssSrc + ' ' + cssDest);
+  var settingsLessDeploy = '@base-url: "/images";';
+
+  var settingsLessDevelopment = '@base-url: "../images";';
+
+  var settingsLessPath = path.join(projectDir, 'stylesheets', 'settings.less');
+
+  fs.writeFileSync(settingsLessPath, settingsLessDeploy);
+
+  exec('lessc -x ' + cssSrc + ' ' + cssDest, function() {
+    fs.writeFileSync(settingsLessPath, settingsLessDevelopment);
+  });
 
   var languagesSrc = path.join(projectDir, 'languages');
   if (existsSync(languagesSrc)) {
