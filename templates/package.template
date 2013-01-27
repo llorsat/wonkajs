@@ -1,14 +1,8 @@
 {
-  "name": "%(name)s",
-  "description": "Write a little bit about this project",
-  "version": "0.0.1",
-  "author": "",
-  "homepage": "",
-  "_id": "%(name)s@0.0.1",
   "settings": {
+    "storage_engine": "localStorage",
     "i18n": {
       "languages": [
-        "es",
         "en"
       ],
       "files": [
@@ -50,7 +44,8 @@
         "backbone.extensions",
         "handlebars.helpers",
         "console",
-        "helpers"
+        "helpers",
+        "settings"
       ],
       "main_files": [
         "listeners",
@@ -61,5 +56,11 @@
         "root"
       ]
     }
-  }
+  },
+  "name": "%(name)s",
+  "description": "Write a little bit about this project",
+  "version": "0.0.1",
+  "author": "",
+  "homepage": "",
+  "_id": "%(name)s@0.0.1"
 }

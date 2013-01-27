@@ -3,7 +3,7 @@ var fs = require("fs");
 
 module.exports.inspectI18n = function () {
 
-  console.log('Searching strings to translate...');
+  console.info('Searching strings to translate...');
   
   var readOrWriteFile = function(path, file, content) {
     var contentFile = null;
@@ -93,7 +93,7 @@ module.exports.inspectI18n = function () {
     }
   
     fs.writeFileSync(languageFile, JSON.stringify(properties, null, 2));
-    console.log("Generated file -> " + languageFile);
+    console.info("Generated file -> " + languageFile);
   });
 
 };
