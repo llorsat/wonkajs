@@ -25,40 +25,26 @@ function formToJSON(selector) {
 /**
  * Init the I18n with language specified
  */
-function setLanguage(language){
-  $.getJSON("languages/" + language + ".json", function(response){
+function setLanguage(language) {
+  localStorage.language = language;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'languages/' + language + '.json', false);
+  xhr.send(null);
+
+  if (xhr.status == 200) {
+    var response = JSON.parse(xhr.responseText);
+
     Globalize.culture(language);
     Globalize.addCultureInfo( language, {
       messages: response,
-    });
-  });
+    });  
+  }
+
 }
 
 function __(stringToTranslate){
   return Globalize.localize(stringToTranslate, Globalize.culture()) || stringToTranslate;
-}
-
-function cardFormat(type, number) {
-  var number = number == '0' ? '00000000000000000000' : '' + number;
-  var cardNumber = '';
-  var i = 0;
-  for (i = 0; i < 4*3; i+=4) {
-    cardNumber += number.substr(i, 4) + '-';
-  }
-  if(type == 'TCAME') {
-    cardNumber += number.substr(i, 3) + '-';
-    i+=3;
-    cardNumber += number.substr(i, 4);
-  } else {
-    cardNumber += number.substr(i, 4) + '-';
-    i+=4;
-    cardNumber += number.substr(i, 3);
-  }
-  return cardNumber;
-}
-
-function cardFormatArray(type, number) {
-  return cardFormat(type, number).split('-');
 }
 
 /*
