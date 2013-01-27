@@ -15,6 +15,12 @@ var copyImages = function() {
   utils.copy(imagesSrc, imagesDest);
 }
 
+var copyIcons = function() {
+  var iconsSrc = path.join(projectDir, 'icons');
+  var iconsDest = path.join(projectDir, 'deploy', 'icons');
+  utils.copy(iconsSrc, iconsDest);
+}
+
 var joinJavascriptCode = function() {
   var modernizr = fs.readFileSync(__dirname + '/../templates/core/contrib/modernizr.js').toString();
   var projectDir = process.cwd();
@@ -87,6 +93,8 @@ module.exports.compress = function() {
 
   copyImages();
 
+  copyIcons();
+
   joinJavascriptCode();
 
   joinHTMLCode();
@@ -94,13 +102,27 @@ module.exports.compress = function() {
   var cssSrc = path.join(projectDir, 'stylesheets', 'ui.less');
   var cssDest = path.join(projectDir, 'deploy', 'main.css');
 
-  exec('lessc -x ' + cssSrc + ' ' + cssDest);
+  var settingsLessDeploy = '@base-url: "/images";';
+
+  var settingsLessDevelopment = '@base-url: "../images";';
+
+  var settingsLessPath = path.join(projectDir, 'stylesheets', 'settings.less');
+
+  fs.writeFileSync(settingsLessPath, settingsLessDeploy);
+
+  exec('lessc -x ' + cssSrc + ' ' + cssDest, function() {
+    fs.writeFileSync(settingsLessPath, settingsLessDevelopment);
+  });
 
   var languagesSrc = path.join(projectDir, 'languages');
   if (existsSync(languagesSrc)) {
     var languagesDest = path.join(projectDir, 'deploy', 'languages');  
     utils.copy(languagesSrc, languagesDest);
   }
+
+  fs.writeFile(path.join(projectDir, 'deploy', 'package.json'), JSON.stringify(pkg, null, 2), function (err) {
+    if (err) throw err;
+  });
   
   console.log('Project ready for deploy');
 }

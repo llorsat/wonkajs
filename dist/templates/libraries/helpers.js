@@ -27,20 +27,18 @@ function formToJSON(selector) {
  */
 function setLanguage(language) {
   localStorage.language = language;
-
+  
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'languages/' + language + '.json', false);
   xhr.send(null);
 
-  if (xhr.status == 200) {
+  if (xhr.status == 200 || xhr.status == 201) {
     var response = JSON.parse(xhr.responseText);
-
     Globalize.culture(language);
     Globalize.addCultureInfo( language, {
       messages: response,
-    });  
+    });
   }
-
 }
 
 function __(stringToTranslate){
