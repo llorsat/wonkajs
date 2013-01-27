@@ -15,6 +15,12 @@ var copyImages = function() {
   utils.copy(imagesSrc, imagesDest);
 }
 
+var copyIcons = function() {
+  var iconsSrc = path.join(projectDir, 'icons');
+  var iconsDest = path.join(projectDir, 'deploy', 'icons');
+  utils.copy(iconsSrc, iconsDest);
+}
+
 var joinJavascriptCode = function() {
   var modernizr = fs.readFileSync(__dirname + '/../templates/core/contrib/modernizr.js').toString();
   var projectDir = process.cwd();
@@ -86,6 +92,8 @@ module.exports.compress = function() {
   } catch(err) {}
 
   copyImages();
+
+  copyIcons();
 
   joinJavascriptCode();
 
