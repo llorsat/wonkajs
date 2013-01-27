@@ -17,12 +17,23 @@ var copyImages = function() {
 
 var joinJavascriptCode = function() {
   var modernizr = fs.readFileSync(__dirname + '/../templates/core/contrib/modernizr.js').toString();
+  var projectDir = process.cwd();
+  var pkgPath = path.join(projectDir, 'package.json');
+  var pkg = JSON.parse(fs.readFileSync(pkgPath).toString());
+  var pkgCode = JSON.stringify(pkg);
   var appPath = path.join(projectDir, 'core', 'app.js');
   var app = fs.readFileSync(appPath).toString();
   var code = modernizr + '\n' + app + '\n';
+
+  // set package json
+  code += "App['pkg'] = JSON.parse('"+pkgCode+"');\n";
+
+  // libraries
   for (var i = 0; i < env.libraries.length; i++) {
     code += fs.readFileSync(path.join(projectDir, 'libraries', env.libraries[i]+'.js'),'utf8');
   }
+
+  // applications
   for (var i = 0; i < env.applications.length; i++) {
     var initFile = path.join(projectDir, env.applications[i] , 'init.js');
     var modelsFile = path.join(projectDir, env.applications[i], 'models.js');
@@ -40,6 +51,7 @@ var joinJavascriptCode = function() {
   }
 
   code += '\nwindow.main();';
+  fs.writeFileSync(path.join(projectDir, 'deploy', 'main_.js'), code);
 
   var ast = jsp.parse(code);
   ast = pro.ast_mangle(ast);
@@ -62,7 +74,7 @@ var joinHTMLCode = function() {
 
 module.exports.compress = function() {
   var existsSync = fs.existsSync || path.existsSync;
-  projectDir = process.cwd();
+  var projectDir = process.cwd();
   var pkgPath = path.join(projectDir, 'package.json');
   var pkg = JSON.parse(fs.readFileSync(pkgPath).toString());
   env = pkg.settings.environment;
@@ -99,6 +111,10 @@ module.exports.compress = function() {
     var languagesDest = path.join(projectDir, 'deploy', 'languages');  
     utils.copy(languagesSrc, languagesDest);
   }
+
+  fs.writeFile(path.join(projectDir, 'deploy', 'package.json'), JSON.stringify(pkg, null, 2), function (err) {
+    if (err) throw err;
+  });
   
   console.log('Project ready for deploy');
 }
