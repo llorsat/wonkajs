@@ -1,10 +1,16 @@
-exports.server = function() {
+module.exports.run = function() {
+  var path = require('path');
   // fuente: https://gist.github.com/701407
   var http = require("http"),
   url = require("url"),
-  path = require("path"),
   fs = require("fs"),
   port = process.argv[3] || 9300;
+
+  var existsSync = fs.existsSync || path.existsSync;
+  if (!existsSync(path.join(process.cwd(), 'package.json'))) {
+    console.info('You need to be on root of your project folder');
+    return false;
+  }
 
   function directoryTemplate(files) {
     var html = '<html><head></head><body>';
@@ -16,18 +22,21 @@ exports.server = function() {
   }
 
   http.createServer(function(request, response) {
-    __dirname = __dirname.replace('/scripts', '');
-    var uri = url.parse(request.url).pathname
-      , filename = path.join(process.cwd(), uri);
-    path.exists(filename, function(exists) {
+    var uri = url.parse(request.url).pathname,
+        filename = path.join(process.cwd(), uri);
+    if (filename == process.cwd() + '/') {
+      filename += 'index.html';
+    }
+    if (uri.split('/')[1] == 'images') {
+      filename = filename.replace('/images/', '/stylesheets/images/');
+    }
+    var isExists = fs.exists || path.exists;
+    isExists(filename, function(exists) {
       if(!exists) {
         response.writeHead(404, {"Content-Type": "text/plain"});
         response.write("404 Not Found\n");
         response.end();
         return;
-      }
-      if (filename.substring(0, filename.length - 1) == __dirname) {
-        filename += 'index.html';
       }
       if (fs.statSync(filename).isDirectory()) {
         var content = fs.readdirSync(filename);
@@ -54,7 +63,7 @@ exports.server = function() {
     }
     console.log(errors[err.code]);
   }).on('listening', function() {
-    console.log("Server running at http://localhost:" + port);
-    console.log("CTRL + C  to stop.");
+    console.info("Server running at http://localhost:" + port);
+    console.info("CTRL + C  to stop.");
   });
 }
