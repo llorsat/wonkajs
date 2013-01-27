@@ -32,12 +32,14 @@ function setLanguage(language) {
   xhr.open('GET', 'languages/' + language + '.json', false);
   xhr.send(null);
 
-  var response = JSON.parse(xhr.responseText);
+  if (xhr.status == 200) {
+    var response = JSON.parse(xhr.responseText);
 
-  Globalize.culture(language);
-  Globalize.addCultureInfo( language, {
-    messages: response,
-  });
+    Globalize.culture(language);
+    Globalize.addCultureInfo( language, {
+      messages: response,
+    });  
+  }
 
 }
 
