@@ -99,6 +99,10 @@ module.exports.compress = function() {
     var languagesDest = path.join(projectDir, 'deploy', 'languages');  
     utils.copy(languagesSrc, languagesDest);
   }
+
+  fs.writeFile(path.join(projectDir, 'deploy', 'package.json'), JSON.stringify(pkg, null, 2), function (err) {
+    if (err) throw err;
+  });
   
   console.log('Project ready for deploy');
 }
