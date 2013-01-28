@@ -1,3 +1,3 @@
 (function(namespace) {
-    //TODO: add collections below
+  //TODO: add collections below
 })(root);
