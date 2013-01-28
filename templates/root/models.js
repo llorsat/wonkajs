@@ -1,3 +1,3 @@
 (function(namespace) {
-    //TODO: add models below
+  //TODO: add models below
 })(root);
