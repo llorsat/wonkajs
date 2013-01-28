@@ -6,6 +6,7 @@ var fs = require('fs'),
     utils = require('../lib/utils.js'),
     jsp = require("uglify-js").parser,
     pro = require("uglify-js").uglify,
+    less = require('less'),
     projectDir = '',
     env = '';
 
@@ -57,7 +58,6 @@ var joinJavascriptCode = function() {
   }
 
   code += '\nwindow.main();';
-  fs.writeFileSync(path.join(projectDir, 'deploy', 'main_.js'), code);
 
   var ast = jsp.parse(code);
   ast = pro.ast_mangle(ast);
@@ -109,9 +109,21 @@ module.exports.compress = function() {
   var settingsLessPath = path.join(projectDir, 'stylesheets', 'settings.less');
 
   fs.writeFileSync(settingsLessPath, settingsLessDeploy);
-
-  exec('lessc -x ' + cssSrc + ' ' + cssDest, function() {
-    fs.writeFileSync(settingsLessPath, settingsLessDevelopment);
+  var parser = new less.Parser({
+    paths: ['.', './stylesheets/', './stylesheets/bootstrap', './stylesheets/plugins']
+  });
+  var cssCode = fs.readFileSync(cssSrc).toString();
+  parser.parse(cssCode, function(parse_err, tree) {
+    if (parse_err) {
+      console.log("Error in parse less", parse_err);
+    }
+    try {
+      var css = tree.toCSS();
+      fs.writeFileSync(settingsLessPath, settingsLessDevelopment);
+      fs.writeFileSync(cssDest, css);
+    } catch (e) {
+      console.log("Error in compile less", e);
+    }
   });
 
   var languagesSrc = path.join(projectDir, 'languages');
