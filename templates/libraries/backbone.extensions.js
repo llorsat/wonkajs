@@ -18,18 +18,18 @@
       return this.params || {};
     },
     removeParam: function(param) {
-      delete this.params.param;
+      delete this.params[param];
       return this;
     },
     clearParams: function() {
       delete this.params;
       return this;
     },
-    getParam: function(name) {
+    getParam: function(name, defaultValue) {
       if (this.params) {
         return this.params[name];
       }
-      return null;
+      return defaultValue;
     },
     serializeData: function(object) {
       var url = "";
@@ -59,18 +59,24 @@
   // Extend Model
   _.extend(Backbone.Model.prototype, {
 
+    isBackboneModel: true,
+
     getOrElse: function(name, defaultValue) {
       var value = this.get(name);
       return value !== undefined ? value : defaultValue;
     },
 
     containsValue: function(value) {
-      for (attr in this.attributes) {
-        if (this.attributes[attr] == value) {
-          return true;
-        }
-      }
-      return false;
+      return _.any(this.attributes, function(attr) {
+        return attr == value;
+      });
+    },
+
+    match: function(text) {
+      var reg = new RegExp(text, 'gi');
+      return _.any(this.attributes, function(attr) {
+        return reg.test(attr);
+      });
     },
 
     toJSON: function() {
@@ -81,6 +87,31 @@
         return {};
       }
     },
+
+    errors: [],
+
+    formErrors: function() {
+      var messages = [];
+      var errors = this.errors;
+      for (var i = 0; i < errors.length; i++) {
+        messages.push('* ' + errors[i].message);
+      }
+      return messages;
+    },
+
+    isValid: function() {
+      this.errors = []
+      for (var i = 0; i < this.validations.length; i++) {
+        var validation = this.validations[i](this.attributes);
+        if (typeof validation === "object") {
+          this.errors.push(validation);
+        }
+      }
+      if (this.errors.length === 0) {
+        return true;
+      }
+      return false;
+    }
 
   });
 
@@ -95,6 +126,42 @@
       this.lastOrderType = null;
     },
 
+    matched: function(filterText) {
+      var collection = new this.constructor();
+      collection.addParams(collection.getParams());
+      collection.reset(this.filter(function(m){
+        return m.match(filterText);
+      }));
+      return collection;
+    },
+
+    search: function(attribute, value) {
+      var collection = new this.constructor();
+      collection.addParams(collection.getParams());
+      collection.reset(this.filter(function(m) {
+        return m.get(attribute) == value;
+      }));
+      return collection;
+    },
+
+    setToModels: function() {
+      if(arguments.length == 1) {
+        this.each(function(m) {
+          m.set(arguments[0]);
+        });
+      } else {
+        this.each(function(m) {
+          m.set(arguments[0], arguments[1]);
+        });
+      }
+    },
+
+    getTotalSum: function(attribute) {
+      return this.reduce( function(acc, model){
+        return acc + parseFloat(model.get(attribute));
+      }, 0);
+    },
+    
     flexigridSort: function(callback) {
       var collection = this;
       var getWeight = _.memoize(function(str, multiply) {
@@ -283,7 +350,12 @@
 
     autoVitrineHeight: function() {
       var vitrine = this.$el.closest('.vitrine');
-      var height = vitrine.find('.grid-container').height() + 55;
+      var height = 0;
+      if (vitrine.children('.vitrine-content').children('.grid-container').size() > 0) {
+        height = $(vitrine.children('.vitrine-content').children('.grid-container')).height() + 55;
+      } else {
+        height = $(vitrine.children('.vitrine-content').children('div')).height() + 55;
+      }
       vitrine.css('height', height);
     },
 
@@ -291,6 +363,15 @@
       this.autoVitrineHeight();
     },
 
+    hide: function() {
+      this.$el.closest('.vitrine').hide();
+    },
+
+    initSpinner: function() {
+      var self = this;
+      add_spiner(self.$el.closest(".vitrine-content"));
+    },
+    
     openVitrine: function(options, callback) {
         openVitrine(options, callback);
     },
@@ -298,11 +379,12 @@
     showMessage: function(options) {
         App.message(options);
     }
-
+    
   });
 
   var oldExtend = Backbone.View.extend;
   Backbone.View.extend = function(protoProps, helpers){
+    var classProps = null;
     if (_.isArray(helpers)) {
       _.each(helpers, function(helper) {
         for (propName in helper) {
@@ -317,7 +399,7 @@
     } else {
       classProps = helpers;
     }
-    return oldExtend.call(this, protoProps, classProps); 
+    return oldExtend.call(this, protoProps, classProps);
   };
 
 })();
