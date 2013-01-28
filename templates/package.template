@@ -33,7 +33,12 @@
         "jquery",
         "jquery.easing",
         "jquery.ui",
+        "jquery.cookie",
+        "jquery.inputmask",
+        "jquery.maskedinput",
         "spin",
+        "printarea",
+        "flexigrid",
         "bootstrap",
         "handlebars",
         "underscore",
@@ -42,6 +47,7 @@
         "jquery.vitrine",
         "jquery.vitrine.helpers",
         "backbone.extensions",
+        "backbone.viewhelpers",
         "handlebars.helpers",
         "console",
         "helpers",
@@ -49,7 +55,6 @@
       ],
       "main_files": [
         "listeners",
-        "alerts",
         "main"
       ],
       "applications": [

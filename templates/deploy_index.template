@@ -23,4 +23,5 @@
         <![endif]-->
 
         <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+        <div id="message-container" style="display: none;"></div>
         <div id="container"></div>
