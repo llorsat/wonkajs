@@ -26,7 +26,7 @@ function formToJSON(selector) {
  * Init the I18n with language specified
  */
 function setLanguage(language) {
-  localStorage.language = language;
+  window[App.pkg.settings.storage_engine]['language'] = language;
   
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'languages/' + language + '.json', false);
