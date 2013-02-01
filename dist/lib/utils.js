@@ -15,7 +15,7 @@ module.exports.replaceAll = function(text, query, newStr){
 module.exports.mkdir = function(name) {
   projectDir = path.join(process.cwd(), name);
   try {
-    fs.mkdirSync(dirName, 0755);
+    fs.mkdirSync(projectDir, 0755);
   } catch (err) {
     if(err.code == 'EACCES') {
       console.log('You don\'t have permissions to write on this folder.');
