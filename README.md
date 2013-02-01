@@ -1,18 +1,18 @@
-# Requirements
+# Getting started
+
+## Requirements
 
 To run wonkajs you must have installed node.js and npm:
 
 [Follow the instructions](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager)
 
-# Install
+## Install
 
 Install wonka.js as global node module, on your shell type the command:
 
 ```
 $ sudo npm install -g wonkajs
 ```
-
-# Getting started
 
 ## Create a project
 
