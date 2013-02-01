@@ -1,10 +1,12 @@
 # Requirements
 
-To run wonkajs you must have installed node.js.
+To run wonkajs you must have installed node.js and npm:
+
+[Follow the instructions](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager)
 
 # Install
 
-Install wonkajs as global node module on your shell with the install command:
+Install wonka.js as global node module, on your shell type the command:
 
 ```
 $ sudo npm install -g wonkajs
@@ -14,11 +16,13 @@ $ sudo npm install -g wonkajs
 
 ## Create a project
 
-To create new project, run command:
+First step is create a new project:
 
 ```
 $ wonkajs project demo
 ```
+
+This will create a project template that you can use as base for many kinds of web applications.
 
 ## Run server
 
@@ -28,54 +32,63 @@ To run wonkajs server and verify that's working, just must run inside the projec
 $ wonkajs server
 ```
 
+With this command we launch a server on port 9300 by default, but you can change it:
+
+```
+$ wonkajs server 9700
+```
+
+Visit your project on:
+
+```
+http://localhost:9300
+```
+
+or in their case:
+
+```
+http://localhost:9700
+```
+
 ## First application
 
 To create an app, is necessary be on the project folder and run the app command:
 
 ```
-$ wonkajs app appdemo
+$ wonkajs app books
 ```
 
-## Internacionalization (i18n)
+When this command run, a router links the Main view on application with a url.
 
-To generate language files:
-
-```
-$ wonkajs i18n
-```
-
-This command will find string on html and javascript file to localize.
-
-To get this works, you must declare your string on javascript files with function **__**, for example:
+The nomenclature is similar to:
 
 ```
-var message = __('String to locale');
+/#books -> books.views.Main
 ```
 
-Or if you want to locale any string on any template, just use the handlebars helper:
+When the app is more complex than one level you can create it typing:
 
 ```
-<p>{{ __ "String to locale" }}</p>
+$ wonkajs app books science
 ```
 
-## Deploy
+And the router will build:
 
-To deploy your project, we recommend compress the project and upload to a server ready to display static content.
-
-To deploy your project, just need to run:
 
 ```
-$ wonkajs deploy
+/#books/science -> books.science.views.Main
 ```
 
-With this commando, will be created a **deploy** folder, that will has the files:
+So finally you can visit your new application on:
 
-* index.html
-* main.css
-* main.js
-* images
-* icons
-* languages
+```
+http://localhost:9300/#books
+```
 
-Upload this folder to your server, target to your web server and ready, your application will works.
+Or in their case:
 
+```
+http://localhost:9300/#books/science
+```
+
+For more information [read our documentation](https://github.com/llorsat/wonkajs/wiki).
