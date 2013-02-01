@@ -110,7 +110,7 @@ module.exports.compress = function() {
 
   fs.writeFileSync(settingsLessPath, settingsLessDeploy);
   var parser = new less.Parser({
-    paths: ['.', './wonka/', './stylesheets/', './stylesheets/bootstrap', './stylesheets/plugins']
+    paths: [path.join(process.cwd(), 'stylesheets')]
   });
   var cssCode = fs.readFileSync(cssSrc).toString();
   parser.parse(cssCode, function(parse_err, tree) {
