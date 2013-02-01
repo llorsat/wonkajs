@@ -136,5 +136,5 @@ module.exports.compress = function() {
     if (err) throw err;
   });
   
-  console.log('Project ready for deploy');
+  console.log('Project ready for deploy.');
 }
