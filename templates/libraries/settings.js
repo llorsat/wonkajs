@@ -1,6 +1,16 @@
 (function() {
   if (!App.has('pkg')) {
-    var xhr = new XMLHttpRequest();
+    var xhr = null;
+    var activexmodes = ["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"];
+    if (window.ActiveXObject) {
+      for (var i=0; i < activexmodes.length; i++) {
+        try {
+          xhr = new ActiveXObject(activexmodes[i]);
+        } catch(e) {}
+      }
+    } else {
+      xhr = new XMLHttpRequest();
+    }
     xhr.open('GET', 'package.json', false);
     xhr.send(null);
     if (xhr.status == '200') {
