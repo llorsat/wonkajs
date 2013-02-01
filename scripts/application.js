@@ -156,6 +156,6 @@ module.exports.create = function(args) {
     if (err) throw err;
   });
   
-  console.log('Application created');
+  console.log('Application created.');
 
 }
