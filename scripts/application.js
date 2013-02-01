@@ -44,9 +44,15 @@ var PathObject = function(args) {
       try {
         fs.mkdirSync(dirName, 0755);
       } catch (err) {
-        if (i == _instance.args.length - 1) {
-          console.log('Directory already exists.');
+        if(err.code == 'EACCES') {
+          console.log('You don\'t have permissions to write on this folder.');
           process.exit();
+        }
+        if (i == _instance.args.length - 1) {
+          if (err.code == 'EEXIST') {
+            console.log('Directory already exists.');
+            process.exit();
+          }
         }
       }
     }
