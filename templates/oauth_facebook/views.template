@@ -1,0 +1,58 @@
+(function(namespace) {
+
+  var views = namespace.views;
+  var collections = namespace.collections;
+  var models = namespace.models;
+
+  var getTemplate = function(name) {
+    return hbs.compile($('#facebook-' + name + '-template').html());
+  }
+
+  views.Main = Bb.View.extend({
+    el: '#container',
+    template: getTemplate('main'),
+    initialize: function() {
+      var me = this;
+      $.oajax({
+        url: "https://graph.facebook.com/me",
+        jso_provider: "facebook",
+        jso_scopes: ["read_stream"],
+        jso_allowia: true,
+        dataType: 'json',
+        success: function(data) {
+          me.render(data);
+        }
+      });
+      
+    },
+    render: function(data) {
+      var me = this;
+      me.$html(me.template(data));
+    }
+  });
+
+  views.Login = Bb.View.extend({
+    el: '#container',
+    template: getTemplate('login'),
+    events: {
+      'click #signin': 'onSignin',
+    },
+    initialize: function() {
+      var me = this;
+      me.render();
+    },
+    render: function() {
+      var me = this;
+      me.$html(me.template());
+    },
+    onSignin: function() {
+      var isLogged = jso_ensureTokens({
+        "facebook": ["read_stream"],
+      });
+      if (isLogged) {
+        new views.Main();
+      }
+    }
+  });
+
+})(facebook);

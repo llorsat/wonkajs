@@ -1,0 +1,14 @@
+(function() {
+
+  App.namespace("facebook");
+
+  jso_configure({
+    "facebook": {
+      client_id: "454779664560438",
+      redirect_uri: "http://localhost:9300/#facebook/",
+      authorization: "https://www.facebook.com/dialog/oauth",
+      presenttoken: "qs"
+    }
+  });
+    
+})();

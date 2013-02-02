@@ -1,0 +1,30 @@
+<script type="text/x-handlebars-template" id="facebook-main-template">
+  <div class="wjs-header">
+    <h1>
+      <p>Hello facebook user!</p>
+      <small>You can custom this template into: <i>facebook/templates/main.html</i></small>
+    </h1>
+  </div>
+  <div class="hero-unit">
+    <h3>Your information from facebook:</h3>
+    <ul>
+      <li>
+        Your are <strong>{{ name }}</strong>
+      </li>
+      <li>
+        Your email is <strong>{{ email }} Waoo!</strong>
+      </li>
+    </ul>
+    <p><small>For more info, you can read the <a href="" title="">documentation</a>.</small></p>
+  </div>
+</script>
+<script type="text/x-handlebars-template" id="facebook-login-template">
+  <div class="wjs-header">
+    <h1>
+      <p>Login with facebook</p>
+    </h1>
+  </div>
+  <div class="hero-unit">
+    <button id="signin" type="button">Login here</button>
+  </div>
+</script>
