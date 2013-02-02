@@ -49,6 +49,7 @@
         "backbone.extensions",
         "backbone.viewhelpers",
         "handlebars.helpers",
+        "jso",
         "console",
         "helpers",
         "settings"

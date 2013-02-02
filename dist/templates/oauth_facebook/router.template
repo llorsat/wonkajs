@@ -1,0 +1,23 @@
+(function(namespace) {
+
+  namespace.Router = Backbone.Router.extend({
+    
+    routes: {
+      'facebook/login': 'login',
+      'facebook/:params': 'main',
+      'facebook': 'main',
+    },
+
+    main: function() {
+      new namespace.views.Main();
+    },
+
+    login: function() {
+      new namespace.views.Login();
+    }
+
+  });
+
+  new namespace.Router();
+
+})(facebook);

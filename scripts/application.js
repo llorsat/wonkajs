@@ -6,6 +6,8 @@ var fs = require('fs'),
 var PathObject = function(args) {
   
   var _instance = this;
+
+  _instance.templateFolder = 'app';
   
   _instance.args = typeof args == 'string' ? [args] : args;
 
@@ -71,28 +73,28 @@ var PathObject = function(args) {
 }
 
 function initTemplate (pathObject) {
-  var content = utils.buildTemplate(fs.readFileSync(__dirname + '/../templates/app/init.template'), {
+  var content = utils.buildTemplate(fs.readFileSync(__dirname + '/../templates/' + pathObject.templateFolder + '/init.template'), {
     namespace: pathObject.namespaceDeclaration()
   });
   utils.writeComponent(pathObject.join('init.js'), content);
 }
 
 function modelsTemplate (pathObject) {
-  var content = utils.buildTemplate(fs.readFileSync(__dirname + '/../templates/app/models.template'), {
+  var content = utils.buildTemplate(fs.readFileSync(__dirname + '/../templates/' + pathObject.templateFolder + '/models.template'), {
     namespace: pathObject.namespace()
   });
   utils.writeComponent(pathObject.join('models.js'), content);
 }
 
 function collectionsTemplate (pathObject) {
-  var content = utils.buildTemplate(fs.readFileSync(__dirname + '/../templates/app/collections.template'), {
+  var content = utils.buildTemplate(fs.readFileSync(__dirname + '/../templates/' + pathObject.templateFolder + '/collections.template'), {
     namespace: pathObject.namespace()
   });
   utils.writeComponent(pathObject.join('collections.js'), content);
 }
 
 function viewsTemplate (pathObject) {
-  var content = utils.buildTemplate(fs.readFileSync(__dirname + '/../templates/app/views.template'), {
+  var content = utils.buildTemplate(fs.readFileSync(__dirname + '/../templates/' + pathObject.templateFolder + '/views.template'), {
     namespace: pathObject.namespace(),
     appName: pathObject.templateRoute()
   });
@@ -100,7 +102,7 @@ function viewsTemplate (pathObject) {
 }
 
 function routerTemplate (pathObject) {
-  var content = utils.buildTemplate(fs.readFileSync(__dirname + '/../templates/app/router.template'), {
+  var content = utils.buildTemplate(fs.readFileSync(__dirname + '/../templates/' + pathObject.templateFolder + '/router.template'), {
     namespace: pathObject.namespace(),
     routeName: pathObject.relativePath()
   });
@@ -108,7 +110,7 @@ function routerTemplate (pathObject) {
 }
 
 function indexTemplate (pathObject) {
-  var content = utils.buildTemplate(fs.readFileSync(__dirname + '/../templates/app/main.template'), {
+  var content = utils.buildTemplate(fs.readFileSync(__dirname + '/../templates/' + pathObject.templateFolder + '/main.template'), {
     appName: pathObject.templateRoute(),
     namespace: pathObject.namespace(),
     relativePath: pathObject.relativePath()
@@ -134,8 +136,7 @@ function createFiles(pathObject) {
   }
 }
 
-module.exports.create = function(args) {
-
+function createFromTemplateFolder(args, templateFolder) {
   if (args.length == 0) {
     console.log('Too few arguments.');
     return false;
@@ -146,6 +147,7 @@ module.exports.create = function(args) {
   var settings = packageJSON.settings;
 
   var pathInstance = new PathObject(args);
+  pathInstance.templateFolder = templateFolder;
 
   pathInstance.mkdirs();
 
@@ -157,5 +159,25 @@ module.exports.create = function(args) {
   });
   
   console.log('Application created.');
+}
 
+module.exports.create = function(args) {
+  createFromTemplateFolder(args, 'app');
+}
+
+module.exports.createOauth = function(args) {
+  var existsSync = fs.existsSync || path.existsSync;
+  if (args.length == 0) {
+    console.log("provider oauth is missing");
+    return;
+  }
+  var provider = typeof args == "string" ? args : args[0];
+  var templateFolder = 'oauth_' + provider;
+  var fullPath = path.resolve(__dirname + '/../templates/' + templateFolder);
+  if (existsSync(fullPath)) {
+    createFromTemplateFolder(args, templateFolder);
+  } else {
+    console.log("The provider is not supported '" + provider + "'");
+  }
+  
 }
