@@ -36,6 +36,8 @@
         "jquery.cookie",
         "jquery.inputmask",
         "jquery.maskedinput",
+        "jso",
+        "jquery.base64",
         "spin",
         "printarea",
         "flexigrid",
