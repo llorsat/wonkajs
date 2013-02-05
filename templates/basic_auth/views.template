@@ -1,0 +1,46 @@
+(function(namespace) {
+  var models = namespace.models;
+  var collections = namespace.collections;
+  var views = namespace.views;
+  
+  var getTemplate = function(name) {
+    return hbs.compile($('#basicAuth-'+name+'-template').html());
+  }
+  
+  views.Index = Bb.View.extend({
+    template: getTemplate('index'),
+    initialize: function() {
+      var me = this;
+      me.render();
+    },
+    render: function(){
+      var me = this;
+      me.$html(me.template(me.model.toJSON()));
+    }
+  });
+  
+  views.Login = Bb.View.extend({
+    template: getTemplate('login'),
+    initialize: function() {
+      var me = this;
+      me.render();
+    },
+    render: function(){
+      var me = this;
+      me.$html(me.template(me.model.toJSON()));
+    }
+  });
+  
+  views.Logout = Bb.View.extend({
+    template: getTemplate('logout'),
+    initialize: function() {
+      var me = this;
+      me.render();
+    },
+    render: function(){
+      var me = this;
+      me.$html(me.template(me.model.toJSON()));
+    }
+  });
+
+})(basicAuth);

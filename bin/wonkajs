@@ -17,6 +17,7 @@ var usage = '\nWonkajs frontend framework for backend developers\n\n'
   + 'Available subcommands:\n'
   + '   p,    project     Create new project\n'
   + '   a,    app         Create new application\n'
+  + '   b,    basicAuth   Create new BasicAuth aplication\n'
   + '   s,    server      Run server for development\n'
   + '   i,    i18n        Generate internationalization files\n'
   + '   d,    deploy      Compile js, css and html files for deploy\n'
@@ -29,6 +30,8 @@ var commands = {
   's': wonkajs.server.builder,
   'server': wonkajs.server.builder,
   'a': wonkajs.app.builder,
+  'b': wonkajs.app.builderBasicAuth,
+  'basicAuth': wonkajs.app.builderBasicAuth
   'app': wonkajs.app.builder,
   'd': wonkajs.deploy.builder,
   'deploy': wonkajs.deploy.builder,

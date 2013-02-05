@@ -1,0 +1,20 @@
+(function(namespace) {
+  
+  namespace.Router = Backbone.Router.extend({
+    
+    routes: {
+      'login': 'login',
+      'logout': 'logout'
+    },
+    
+    login: function() {
+      new namespace.views.Login();
+    },
+    
+    logout: function() {
+    new namespace.views.Logout();
+    }
+
+  });
+
+})(basicAuth);

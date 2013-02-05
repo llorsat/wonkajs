@@ -51,7 +51,9 @@
         "handlebars.helpers",
         "console",
         "helpers",
-        "settings"
+        "settings",
+        "jquery.base64",
+        "jquery.basicAuth"
       ],
       "main_files": [
         "listeners",
