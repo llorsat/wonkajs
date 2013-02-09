@@ -1,5 +1,6 @@
 module.exports.run = function() {
   var path = require('path');
+  var utils = require('../lib/utils.js');
   // fuente: https://gist.github.com/701407
   var http = require("http"),
   url = require("url"),
@@ -21,11 +22,20 @@ module.exports.run = function() {
     return html;
   }
 
+  var stylesheets = '<link rel="stylesheet/less" href="stylesheets/ui.less">\n'
+                    + '<script src="core/contrib/less.js"></script>\n'
+                    + '<script src="core/contrib/modernizr.js"></script>';
+
+  var scripts = '<script src="core/app.js"></script>\n'
+                + '<script data-main="core/run" src="core/contrib/require.js"></script>';
+
   http.createServer(function(request, response) {
     var uri = url.parse(request.url).pathname,
-        filename = path.join(process.cwd(), uri);
+        filename = path.join(process.cwd(), uri),
+        indexFlag = false;
     if (filename == process.cwd() + '/') {
-      filename += 'index.html';
+      indexFlag = true;
+      filename+='index.html';
     }
     if (uri.split('/')[1] == 'images') {
       filename = filename.replace('/images/', '/stylesheets/images/');
@@ -52,7 +62,18 @@ module.exports.run = function() {
             return;
           }
           response.writeHead(200);
-          response.write(file, "binary");
+          if (indexFlag) {
+            var index = fs.readFileSync(filename);
+            var template = fs.readFileSync(path.join(__dirname, '..', 'templates', 'index.template'));
+            var index_html = utils.buildTemplate(template, {
+              'content': index,
+              'scripts': scripts,
+              'stylesheets': stylesheets
+            });
+            response.write(index_html, "binary");
+          } else {
+            response.write(file, "binary");
+          }
           response.end();
         });
       }

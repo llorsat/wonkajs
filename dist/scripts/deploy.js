@@ -65,17 +65,27 @@ var joinJavascriptCode = function() {
   fs.writeFileSync(path.join(projectDir, 'deploy', 'main.js'), pro.gen_code(ast));
 }
 
+var scripts = '<script src="main.js"></script>';
+
+var stylesheets = '<link rel="stylesheet" type="text/css" href="main.css">';
+
 var joinHTMLCode = function() {
-  var code = fs.readFileSync(__dirname + '/../templates/deploy_index.template', 'utf8') +'\n';
+
+  var body = fs.readFileSync(path.join(projectDir, 'index.html'), 'utf-8');
   for (var i=0; i < env.applications.length; i++) {
     var templates = fs.readdirSync(path.join(projectDir, env.applications[i], 'templates'));
     for (var j=0; j < templates.length; j++) {
       var html = path.join(projectDir, env.applications[i], 'templates', templates[j]);
-      code += fs.readFileSync(html,'utf8') + '\n\n';
+      body += fs.readFileSync(html,'utf8') + '\n\n';
     }
   }
-  code += '<script src="main.js"></script>\n</body>\n</html>';
-  fs.writeFileSync(path.join(projectDir, 'deploy', 'index.html'), code);
+  var template = fs.readFileSync(__dirname + '/../templates/index.template', 'utf8');
+  var index_html = utils.buildTemplate(template, {
+    'content': body,
+    'scripts': scripts,
+    'stylesheets': stylesheets
+  });
+  fs.writeFileSync(path.join(projectDir, 'deploy', 'index.html'), index_html);
 }
 
 module.exports.compress = function() {
@@ -128,7 +138,7 @@ module.exports.compress = function() {
 
   var languagesSrc = path.join(projectDir, 'languages');
   if (existsSync(languagesSrc)) {
-    var languagesDest = path.join(projectDir, 'deploy', 'languages');  
+    var languagesDest = path.join(projectDir, 'deploy', 'languages');
     utils.copy(languagesSrc, languagesDest);
   }
 
