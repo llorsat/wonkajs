@@ -223,7 +223,6 @@
     },
 
     $html: function(args) {
-      this.$el.off();
       return this.$el.html(args);
     },
 
