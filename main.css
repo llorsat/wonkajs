@@ -7136,11 +7136,18 @@ footer {
   color: #a31515;
 }
 /** Wonka colors **/
+body {
+  margin: 0!important;
+  padding: 0!important;
+}
 .wjs-header {
   background: rgba(19, 7, 34, 0.9);
-  color: #ffffff;
-  margin: 0;
+  color: #ffffff !important;
+  margin: 0!important;
   padding: 10px 60px;
+}
+.wjs-header h1 {
+  color: #ffffff !important;
 }
 .wjs-paragraph {
   color: #130722;
