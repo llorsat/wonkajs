@@ -2,7 +2,7 @@
   "name": "wonkajs",
   "description": "Frontend framework for backend developers",
   "keywords": ["framework", "frontend", "javascript", "MVT", "REST", "Web"],
-  "version": "1.0.0r1",
+  "version": "1.0.0r3",
   "author": {
     "name": "Julian Ceballos",
     "email": "julian@pikhub.com",

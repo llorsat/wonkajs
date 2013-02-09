@@ -23,7 +23,7 @@ module.exports.builder = function(name) {
       jsDestDeployPath: path.join(projectDir, 'deploy/main.js')
     });
 
-    utils.copy(__dirname + '/../templates/development_index.template', projectDir + '/index.html');
+    utils.copy(__dirname + '/../templates/body.template', projectDir + '/index.html');
     utils.copy(__dirname + '/../templates/security/404.template', projectDir + '/404.html');
     utils.copy(__dirname + '/../templates/security/500.template', projectDir + '/500.html');
     utils.copy(__dirname + '/../templates/security/crossdomain.template', projectDir + '/crossdomain.txt');
