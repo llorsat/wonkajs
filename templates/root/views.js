@@ -7,7 +7,6 @@
   }
 
   views.Main = Bb.View.extend({
-    el: '#container',
     template: getTemplate('main'),
     initialize: function() {
       var me = this;

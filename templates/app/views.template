@@ -9,7 +9,6 @@
   }
 
   views.Main = Bb.View.extend({
-    el: '#container',
     template: getTemplate('main'),
     initialize: function() {
       var me = this;
@@ -18,6 +17,7 @@
     render: function() {
       var me = this;
       me.$html(me.template());
+      return me;
     }
   });
 
