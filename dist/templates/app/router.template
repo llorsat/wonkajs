@@ -7,7 +7,8 @@
     },
 
     main: function() {
-      new namespace.views.Main();
+      var view = new namespace.views.Main();
+      $('#container').html(view.render().$el);
     },
 
   });
