@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+        <link rel="apple-touch-icon" sizes="144x144" href="/icons/touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/icons/touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/icons/touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/icons/touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" href="/icons/touch-icon-iphone.png" />
+        <title>Wonka.js - Frontend framework for backend developers</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="main.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+
+        <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+        <div id="message-container" style="display: none;"></div>
+        <div id="container">
+            <div class="wrapper">
+                <header>
+                  <h1 class="header"><a href="#" title="">Wonka.js</a></h1>
+                  <p class="header">Frontend framework for backend developers</p>
+
+                  <ul>
+                    <li><a class="buttons" href="https://github.com/llorsat/wonkajs/wiki"><i class="icon-white icon-file"></i> Documentation</a></li>
+                    <li><a class="buttons" href="#demos"><i class="icon-white icon-file"></i> Demos</a></li>
+                    <li><a class="buttons" href="https://github.com/llorsat/wonkajs/zipball/master"><i class="icon-white icon-download-alt"></i> Download ZIP</a></li>
+                    <li><a class="buttons" href="https://github.com/llorsat/wonkajs/tarball/master"><i class="icon-white icon-download-alt"></i> Download TAR</a></li>
+                    <li><a class="buttons github" href="https://github.com/llorsat/wonkajs">View On GitHub</a></li>
+                  </ul>
+                </header>
+                <section id="main"></section>
+                <footer>
+                    <p>
+                        With the technology of:
+                    </p>
+                    <p>
+                        <img src="images/llorsat-nextasp.png" alt="">
+                    </p>
+                    <p>By: <a href="https://github.com/llorsat">llorsat</a></p>
+                </footer>
+            </div>
+        </div>
+<script type="text/x-handlebars-template" id="root-main-template">
+  <h1 class="spectacular">Tutorial</h1>
+
+  <h1>Install and config</h1>
+
+  <h2>Requirements</h2>
+
+  <p>To run wonka.js you must have installed node.js.</p>
+
+  <p><a class="nodejs-button" href="http://nodejs.org" title="Node JS" target="_blank">Install Node.js</a></p>
+
+  <h2>Install</h2>
+
+  <p>Install wonka.js as global node module, on your shell type the command:</p>
+
+  <pre><code>$ sudo npm install -g wonkajs</code></pre>
+
+  <h1>Getting started</h1>
+
+  <h2>Create a project</h2>
+
+  <p>First step is create a new project:</p>
+
+  <pre><code>$ wonkajs project library</code></pre>
+
+  <p>This will create a project template that you can use as base for many kinds of web applications.</p>
+
+  <h2>Run server</h2>
+
+  <p>To run wonka.js server and verify that is working, just must run inside the project folder:</p>
+
+  <pre><code>$ wonkajs server</code></pre>
+
+  <p>With this command we launch a server on port 9300 by default, but you can change it:</p>
+
+  <pre><code>$ wonkajs server 9700</code></pre>
+
+  <p>Visit your project on:</p>
+
+  <pre><code>http:&#47;&#47;localhost:9300</code></pre>
+
+  <p>or in their case on:</p>
+
+  <pre><code>http:&#47;&#47;localhost:9700</code></pre>
+
+  <h2>First application</h2>
+
+  <p>To create an app, is necessary be on the project folder and run the app command:</p>
+
+  <pre><code>$ wonkajs app books</code></pre>
+
+  <p>When this command run, a router links the Main view on application with a url.</p>
+
+  <p>The nomenclature is similar to:</p>
+
+  <pre><code>/#books -> books.views.Main</code></pre>
+
+  <p>When the app is more complex than one level you can create it typing:</p>
+
+  <pre><code>$ wonkajs app books science</code></pre>
+
+  <p>And the router will build:</p>
+
+  <pre><code>/#books/science -> books.science.views.Main</code></pre>
+
+  <p>So finally you can visit your new application on:</p>
+
+  <pre><code>http:&#47;&#47;localhost:9300&#47;#books</code></pre>
+
+  <p>Or in their case:</p>
+
+  <pre><code>http:&#47;&#47;localhost:9300&#47;#books&#47;science</code></pre>
+
+  <h2>Deploy</h2>
+
+  <p>To deploy your project, we recommend compress the project and upload to a server ready to display static content.</p>
+
+  <p>To deploy your project, just need to run:</p>
+
+  <pre><code>$ wonkajs deploy
+  </code></pre>
+
+  <p>With this command, will be created a <strong>deploy</strong> folder, that will has the files:</p>
+
+  <ul>
+  <li>index.html</li>
+  <li>main.css</li>
+  <li>main.js</li>
+  <li>images</li>
+  <li>icons</li>
+  <li>languages</li>
+  </ul><p>Upload this folder to any server path, and points your web server to this path and your application will works.</p>
+  <p>For more information <a href="https://github.com/llorsat/wonkajs/wiki">read the docs</a>.</p>
+</script>
+
+
+<script type="text/x-handlebars-template" id="demos-main-template">
+  <h1 class="spectacular">Demos</h1>
+
+  <ul>
+    <li><a href="#demos/todos" title="">Todo list</a></li>
+  </ul>
+
+</script>
+
+
+<script type="text/x-handlebars-template" id="demos-todos-main-template">
+  <div class="wjs-header">
+    <h1>
+      Tiny Todo Demo
+    </h1>
+  </div>
+  <div class="hero-unit">
+    <input id="new-todo" class="input-xlarge" type="text" name="" value="" placeholder="Type a todo" autofocus>
+    <p>
+      <small>Enter to save your todo</small>
+    </p>
+    <ul id="todo-list"></ul>
+  </div>
+</script>
+
+
+<script type="text/x-handlebars-template" id="demos-todos-todo-template">
+  <input class="toggle" type="checkbox" name="" value="" {{# if completed }}checked{{/ if }}> 
+  <span class="task">{{ title }}</span>
+</script>
+
+<script src="main.js"></script>
+</body>
+</html>
