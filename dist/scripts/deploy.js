@@ -22,6 +22,12 @@ var copyIcons = function() {
   utils.copy(iconsSrc, iconsDest);
 }
 
+var copyFonts = function() {
+  var fontsSrc = path.join(projectDir, 'stylesheets', 'fonts');
+  var fontsDest = path.join(projectDir, 'deploy', 'fonts');
+  utils.copy(fontsSrc, fontsDest);
+}
+
 var joinJavascriptCode = function() {
   var modernizr = fs.readFileSync(__dirname + '/../templates/core/contrib/modernizr.js').toString();
   var projectDir = process.cwd();
@@ -104,6 +110,8 @@ function start() {
   copyImages();
 
   copyIcons();
+
+  copyFonts();
 
   joinJavascriptCode();
 
