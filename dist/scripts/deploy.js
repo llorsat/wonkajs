@@ -120,9 +120,9 @@ function start() {
   var cssSrc = path.join(projectDir, 'stylesheets', 'ui.less');
   var cssDest = path.join(projectDir, 'deploy', 'main.css');
 
-  var settingsLessDeploy = '@images-route: "/images";\n@fonts-route: "/fonts"';
+  var settingsLessDeploy = '@images-route: "/images";\n@fonts-route: "/fonts";';
 
-  var settingsLessDevelopment = '@images-route: "../images";\n@fonts-route: "../fonts"';
+  var settingsLessDevelopment = '@images-route: "../images";\n@fonts-route: "../fonts";';
 
   var settingsLessPath = path.join(projectDir, 'stylesheets', 'settings.less');
 
