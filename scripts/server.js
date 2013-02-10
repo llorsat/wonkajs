@@ -86,8 +86,10 @@ function start() {
     }
     console.log(errors[err.code]);
   }).on('listening', function() {
-    console.info("Server running at http://localhost:" + port);
-    console.info("CTRL + C  to stop.");
+    console.info('Server running');
+    console.info('=============================================');
+    console.info('Visit at: http://localhost:' + port)
+    console.info('CTRL + C  to stop.');
   });
 }
 

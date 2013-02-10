@@ -146,7 +146,11 @@ function start() {
     if (err) throw err;
   });
   
-  console.log('Project ready for deploy.');
+  console.info('Project ready for deploy');
+  console.info('=============================================');
+  console.info('Now run:');
+  console.info('$ wonkajs server');
+  console.info('And visit at: http://localhost:9300/deploy/index.html');
 }
 
 module.exports.builder = function() {

@@ -156,7 +156,10 @@ function start(args) {
     if (err) throw err;
   });
   
-  console.log('Application created.');
+  console.info('Application created.');
+  console.info('=============================================');
+  console.info('Now just run:');
+  console.info('$ wonkajs server');
 
 }
 

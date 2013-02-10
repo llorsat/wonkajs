@@ -30,7 +30,8 @@ function start(name) {
   utils.copy(__dirname + '/../templates/stylesheets', projectDir + '/stylesheets');
   console.info('Project created');
   console.info('=============================================');
-  console.info('Now go to your project directory and run:');
+  console.info('Now run:');
+  console.info('$ cd ' + name);
   console.info('$ wonkajs server');
 }
 
