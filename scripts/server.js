@@ -42,6 +42,9 @@ function start() {
     if (uri.split('/')[1] == 'images') {
       filename = filename.replace('/images/', '/stylesheets/images/');
     }
+    if (uri.split('/')[1] == 'fonts') {
+      filename = filename.replace('/fonts/', '/stylesheets/fonts/');
+    }
     var isExists = fs.exists || path.exists;
     isExists(filename, function(exists) {
       if(!exists) {
