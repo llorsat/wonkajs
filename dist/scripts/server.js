@@ -1,10 +1,12 @@
-module.exports.run = function() {
-  var path = require('path');
-  var utils = require('../lib/utils.js');
+
+var fs = require('fs'),
+    path = require('path'),
+    http = require('http'),
+    url = require('url'),
+    utils = require('../lib/utils.js');
+
+function start() {
   // fuente: https://gist.github.com/701407
-  var http = require("http"),
-  url = require("url"),
-  fs = require("fs"),
   port = process.argv[3] || 9300;
 
   var existsSync = fs.existsSync || path.existsSync;
@@ -88,3 +90,14 @@ module.exports.run = function() {
     console.info("CTRL + C  to stop.");
   });
 }
+
+module.exports.builder = function() {
+  var existsSync = fs.existsSync || path.existsSync;
+  if (!existsSync(path.join(process.cwd(), 'package.json'))) {
+    console.info('You need to be on root of your project folder.');
+    return;
+  }
+
+  start();
+}
+

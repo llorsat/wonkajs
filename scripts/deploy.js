@@ -88,7 +88,7 @@ var joinHTMLCode = function() {
   fs.writeFileSync(path.join(projectDir, 'deploy', 'index.html'), index_html);
 }
 
-module.exports.compress = function() {
+function start() {
   var existsSync = fs.existsSync || path.existsSync;
   var projectDir = process.cwd();
   var pkgPath = path.join(projectDir, 'package.json');
@@ -147,4 +147,14 @@ module.exports.compress = function() {
   });
   
   console.log('Project ready for deploy.');
+}
+
+module.exports.builder = function() {
+  var existsSync = fs.existsSync || path.existsSync;
+  if (!existsSync(path.join(process.cwd(), 'package.json'))) {
+    console.log('You need to be on root of your project folder.');
+    return false;
+  }
+
+  start();
 }

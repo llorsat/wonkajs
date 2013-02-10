@@ -1,7 +1,8 @@
 var Path = require('path');
 var fs = require("fs");
+var exec = require('child_process').exec;
 
-module.exports.inspectI18n = function () {
+function start() {
 
   console.info('Searching strings to translate...');
   
@@ -97,3 +98,13 @@ module.exports.inspectI18n = function () {
   });
 
 };
+
+module.exports.builder = function(name) {
+  var existsSync = fs.existsSync || Path.existsSync;
+  if (!existsSync(Path.join(process.cwd(), 'package.json'))) {
+    console.info('You need to be on root of your project folder.');
+    return;
+  }
+
+  start();
+}

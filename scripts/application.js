@@ -134,7 +134,7 @@ function createFiles(pathObject) {
   }
 }
 
-module.exports.create = function(args) {
+function start(args) {
 
   if (args.length == 0) {
     console.log('Too few arguments.');
@@ -158,4 +158,15 @@ module.exports.create = function(args) {
   
   console.log('Application created.');
 
+}
+
+module.exports.builder = function(params) {
+  var name = typeof params === "string" ? params : path.join.apply(path, params);
+  var existsSync = fs.existsSync || path.existsSync;
+  if (!existsSync(path.join(process.cwd(), 'package.json'))) {
+    console.info('You need to be on root of your project folder');
+    return false;
+  }
+  
+  start(params);
 }

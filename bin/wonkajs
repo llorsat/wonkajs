@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 
-require('../lib/wonka.js');
-
 var fs = require('fs'),
     args = process.argv.slice(2),
     params = process.argv.slice(3),
-    pkg = JSON.parse(fs.readFileSync(__dirname + '/../package.json').toString());
-
-wonkajs.version = pkg.version;
+    pkg = JSON.parse(fs.readFileSync(__dirname + '/../package.json').toString()),
+    proj = require('../scripts/project.js').builder,
+    app = require('../scripts/application.js').builder,
+    server = require('../scripts/server.js').builder,
+    deploy = require('../scripts/deploy.js').builder,
+    i18n = require('../scripts/i18n.js').builder;
 
 var usage = '\nWonkajs frontend framework for backend developers\n\n'
   + '{usage} wonkajs subcommand [options] [args]\n\n'
@@ -24,16 +25,16 @@ var usage = '\nWonkajs frontend framework for backend developers\n\n'
 var command = args[0];
 
 var commands = {
-  'p': wonkajs.proj.builder,
-  'project': wonkajs.proj.builder,
-  's': wonkajs.server.builder,
-  'server': wonkajs.server.builder,
-  'a': wonkajs.app.builder,
-  'app': wonkajs.app.builder,
-  'd': wonkajs.deploy.builder,
-  'deploy': wonkajs.deploy.builder,
-  'i': wonkajs.i18n.builder,
-  'i18n': wonkajs.i18n.builder
+  'p': proj,
+  'project': proj,
+  's': server,
+  'server': server,
+  'a': app,
+  'app': app,
+  'd': deploy,
+  'deploy': deploy,
+  'i': i18n,
+  'i18n': i18n
 };
 
 var run = function(args) {
@@ -55,7 +56,7 @@ if(args.length == 0) {
 } else if(command == '-h' || command == '--help') {
   stop(usage);
 } else if(command == '-v' || command == '--version') {
-  stop(wonkajs.version);
+  stop(pkg.version);
 } else if(commands.hasOwnProperty(command)) {
   run(args);
 } else {
