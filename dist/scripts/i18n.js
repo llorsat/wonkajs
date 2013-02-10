@@ -3,8 +3,6 @@ var fs = require("fs");
 var exec = require('child_process').exec;
 
 function start() {
-
-  console.info('Searching strings to translate...');
   
   var readOrWriteFile = function(path, file, content) {
     var contentFile = null;
@@ -79,6 +77,9 @@ function start() {
     });
     
   });
+
+  console.info('i18n files export finished');
+  console.info('=============================================');
 
   languages.forEach(function(language){
 
