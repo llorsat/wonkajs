@@ -1,5 +1,5 @@
 var uri = function() {
-    var uri = App.rootURI;
+    var uri = App.pkg.settings.api;
     _.each(arguments, function(item) {
         uri += item + '/';
     });
@@ -54,44 +54,6 @@ function setLanguage(language) {
 function __(stringToTranslate){
   return Globalize.localize(stringToTranslate, Globalize.culture()) || stringToTranslate;
 }
-
-/*
- * Login next h5 users
- */
-function loginOrHome(data) {
-  if (typeof(sessionStorage) == undefined) {
-    // in case that session storage would not be supported
-    alert('NextH5 no soporta navegadores antiguos.');
-  } else {
-    // session storage supported
-    if (data != null) {
-      // if there's user data, save it on session storage
-      sessionStorage.next_session = JSON.stringify(data);
-    }
-    if (sessionStorage.next_session == null) {
-      // if next_session is not on session storage, load login
-      $('#login-container').fadeIn('slow');
-      new users.views.LoginView();
-    } else {
-      // otherwise load User model and UI
-      user = new users.models.User();
-      user.permissions();
-      user.settings();
-      user.set($.parseJSON(sessionStorage.next_session));
-      initI18n(user.get("language"));
-      new users.views.UserSessionInfoView();
-      new users.views.UserLeftMenuView();
-      $('#login-container').fadeOut('slow', function() {
-        $('#container').fadeIn('slow', function() {
-          var window_height = $(document).height();
-          var header_height = $('.next-navbar').height();
-        });
-      });
-    }
-  }
-};
-
-var login = loginOrHome;
 
 //Show loading spinner over html tags
 

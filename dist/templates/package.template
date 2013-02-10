@@ -1,6 +1,7 @@
 {
   "settings": {
     "storage_engine": "localStorage",
+    "api": "",
     "i18n": {
       "languages": [
         "en"

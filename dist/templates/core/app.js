@@ -1,7 +1,5 @@
 window.App = {
 
-  rootURI: '',
-
   init: function(libraries, applications, scripts, callback) {
 
     var components = ['init', 'models', 'collections', 'views', 'router'];
