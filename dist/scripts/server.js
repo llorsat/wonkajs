@@ -72,9 +72,9 @@ function start() {
               'scripts': scripts,
               'stylesheets': stylesheets
             });
-            response.write(index_html, "binary");
+            response.write(index_html, 'binary');
           } else {
-            response.write(file, "binary");
+            response.write(file, 'binary');
           }
           response.end();
         });
