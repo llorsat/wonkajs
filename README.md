@@ -95,5 +95,5 @@ For more information [read our documentation](https://github.com/llorsat/wonkajs
 
 ## We need your help!
 
-Wonka.js is a open source project, we need of your help, if you have any contribution, please create an issue on our (issue tracker)[https://github.com/julianceballos/wonkajs/issues], join to our irc channel on irc.freenode.net #wonkajs or suscribe on our email list: https://groups.google.com/d/forum/wonkajs.
+Wonka.js is a open source project, we need your help, if you want to contribute, please create an issue on our (issue tracker)[https://github.com/julianceballos/wonkajs/issues], join to our irc channel on irc.freenode.net #wonkajs or suscribe on our email list: https://groups.google.com/d/forum/wonkajs.
 
