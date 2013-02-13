@@ -1496,5 +1496,3 @@
   };
 
 }).call(this);
-
-window.Bb = window.Backbone;

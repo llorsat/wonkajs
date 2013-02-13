@@ -14,34 +14,8 @@
     },
     render: function() {
       var me = this;
-      me.$html(me.template());
+      me.$el.html(me.template());
       return me;
-    }
-  });
-
-  views.Message = Backbone.View.extend({
-    template: getTemplate('message'),
-    render: function() {
-      this.$html(this.template(this.model));
-      return this;
-    },
-    events: {
-      'click #submit': 'onSubmit',
-      'click #close': 'onClose',
-    },
-    onSubmit: function() {
-      var me = this;
-      me.$parent().fadeOut('slow', function() {
-        me.remove();
-      });
-      me.options.deferred.resolve();
-    },
-    onClose: function() {
-      var me = this;
-      me.$parent().fadeOut('slow', function() {
-        me.remove();
-      });
-      me.options.deferred.reject();
     }
   });
 

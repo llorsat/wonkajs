@@ -761,7 +761,7 @@ formatDate = function( value, format, culture ) {
       if ( value === -Infinity ) {
         return culture.numberFormat.negativeInfinity;
       }
-      return culture.numberFormat[ "NaN" ];
+      return culture.numberFormat.NaN;
     }
     if ( !format || format === "i" ) {
       return culture.name.length ? value.toLocaleString() : value.toString();
@@ -1486,8 +1486,13 @@ Globalize.parseFloat = function( value, radix, cultureSelector ) {
     value = value.replace( culture.numberFormat.currency["."], culture.numberFormat["."] );
   }
 
-  // trim leading and trailing whitespace
-  value = trim( value );
+  //Remove percentage character from number string before parsing
+  if ( value.indexOf(culture.numberFormat.percent.symbol) > -1){
+    value = value.replace( culture.numberFormat.percent.symbol, "" );
+  }
+
+  // remove spaces: leading, trailing and between - and number. Used for negative currency pt-BR
+  value = value.replace( / /g, "" );
 
   // allow infinity or hexidecimal
   if ( regexInfinity.test(value) ) {

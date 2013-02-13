@@ -16,7 +16,7 @@
     },
     render: function() {
       var me = this;
-      me.$html(me.template());
+      me.$el.html(me.template());
       return me;
     }
   });

@@ -1,6 +1,37 @@
-user = null;
+/* 
+ * Development live runner
+ * This script runs as main file for requirejs when page load.
+ * Since here we run the init function on app, that build the require array of files to
+ * import with require
+ */
 
 (function() {
+
+  function init(libraries, applications, scripts, callback) {
+
+    var components = ['init', 'models', 'collections', 'views', 'router'];
+    var requirements = [];
+
+    //loading libraries
+    for (var i = 0; i < libraries.length; i++) {
+      requirements.push('order!../libraries/' + libraries[i]);
+    }
+
+    //loading apps with components
+    for (var i = 0; i < components.length; i++) {
+      for (var j = 0; j < applications.length; j++) {
+        requirements.push('order!../' + applications[j] + '/' + components[i]);
+      }
+    }
+
+    //loading scripts
+    for (var i = 0; i < scripts.length; i++) {
+      requirements.push('order!../main/' + scripts[i]);
+    }
+    
+    require(requirements, callback);
+    
+  };
 
   var xhr = null;
   var activexmodes = ["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"];
@@ -41,7 +72,7 @@ user = null;
         if ( /templates\/.{1,}\.html/.test(href) ) {
             promisesLevelTwo.push($.get(href, function(res) {
                 body.append(res);
-            }));    
+            }));
         }
       });
       html.find('li').each(function(index, item) {
@@ -59,7 +90,7 @@ user = null;
 
   $.when.apply($, promisesLevelOne).done(function() {
     $.when.apply($, promisesLevelTwo).done(function() {
-      App.init(libraries, applications, scripts, function() {
+      init(libraries, applications, scripts, function() {
         window.main();
       });
     });

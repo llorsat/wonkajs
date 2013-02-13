@@ -1,87 +1,98 @@
+/* 
+ * inspired on: https://gist.github.com/701407
+ */
 
 var fs = require('fs'),
     path = require('path'),
     http = require('http'),
     url = require('url'),
-    utils = require('../lib/utils.js');
+    utils = require('../lib/utils.js'),
+    port = process.argv[3] || 9300,
+    isExists = fs.exists || path.exists;
 
-function start() {
-  // fuente: https://gist.github.com/701407
-  port = process.argv[3] || 9300;
+//Stylesheets used for development
+var stylesheets = '<link rel="stylesheet/less" href="stylesheets/ui.less">\n'
+                  + '<script src="core/contrib/less.js"></script>\n'
+                  + '<script src="core/contrib/modernizr.js"></script>';
 
+//scripts used for development
+var scripts = '<script src="core/app.js"></script>\n'
+              + '<script data-main="core/run" src="core/contrib/require.js"></script>';
+
+var response404 = function(response) {
+  response.writeHead(404, {"Content-Type": "text/plain"});
+  response.write(fs.readFileSync(path.join(process.cwd(), '404.html')));
+  response.end();
+}
+
+var responseDir = function(response, filename) {
+  var files = fs.readdirSync(filename);
+  response.writeHead(200);
+  var html = '<html><head></head><body>';
+  for(var i = 0; i < files.length; i++) {
+    html+='<li>' + files[i] + '</li>';
+  }
+  html += '</body></html>';
+  response.write(html, "binary");
+  response.end();
+}
+
+var response500 = function(response) {
+  response.writeHead(500, {"Content-Type": "text/plain"});
+  response.write(fs.readFileSync(path.join(process.cwd(), '500.html')));
+  response.end();
+}
+
+var responseOK = function(response, file) {
+  response.writeHead(200);
+  response.write(file, 'binary');
+  response.end();
+}
+
+module.exports.builder = function() {
   var existsSync = fs.existsSync || path.existsSync;
   if (!existsSync(path.join(process.cwd(), 'package.json'))) {
-    console.info('You need to be on root of your project folder');
+    console.info('You need to be on root of your project folder.');
     return false;
   }
-
-  function directoryTemplate(files) {
-    var html = '<html><head></head><body>';
-    for(var i = 0; i < files.length; i++) {
-      html+='<li>' + files[i] + '</li>';
-    }
-    html += '</body></html>';
-    return html;
-  }
-
-  var stylesheets = '<link rel="stylesheet/less" href="stylesheets/ui.less">\n'
-                    + '<script src="core/contrib/less.js"></script>\n'
-                    + '<script src="core/contrib/modernizr.js"></script>';
-
-  var scripts = '<script src="core/app.js"></script>\n'
-                + '<script data-main="core/run" src="core/contrib/require.js"></script>';
 
   http.createServer(function(request, response) {
     var uri = url.parse(request.url).pathname,
         filename = path.join(process.cwd(), uri),
         indexFlag = false;
+
     if (filename == process.cwd() + '/') {
       indexFlag = true;
-      filename+='index.html';
+      filename += 'index.html';
     }
-    if (uri.split('/')[1] == 'images') {
-      filename = filename.replace('/images/', '/stylesheets/images/');
-    }
-    if (uri.split('/')[1] == 'fonts') {
-      filename = filename.replace('/fonts/', '/stylesheets/fonts/');
-    }
-    var isExists = fs.exists || path.exists;
+
     isExists(filename, function(exists) {
       if(!exists) {
-        response.writeHead(404, {"Content-Type": "text/plain"});
-        response.write("404 Not Found\n");
-        response.end();
-        return;
+        response404(response);
+        return false;
       }
       if (fs.statSync(filename).isDirectory()) {
-        var content = fs.readdirSync(filename);
-        response.writeHead(200);
-        response.write(directoryTemplate(content), "binary");
-        response.end();
-      } else {
-        fs.readFile(filename, "binary", function(err, file) {
-          if(err) {
-            response.writeHead(500, {"Content-Type": "text/plain"});
-            response.write(err + "\n");
-            response.end();
-            return;
-          }
-          response.writeHead(200);
-          if (indexFlag) {
-            var index = fs.readFileSync(filename);
-            var template = fs.readFileSync(path.join(__dirname, '..', 'templates', 'index.template'));
-            var index_html = utils.buildTemplate(template, {
-              'content': index,
-              'scripts': scripts,
-              'stylesheets': stylesheets
-            });
-            response.write(index_html, 'binary');
-          } else {
-            response.write(file, 'binary');
-          }
-          response.end();
-        });
+        responseDir(response, filename);
+        return false;
       }
+      fs.readFile(filename, "binary", function(err, file) {
+        if(err) {
+          response500(response);
+          return false;
+        }
+        if (indexFlag) {
+          var src = fs.readFileSync(path.join(__dirname, '..', 'templates', 'index.template'));
+          var index = utils.buildTemplate(src, {
+            'content': fs.readFileSync(filename),
+            'scripts': scripts,
+            'stylesheets': stylesheets
+          });
+          response.write(index, 'binary');
+          response.end();
+          return false;
+        }
+        responseOK(response, file);
+      });
     });
   }).listen(parseInt(port, 10)).on('error', function(err) {
     errors = {
@@ -94,15 +105,5 @@ function start() {
     console.info('Visit at: http://localhost:' + port)
     console.info('CTRL + C  to stop.');
   });
-}
-
-module.exports.builder = function() {
-  var existsSync = fs.existsSync || path.existsSync;
-  if (!existsSync(path.join(process.cwd(), 'package.json'))) {
-    console.info('You need to be on root of your project folder.');
-    return;
-  }
-
-  start();
 }
 

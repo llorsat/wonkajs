@@ -1,3 +1,5 @@
+# Wonka.js - Develop 100% client side RIAs with backend framework style.
+
 # Getting started
 
 ## Requirements
@@ -92,3 +94,14 @@ http://localhost:9300/#books/science
 ```
 
 For more information [read our documentation](https://github.com/llorsat/wonkajs/wiki).
+
+## We need your help!
+
+Wonka.js is a open source project, we need your help, if you want to contribute: 
+
+* Create an issue on our [issue tracker](https://github.com/julianceballos/wonkajs/issues).
+
+* Join to our irc channel on **irc.freenode.net #wonkajs**
+* Suscribe on our email list: https://groups.google.com/d/forum/wonkajs.
+* Follow us on Twitter: https://twitter.com/wonkajs.
+

@@ -1,6 +1,7 @@
-$(document).ajaxError(function(e, out) {
-  App.message({
-    title: out.statusText,
-    message: out.responseText
+(function() {
+  
+  $(document).ajaxError(function(e, response) {
+    alert(response.statusText + ' : ' + response.responseText);
   });
-});
+
+})();

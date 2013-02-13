@@ -19,10 +19,12 @@
       ]
     },
     "deploy": {
-      "js": {
-        "src": ["%(jsSrcDeployPath)s"],
-        "dest": "%(jsDestDeployPath)s"
-      }
+      "folders": [
+        "icons",
+        "fonts",
+        "images",
+        "languages"
+      ]
     },
     "environment": {
       "core": [
@@ -32,27 +34,11 @@
       ],
       "libraries": [
         "jquery",
-        "jquery.easing",
-        "jquery.ui",
-        "jquery.cookie",
-        "jquery.inputmask",
-        "jquery.maskedinput",
-        "jso",
-        "jquery.base64",
-        "spin",
-        "printarea",
-        "flexigrid",
         "bootstrap",
-        "handlebars",
         "underscore",
         "backbone",
+        "handlebars",
         "globalize",
-        "jquery.vitrine",
-        "jquery.vitrine.helpers",
-        "backbone.extensions",
-        "backbone.viewhelpers",
-        "handlebars.helpers",
-        "console",
         "helpers",
         "settings"
       ],

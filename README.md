@@ -1,3 +1,5 @@
+# Wonka.js - Develop 100% client side RIAs with backend framework style.
+
 # Getting started
 
 ## Requirements
@@ -101,4 +103,5 @@ Wonka.js is a open source project, we need your help, if you want to contribute:
 
 * Join to our irc channel on **irc.freenode.net #wonkajs**
 * Suscribe on our email list: https://groups.google.com/d/forum/wonkajs.
+* Follow us on Twitter: https://twitter.com/wonkajs.
 
