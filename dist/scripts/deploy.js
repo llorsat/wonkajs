@@ -30,6 +30,15 @@ module.exports.builder = function() {
       utils.copy(src, dest);
     }
   }
+  var apps = pkg.settings.environment.applications;
+  for (var i = 0; i < apps.length; i++) {
+    var appName = apps[i];
+    var src = path.join(projectDir, appName, 'resources');
+    var dest = path.join(projectDir, 'deploy', appName);
+    if (existsSync(src)) {
+      utils.copy(src, dest);
+    }
+  }
 
   utils.compressJS();
 

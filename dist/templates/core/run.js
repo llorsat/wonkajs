@@ -91,6 +91,7 @@
   $.when.apply($, promisesLevelOne).done(function() {
     $.when.apply($, promisesLevelTwo).done(function() {
       init(libraries, applications, scripts, function() {
+        App.set('stage', 'dev');
         window.main();
       });
     });
