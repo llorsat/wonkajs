@@ -67,3 +67,11 @@ function __(stringToTranslate) {
 Handlebars.registerHelper("__", function(string) {
   return __(string);
 });
+
+Handlebars.registerHelper('asset', function(application, resource){
+  if (App.get('stage') == 'dev') {
+    return application + "/resources/" + resource;
+  } else if (App.get('stage') == 'prod') {
+    return application + '/' + resource;
+  }
+});
