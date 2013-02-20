@@ -1,5 +1,7 @@
 (function(namespace) {
 
+  var models = namespace.models;
+  var collections = namespace.collections;
   var views = namespace.views;
 
   var getTemplate = function(name) {

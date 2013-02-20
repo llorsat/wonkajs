@@ -172,18 +172,12 @@ module.exports.joinTemplates = function(scripts, stylesheets) {
   var apps = pkg.settings.environment.applications;
 
   var body = fs.readFileSync(path.join(projectDir, 'index.html'), 'utf-8');
-  for (var i=0; i < apps.length; i++) {
-    var templates = fs.readdirSync(path.join(projectDir, apps[i], 'templates'));
-    for (var j=0; j < templates.length; j++) {
-      var html = path.join(projectDir, apps[i], 'templates', templates[j]);
-      body += fs.readFileSync(html,'utf8') + '\n\n';
-    }
-  }
   var template = fs.readFileSync(__dirname + '/../templates/index.template', 'utf8');
   var index_html = module.exports.buildTemplate(template, {
     'content': body,
     'scripts': scripts,
-    'stylesheets': stylesheets
+    'stylesheets': stylesheets,
+    'templates': module.exports.importTemplates()
   });
   fs.writeFileSync(path.join(projectDir, 'deploy', 'index.html'), index_html);
 }
@@ -218,4 +212,57 @@ module.exports.compressCSS = function() {
       console.log("Error in compile less", e);
     }
   });
+}
+
+module.exports.importJS = function() {
+  var projectDir = process.cwd();
+  var pkgPath = path.join(projectDir, 'package.json');
+  var pkg = JSON.parse(fs.readFileSync(pkgPath).toString());
+  var env = pkg.settings.environment;
+
+  var scripts = '';
+
+  // libraries
+  for (var i = 0; i < env.libraries.length; i++) {
+    var lib = 'libraries/' + env.libraries[i] + '.js';
+    scripts += '<script type="text/javascript" src="' + lib + '"></script>\n';
+  }
+
+  // applications
+  var components = ['/init.js', '/models.js', '/collections.js', '/views.js', '/router.js'];
+
+  for (var j = 0; j < components.length; j++) {
+    for (var i = 0; i < env.applications.length; i++) {
+      var component = env.applications[i] + components[j];
+      scripts += '<script type="text/javascript" src="' + component + '"></script>\n';
+    }
+  }
+  for (var i = 0; i < env.main_files.length; i++) {
+    var script = 'main/' + env.main_files[i] + '.js';
+    scripts += '<script type="text/javascript" src="' + script + '"></script>\n';
+  }
+  return scripts;
+}
+
+module.exports.importTemplates = function() {
+  var projectDir = process.cwd();
+  var path = require('path');
+  var pkgPath = path.join(projectDir, 'package.json');
+  var pkg = JSON.parse(fs.readFileSync(pkgPath).toString());
+  var env = pkg.settings.environment;
+
+  var templates = '';
+
+  for (var i = 0; i < env.applications.length; i++) {
+    var application = env.applications[i];
+    var path = require('path');
+    var dir = path.join(projectDir, application, 'templates');
+    var list = fs.readdirSync(dir);
+    for (var j = 0; j < list.length; j++) {
+      var file = path.join(dir, list[j]);
+      var content = fs.readFileSync(file, 'utf-8');
+      templates += content;
+    }
+  }
+  return templates;
 }

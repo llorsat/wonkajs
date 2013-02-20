@@ -1,18 +1,20 @@
 (function(namespace) {
 
-  namespace.Router = Backbone.Router.extend({
+  var views = namespace.views;
+
+  var Router = Backbone.Router.extend({
     
     routes: {
       '%(routeName)s': 'main',
     },
 
     main: function() {
-      var view = new namespace.views.Main();
+      var view = new views.Main();
       $('#container').html(view.render().$el);
     },
 
   });
 
-  new namespace.Router();
+  new Router();
 
 })(%(namespace)s);

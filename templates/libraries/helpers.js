@@ -4,6 +4,50 @@
 window.Bb = window.Backbone;
 window.hbs = window.Handlebars;
 
+//Here we load the package.json on the App.pkg object when page load
+if (!App.has('pkg')) {
+  var xhr = null;
+  var activexmodes = ["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"];
+  if (window.ActiveXObject) {
+    for (var i=0; i < activexmodes.length; i++) {
+      try {
+        xhr = new ActiveXObject(activexmodes[i]);
+      } catch(e) {}
+    }
+  } else {
+    xhr = new XMLHttpRequest();
+  }
+  xhr.open('GET', 'package.json', false);
+  xhr.send(null);
+  App.set('pkg', JSON.parse(xhr.responseText));  
+}
+
+//Set languages
+if (App.has('pkg.settings.i18n.languages')) {
+  if(window[App.pkg.settings.storage_engine].hasOwnProperty('language')) {
+    setLanguage(window[App.pkg.settings.storage_engine]['language']);
+  } else {
+    setLanguage(App.pkg.settings.i18n.languages[0]);
+  }  
+}
+
+function formToJSON(selector) {
+  var json = {}
+  _.each(selector.serializeArray(), function(item) {
+    if (_.has(json, item.name)) {
+      if (_.isArray(json[item.name])) {
+        json[item.name].push(item.value);
+      } else {
+        json[item.name] = [json[item.name], item.value];
+      }
+    } else {
+      json[item.name] = item.value;  
+    }
+    
+  });
+  return json;
+}
+
 //API uri builder
 function uri() {
   var uri = App.pkg.settings.api;
@@ -66,4 +110,52 @@ function __(stringToTranslate) {
 //Handlebars helper for localize string
 Handlebars.registerHelper("__", function(string) {
   return __(string);
+});
+
+//Authentication validation
+function isAuthenticated() {
+  var storageEngine = App.pkg.settings.storage_engine;
+  var name = App.pkg.name;
+  var auth = window[App.pkg.settings.auth_module];
+  if (window[storageEngine][name + '-session']) {
+    var data = JSON.parse(window[storageEngine][name + '-session']);
+    data['empty'] = false;
+    window.user = new auth.models.User(data);
+  } else {
+    window.user = new auth.models.User();
+  }
+  return !window.user.get('empty');
+}
+
+//Backbone Router extensions
+_.extend(Backbone.Router.prototype, {
+  route: function(route, name, callback) {
+    if (!_.isRegExp(route)) route = this._routeToRegExp(route);
+    if (!callback) callback = this[name];
+    var routerinstance = this;
+    Backbone.history.route(route, _.bind(function(fragment) {
+      var loginRequired = routerinstance['loginRequired'] || [];
+      var logoutRequired = routerinstance['logoutRequired'] || [];
+      if (loginRequired.indexOf(fragment) != -1) {
+        if (!isAuthenticated()) {
+          var login = App.pkg.settings.login_route || "#login";
+          Backbone.history.navigate(login, {trigger: true}, {replace: true});
+          return false;
+        }
+      }
+      if (logoutRequired.indexOf(fragment) != -1) {
+        if (isAuthenticated()) {
+          var home = App.pkg.settings.home_route || "#home";
+          Backbone.history.navigate(home, {trigger: true}, {replace: true});
+          return false;
+        }
+      }
+      var args = this._extractParameters(route, fragment);
+      callback && callback.apply(this, args);
+      this.trigger.apply(this, ['route:' + name].concat(args));
+      this.trigger('route', name, args);
+      Backbone.history.trigger('route', this, name, args);
+    }, this));
+    return this;
+  }
 });

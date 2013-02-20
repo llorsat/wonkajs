@@ -10,15 +10,6 @@ var fs = require('fs'),
     port = process.argv[3] || 9300,
     isExists = fs.exists || path.exists;
 
-//Stylesheets used for development
-var stylesheets = '<link rel="stylesheet/less" href="stylesheets/ui.less">\n'
-                  + '<script src="core/contrib/less.js"></script>\n'
-                  + '<script src="core/contrib/modernizr.js"></script>';
-
-//scripts used for development
-var scripts = '<script src="core/app.js"></script>\n'
-              + '<script data-main="core/run" src="core/contrib/require.js"></script>';
-
 var response404 = function(response) {
   response.writeHead(404, {"Content-Type": "text/plain"});
   response.write(fs.readFileSync(path.join(process.cwd(), '404.html')));
@@ -82,10 +73,22 @@ module.exports.builder = function() {
         }
         if (indexFlag) {
           var src = fs.readFileSync(path.join(__dirname, '..', 'templates', 'index.template'));
+
+          //scripts used for development
+          var scripts = '<script type="text/javascript" src="core/app.js"></script>\n'
+            + utils.importJS()
+            + '\n<script type="text/javascript">(function(){window.main();})();</script>\n';
+
+          //Stylesheets used for development
+          var stylesheets = '<link rel="stylesheet/less" href="stylesheets/ui.less">\n'
+            + '<script src="core/contrib/less.js"></script>\n'
+            + '<script src="core/contrib/modernizr.js"></script>';
+
           var index = utils.buildTemplate(src, {
             'content': fs.readFileSync(filename),
             'scripts': scripts,
-            'stylesheets': stylesheets
+            'stylesheets': stylesheets,
+            'templates': utils.importTemplates()
           });
           response.write(index, 'binary');
           response.end();
@@ -98,7 +101,7 @@ module.exports.builder = function() {
     errors = {
       'EADDRINUSE': 'Port: ' + port + ' is already in use.'
     }
-    console.log(errors[err.code]);
+    console.error(errors[err.code]);
   }).on('listening', function() {
     console.info('Server running');
     console.info('=============================================');

@@ -29,7 +29,6 @@
     "environment": {
       "core": [
         "app",
-        "run",
         "contrib/modernizr"
       ],
       "libraries": [
@@ -39,8 +38,7 @@
         "backbone",
         "handlebars",
         "globalize",
-        "helpers",
-        "settings"
+        "helpers"
       ],
       "main_files": [
         "listeners",

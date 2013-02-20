@@ -1,6 +1,8 @@
 (function(namespace) {
 
-  var collections = namespace.collections;
   var models = namespace.models;
+  var collections = namespace.collections;
+
+  //TODO: Add collections below
     
 })(%(namespace)s);

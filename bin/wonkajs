@@ -20,7 +20,7 @@ var usage = '\nWonkajs frontend framework for backend developers\n\n'
   + '   a,    app         Create new application\n'
   + '   s,    server      Run server for development\n'
   + '   i,    i18n        Generate internationalization files\n'
-  + '   d,    deploy      Compile js, css and html files for deploy\n'
+  + '   d,    deploy      Compile js, css and html files for deploy\n';
 
 var command = args[0];
 

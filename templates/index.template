@@ -23,6 +23,7 @@
         <![endif]-->
         <div id="message-container" style="display: none;"></div>
         %(content)s
+        %(templates)s
         %(scripts)s
     </body>
 </html>
