@@ -21,7 +21,7 @@
           <script src="core/contrib/less.js"></script>
           <script src="core/contrib/modernizr.js"></script>
         {{ else }}
-          <link type="text/css" rel="stylesheet" href="main.css">
+          <link type="text/css" rel="stylesheet" href="main.css?{{ version }}">
         {{/ if }}
         <!-- /edit under your own risk -->
     </head>
@@ -42,7 +42,7 @@
           {{/ each }}
           <script type="text/javascript">(function(){window.main();})();</script>
         {{ else }}
-          <script type="text/javascript" src="main.js"></script>
+          <script type="text/javascript" src="main.js?{{ version }}"></script>
         {{/ if }}
         <!-- /edit under your own risk -->
     </body>
