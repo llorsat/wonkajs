@@ -6,6 +6,7 @@
 * Static development server integrated.
 * Deploy assistant with compression of templates, javascript code and stylesheets.
 * Application templates with namespaces, url routes, handlebars templates folder and integration with backbonejs views, models and collections.
+* Session management.
 * Internationalization engine integrated.
 * Modularized development filesystem.
 * Package.json with project description and settings definition.
