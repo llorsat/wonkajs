@@ -16,7 +16,7 @@ var arch = {
   'security/robots.txt': 'robots.txt',
   'security/humans.txt': 'humans.txt',
   'security/crossdomain.xml': 'crossdomain.xml',
-  'body.html': 'index.html'
+  'index.hbs': 'index.hbs'
 };
 
 module.exports.builder = function(name) {

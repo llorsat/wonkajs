@@ -15,15 +15,35 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        %(stylesheets)s
+        <!-- edit under your own risk -->
+        {{# if development }}
+          <link rel="stylesheet/less" href="stylesheets/ui.less">
+          <script src="core/contrib/less.js"></script>
+          <script src="core/contrib/modernizr.js"></script>
+        {{ else }}
+          <link type="text/css" rel="stylesheet" href="main.css">
+        {{/ if }}
+        <!-- /edit under your own risk -->
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
-        <div id="message-container" style="display: none;"></div>
-        %(content)s
-        %(templates)s
-        %(scripts)s
+        <div id="container"></div>
+
+        <!-- edit under your own risk -->
+        {{# each templates }}
+          {{{ this }}}
+        {{/ each }}
+
+        {{# if development }}
+          {{# each scripts }}
+          <script type="text/javascript" src="{{ this }}"></script>
+          {{/ each }}
+          <script type="text/javascript">(function(){window.main();})();</script>
+        {{ else }}
+          <script type="text/javascript" src="main.js"></script>
+        {{/ if }}
+        <!-- /edit under your own risk -->
     </body>
 </html>

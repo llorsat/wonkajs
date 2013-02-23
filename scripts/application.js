@@ -8,7 +8,7 @@ var arch = [
   'models.js',
   'init.js',
   'router.js',
-  'templates/main.html'
+  'templates/main.hbs'
 ];
 
 var args = process.argv.slice(3);

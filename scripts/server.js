@@ -6,6 +6,7 @@ var fs = require('fs'),
     path = require('path'),
     http = require('http'),
     url = require('url'),
+    hbs = require('handlebars'),
     utils = require('../lib/utils.js'),
     port = process.argv[3] || 9300,
     isExists = fs.exists || path.exists;
@@ -54,7 +55,7 @@ module.exports.builder = function() {
 
     if (filename == process.cwd() + '/') {
       indexFlag = true;
-      filename += 'index.html';
+      filename += 'index.hbs';
     }
 
     isExists(filename, function(exists) {
@@ -72,24 +73,15 @@ module.exports.builder = function() {
           return false;
         }
         if (indexFlag) {
-          var src = fs.readFileSync(path.join(__dirname, '..', 'templates', 'index.template'));
-
-          //scripts used for development
-          var scripts = '<script type="text/javascript" src="core/app.js"></script>\n'
-            + utils.importJS()
-            + '\n<script type="text/javascript">(function(){window.main();})();</script>\n';
-
-          //Stylesheets used for development
-          var stylesheets = '<link rel="stylesheet/less" href="stylesheets/ui.less">\n'
-            + '<script src="core/contrib/less.js"></script>\n'
-            + '<script src="core/contrib/modernizr.js"></script>';
-
-          var index = utils.buildTemplate(src, {
-            'content': fs.readFileSync(filename),
-            'scripts': scripts,
-            'stylesheets': stylesheets,
-            'templates': utils.importTemplates()
-          });
+          var templateString = fs.readFileSync(path.join(process.cwd(), 'index.hbs'), 'utf-8');
+          var template = hbs.compile(templateString);
+          var data = {
+            'development': true,
+            'scripts': utils.getScripts(),
+            'templates': utils.getTemplates()
+          };
+          var index = template(data);
+          
           response.write(index, 'binary');
           response.end();
           return false;

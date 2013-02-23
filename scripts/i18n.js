@@ -32,7 +32,7 @@ function start() {
   } catch(e){}
   var languages = settings.languages || ['en'],
       blacklist = settings.blacklist || [".git", "images", "icons", "stylesheets", "libraries"],
-      files = settings.files || ["js", "html"];
+      files = settings.files || ["js", "html", "hbs"];
 
   var results = [];
   var walk = function(dir){

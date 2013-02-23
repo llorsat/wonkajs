@@ -1,10 +1,7 @@
 var fs = require('fs'),
     path = require('path'),
+    hbs = require('handlebars'),
     utils = require('../lib/utils.js');
-
-var scripts = '<script src="main.js"></script>';
-
-var stylesheets = '<link rel="stylesheet" type="text/css" href="main.css">';
 
 module.exports.builder = function() {
   var existsSync = fs.existsSync || path.existsSync;
@@ -32,10 +29,17 @@ module.exports.builder = function() {
   }
 
   utils.compressJS();
-
-  utils.joinTemplates(scripts, stylesheets);
-
   utils.compressCSS();
+
+  var templateString = fs.readFileSync(path.join(projectDir, 'index.hbs'), 'utf-8');
+  var template = hbs.compile(templateString);
+
+  var data = {
+    'development': false,
+    'templates': utils.getTemplates()
+  }
+
+  fs.writeFileSync(path.join(projectDir, 'deploy', 'index.html'), template(data));
 
   fs.writeFile(path.join(projectDir, 'deploy', 'package.json'), JSON.stringify(pkg, null, 2), function (err) {
     if (err) throw err;

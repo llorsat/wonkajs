@@ -128,33 +128,12 @@ module.exports.PathObject = function(args) {
 module.exports.compressJS = function() {
   var projectDir = process.cwd();
   var modernizr = fs.readFileSync(projectDir + '/core/contrib/modernizr.js').toString();
-  var pkgPath = path.join(projectDir, 'package.json');
-  var pkg = JSON.parse(fs.readFileSync(pkgPath).toString());
-  var env = pkg.settings.environment;
-  var app = fs.readFileSync(path.join(projectDir, 'core', 'app.js')).toString();
 
-  var code = modernizr + '\n' + app + '\n';
+  var code = modernizr + '\n';
 
-  // libraries
-  for (var i = 0; i < env.libraries.length; i++) {
-    code += fs.readFileSync(path.join(projectDir, 'libraries', env.libraries[i]+'.js'),'utf8');
-  }
-
-  // applications
-  for (var i = 0; i < env.applications.length; i++) {
-    var initFile = path.join(projectDir, env.applications[i] , 'init.js');
-    var modelsFile = path.join(projectDir, env.applications[i], 'models.js');
-    var collectionsFile = path.join(projectDir, env.applications[i], 'collections.js');
-    var viewsFile = path.join(projectDir, env.applications[i], 'views.js');
-    var routerFile = path.join(projectDir, env.applications[i], 'router.js');
-    code += fs.readFileSync(initFile,'utf8');
-    code += fs.readFileSync(routerFile,'utf8');
-    code += fs.readFileSync(modelsFile,'utf8');
-    code += fs.readFileSync(collectionsFile,'utf8');
-    code += fs.readFileSync(viewsFile,'utf8');
-  }
-  for (var i = 0; i < env.main_files.length; i++) {
-    code += fs.readFileSync(path.join(projectDir, 'main', env.main_files[i]+'.js'),'utf8');
+  var scripts = module.exports.getScripts();
+  for(var i = 0; i < scripts.length; i++) {
+    code += fs.readFileSync(path.join(projectDir, scripts[i]), 'utf-8');
   }
 
   code += '\nwindow.main();';
@@ -163,23 +142,6 @@ module.exports.compressJS = function() {
   ast = pro.ast_mangle(ast);
   ast = pro.ast_squeeze(ast);
   fs.writeFileSync(path.join(projectDir, 'deploy', 'main.js'), pro.gen_code(ast));
-}
-
-module.exports.joinTemplates = function(scripts, stylesheets) {
-  var projectDir = process.cwd();
-  var pkgPath = path.join(projectDir, 'package.json');
-  var pkg = JSON.parse(fs.readFileSync(pkgPath).toString());
-  var apps = pkg.settings.environment.applications;
-
-  var body = fs.readFileSync(path.join(projectDir, 'index.html'), 'utf-8');
-  var template = fs.readFileSync(__dirname + '/../templates/index.template', 'utf8');
-  var index_html = module.exports.buildTemplate(template, {
-    'content': body,
-    'scripts': scripts,
-    'stylesheets': stylesheets,
-    'templates': module.exports.importTemplates()
-  });
-  fs.writeFileSync(path.join(projectDir, 'deploy', 'index.html'), index_html);
 }
 
 module.exports.compressCSS = function() {
@@ -214,18 +176,17 @@ module.exports.compressCSS = function() {
   });
 }
 
-module.exports.importJS = function() {
+module.exports.getScripts = function() {
   var projectDir = process.cwd();
   var pkgPath = path.join(projectDir, 'package.json');
   var pkg = JSON.parse(fs.readFileSync(pkgPath).toString());
   var env = pkg.settings.environment;
 
-  var scripts = '';
+  var scripts = ['core/app.js'];
 
   // libraries
   for (var i = 0; i < env.libraries.length; i++) {
-    var lib = 'libraries/' + env.libraries[i] + '.js';
-    scripts += '<script type="text/javascript" src="' + lib + '"></script>\n';
+    scripts.push('libraries/' + env.libraries[i] + '.js');
   }
 
   // applications
@@ -233,25 +194,23 @@ module.exports.importJS = function() {
 
   for (var j = 0; j < components.length; j++) {
     for (var i = 0; i < env.applications.length; i++) {
-      var component = env.applications[i] + components[j];
-      scripts += '<script type="text/javascript" src="' + component + '"></script>\n';
+      scripts.push(env.applications[i] + components[j]);
     }
   }
   for (var i = 0; i < env.main_files.length; i++) {
-    var script = 'main/' + env.main_files[i] + '.js';
-    scripts += '<script type="text/javascript" src="' + script + '"></script>\n';
+    scripts.push('main/' + env.main_files[i] + '.js');
   }
   return scripts;
 }
 
-module.exports.importTemplates = function() {
+module.exports.getTemplates = function() {
   var projectDir = process.cwd();
   var path = require('path');
   var pkgPath = path.join(projectDir, 'package.json');
   var pkg = JSON.parse(fs.readFileSync(pkgPath).toString());
   var env = pkg.settings.environment;
 
-  var templates = '';
+  var templates = [];
 
   for (var i = 0; i < env.applications.length; i++) {
     var application = env.applications[i];
@@ -261,8 +220,9 @@ module.exports.importTemplates = function() {
     for (var j = 0; j < list.length; j++) {
       var file = path.join(dir, list[j]);
       var content = fs.readFileSync(file, 'utf-8');
-      templates += content;
+      templates.push(content);
     }
   }
+
   return templates;
 }
