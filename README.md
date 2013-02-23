@@ -95,6 +95,12 @@ http://localhost:9300/#books/science
 
 For more information [read our documentation](https://github.com/llorsat/wonkajs/wiki).
 
+## Thanks to
+
+* @chentepixtol
+* @josuecamara
+* @jhonfx_
+
 ## We need your help!
 
 Wonka.js is a open source project, we need your help, if you want to contribute: 
