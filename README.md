@@ -106,7 +106,7 @@ http://localhost:9300/#books/science
 
 For more information [read our documentation](https://github.com/llorsat/wonkajs/wiki).
 
-## Thanks to
+## Thanks guys, for help
 
 * @chentepixtol
 * @josuecamara
