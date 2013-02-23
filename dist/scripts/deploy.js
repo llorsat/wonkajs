@@ -33,10 +33,11 @@ module.exports.builder = function() {
 
   var templateString = fs.readFileSync(path.join(projectDir, 'index.hbs'), 'utf-8');
   var template = hbs.compile(templateString);
-
+  
   var data = {
     'development': false,
-    'templates': utils.getTemplates()
+    'templates': utils.getTemplates(),
+    'version': pkg.version
   }
 
   fs.writeFileSync(path.join(projectDir, 'deploy', 'index.html'), template(data));
