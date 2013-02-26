@@ -49,6 +49,7 @@ module.exports.builder = function() {
   }
 
   http.createServer(function(request, response) {
+    request.setEncoding('utf8');
     var uri = url.parse(request.url).pathname,
         filename = path.join(process.cwd(), uri),
         indexFlag = false;
@@ -67,7 +68,7 @@ module.exports.builder = function() {
         responseDir(response, filename);
         return false;
       }
-      fs.readFile(filename, "binary", function(err, file) {
+      fs.readFile(filename, 'binary', function(err, file) {
         if(err) {
           response500(response);
           return false;
@@ -82,7 +83,7 @@ module.exports.builder = function() {
           };
           var index = template(data);
           
-          response.write(index, 'binary');
+          response.write(index, 'utf-8');
           response.end();
           return false;
         }
