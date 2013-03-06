@@ -8,7 +8,9 @@ var fs = require('fs'),
     app = require('../scripts/application.js').builder,
     server = require('../scripts/server.js').builder,
     deploy = require('../scripts/deploy.js').builder,
-    i18n = require('../scripts/i18n.js').builder;
+    i18n = require('../scripts/i18n.js').builder,
+    pkg = require('../scripts/package.js').builder,
+    candy = require('../scripts/candy.js').builder;
 
 var usage = '\nWonkajs frontend framework for backend developers\n\n'
   + '{usage} wonkajs subcommand [options] [args]\n\n'
@@ -20,7 +22,9 @@ var usage = '\nWonkajs frontend framework for backend developers\n\n'
   + '   a,    app         Create new application\n'
   + '   s,    server      Run server for development\n'
   + '   i,    i18n        Generate internationalization files\n'
-  + '   d,    deploy      Compile js, css and html files for deploy\n';
+  + '   d,    deploy      Compile js, css and html files for deploy\n'
+  + '   pkg,  package     Build a wonka.js module from any application\n'
+  + '   c,    candy       Download and install wonka.js 3th party modules\n';
 
 var command = args[0];
 
@@ -34,7 +38,11 @@ var commands = {
   'd': deploy,
   'deploy': deploy,
   'i': i18n,
-  'i18n': i18n
+  'i18n': i18n,
+  'pkg': pkg,
+  'package': pkg,
+  'c': candy,
+  'candy': candy
 };
 
 var run = function(args) {
