@@ -52,10 +52,11 @@ module.exports.buildTemplate = function(content, params) {
   return content;
 };
 
-module.exports.copy = function(source, target) {
-  ncp(source, target, function(err) {
-    if (err) {console.error(err)};
-  });
+module.exports.copy = function(source, target, callback) {
+  var callback = callback || function(err) {
+    if (err) { if(err.length > 0) console.error(err)};
+  };
+  ncp(source, target, callback);
 }
 
 module.exports.PathObject = function(args) {
@@ -225,4 +226,19 @@ module.exports.getTemplates = function() {
   }
 
   return templates;
+}
+
+module.exports.rmdirRecursiveSync = function(dir) {
+  try { var files = fs.readdirSync(dir); }
+  catch(e) { return; }
+  if (files.length > 0)
+    for (var i = 0; i < files.length; i++) {
+      var filePath = dir + '/' + files[i];
+      if (fs.statSync(filePath).isFile()) {
+        fs.unlinkSync(filePath);
+      } else {
+        exports.rmdirRecursiveSync(filePath);
+      }
+    }
+  fs.rmdirSync(dir);
 }
