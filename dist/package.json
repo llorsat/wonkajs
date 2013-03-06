@@ -44,8 +44,8 @@
   "_id": "wonkajs@1.0.5",
   "optionalDependencies": {},
   "_engineSupported": true,
-  "_npmVersion": "1.1.16",
-  "_nodeVersion": "v0.6.15",
+  "_npmVersion": "1.2.0",
+  "_nodeVersion": "v0.8.17",
   "_defaultsLoaded": true,
   "_from": "wonkajs"
 }
