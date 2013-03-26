@@ -9,8 +9,9 @@
     },
 
     main: function() {
-      var view = new views.Main();
-      $('#container').html(view.render().$el);
+      new views.Main({
+        el: $('#container')
+      });
     },
 
   });
