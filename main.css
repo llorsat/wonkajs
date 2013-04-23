@@ -6684,12 +6684,10 @@ td {
 }
 /* Header */
 header {
-  background-color: #171717;
   color: #FDFDFB;
   width: 170px;
   float: left;
   position: fixed;
-  border: 1px solid #000;
   -webkit-border-top-right-radius: 4px;
   -webkit-border-bottom-right-radius: 4px;
   -moz-border-radius-topright: 4px;
@@ -6773,15 +6771,17 @@ a.buttons:hover {
 section {
   width: 650px;
   float: right;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 }
 /* Footer */
 footer {
   width: 170px;
-  float: left;
-  position: fixed;
-  bottom: 10px;
-  padding-left: 50px;
+  margin: 50px auto;
+  /*float:left;
+  position:fixed;
+  bottom:10px;
+    padding-left: 50px;*/
+
 }
 @media print, screen and (max-width: 960px) {
   div.wrapper {
@@ -7166,9 +7166,6 @@ body {
 a {
   color: #130722;
 }
-header {
-  background: #130722;
-}
 pre {
   height: 25px;
 }
@@ -7203,6 +7200,23 @@ footer p img {
 footer p a {
   text-decoration: underline;
   color: #130722;
+}
+#logo-container {
+  border: 0;
+}
+#logo {
+  width: 100%;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.header {
+  color: #555555;
+}
+#buttons {
+  background: #130722;
+  padding: 20px 10px 10px;
+  border-radius: 6px;
 }
 #message-container {
   background: rgba(255, 255, 255, 0.75);

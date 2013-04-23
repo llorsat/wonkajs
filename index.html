@@ -12,25 +12,30 @@
         <link rel="apple-touch-icon" sizes="72x72" href="/icons/touch-icon-72x72.png" />
         <link rel="apple-touch-icon" sizes="57x57" href="/icons/touch-icon-57x57.png" />
         <link rel="apple-touch-icon" href="/icons/touch-icon-iphone.png" />
-        <title>Wonka.js - Develop 100% client side RIAs with backend framework style.</title>
+        <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" type="text/css" href="main.css">
+        <!-- edit under your own risk -->
+        
+          <link type="text/css" rel="stylesheet" href="main.css?0.0.1">
+        
+        <!-- /edit under your own risk -->
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
-
-        <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
-        <div id="message-container" style="display: none;"></div>
         <div id="container">
             <div class="wrapper">
                 <header>
-                  <h1 class="header"><a href="#" title="">Wonka.js</a></h1>
-                  <p class="header">Develop 100% client side RIAs with backend framework style.</p>
+                  <h1 class="header">
+                    <a id="logo-container" href="#" title="">
+                      <img id="logo" src="images/wonka-320.png" alt="">
+                    </a>
+                  </h1>
+                  <p class="header">Frontend framework for backend developers</p>
 
-                  <ul>
+                  <ul id="buttons">
                     <li><a class="buttons" href="https://github.com/llorsat/wonkajs/wiki"><i class="icon-white icon-file"></i> Documentation</a></li>
                     <li><a class="buttons" href="#demos"><i class="icon-white icon-file"></i> Demos</a></li>
                     <li><a class="buttons" href="https://github.com/llorsat/wonkajs/zipball/master"><i class="icon-white icon-download-alt"></i> Download ZIP</a></li>
@@ -39,37 +44,19 @@
                   </ul>
                 </header>
                 <section id="main"></section>
-                <footer>
-                    <p>
-                        With the technology of:
-                    </p>
-                    <p>
-                        <img src="images/llorsat-nextasp.png" alt="">
-                    </p>
-                    <p>By: <a href="https://github.com/llorsat">llorsat</a></p>
-                </footer>
             </div>
         </div>
-<script type="text/x-handlebars-template" id="root-main-template">
-  <h1 class="spectacular">Why wonkajs?</h1>
 
-  <ul>
-    <li>Develop 100% client side javascript code, with backend framework style.</li>
-    <li>Static development server integrated.</li>
-    <li>Deploy assistant with compression of templates, javascript code and stylesheets.</li>
-    <li>Application templates with namespaces, url routes, handlebars templates folder and integration with backbonejs views, models and collections.</li>
-    <li>Internationalization engine integrated.</li>
-    <li>Modularized development filesystem.</li>
-    <li>Package.json with project description and settings definition.</li>
-  </ul>
-
+        <!-- edit under your own risk -->
+        
+          <script type="text/x-handlebars-template" id="root-main-template">
   <h1 class="spectacular">Tutorial</h1>
 
   <h1>Install and config</h1>
 
   <h2>Requirements</h2>
 
-  <p>Wonka.js is not a node.js framework, but you must have installed node.js to install wonka.js in easy way.</p>
+  <p>To run wonka.js you must have installed node.js.</p>
 
   <p><a class="nodejs-button" href="http://nodejs.org" title="Node JS" target="_blank">Install Node.js</a></p>
 
@@ -155,10 +142,19 @@
   <li>languages</li>
   </ul><p>Upload this folder to any server path, and points your web server to this path and your application will works.</p>
   <p>For more information <a href="https://github.com/llorsat/wonkajs/wiki">read the docs</a>.</p>
+  <footer>
+      <p>
+          With the technology of:
+      </p>
+      <p>
+          <img src="images/llorsat-nextasp.png" alt="">
+      </p>
+      <p>By: <a href="https://github.com/llorsat">llorsat</a></p>
+  </footer>
 </script>
 
-
-<script type="text/x-handlebars-template" id="demos-main-template">
+        
+          <script type="text/x-handlebars-template" id="demos-main-template">
   <h1 class="spectacular">Demos</h1>
 
   <ul>
@@ -167,8 +163,8 @@
 
 </script>
 
-
-<script type="text/x-handlebars-template" id="demos-todos-main-template">
+        
+          <script type="text/x-handlebars-template" id="demos-todos-main-template">
   <div class="wjs-header">
     <h1>
       Tiny Todo Demo
@@ -183,12 +179,16 @@
   </div>
 </script>
 
-
-<script type="text/x-handlebars-template" id="demos-todos-todo-template">
+        
+          <script type="text/x-handlebars-template" id="demos-todos-todo-template">
   <input class="toggle" type="checkbox" name="" value="" {{# if completed }}checked{{/ if }}> 
   <span class="task">{{ title }}</span>
 </script>
+        
 
-<script src="main.js"></script>
-</body>
+        
+          <script type="text/javascript" src="main.js?0.0.1"></script>
+        
+        <!-- /edit under your own risk -->
+    </body>
 </html>

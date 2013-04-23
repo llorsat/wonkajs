@@ -1,0 +1,69 @@
+{
+  "name": "wonkaweb",
+  "description": "Write a little bit about this project",
+  "version": "0.0.1",
+  "author": "",
+  "homepage": "",
+  "_id": "wonkaweb@0.0.1",
+  "settings": {
+    "i18n": {
+      "languages": [
+        "es",
+        "en"
+      ],
+      "files": [
+        "js",
+        "html"
+      ],
+      "blacklist": [
+        ".git",
+        "images",
+        "icons",
+        "stylesheets",
+        "libraries"
+      ]
+    },
+    "deploy": {
+      "folders": [
+        "icons",
+        "fonts",
+        "images",
+        "languages"
+      ]
+    },
+    "environment": {
+      "core": [
+        "app",
+        "run",
+        "contrib/modernizr"
+      ],
+      "libraries": [
+        "jquery",
+        "jquery.easing",
+        "jquery.ui",
+        "spin",
+        "bootstrap",
+        "handlebars",
+        "underscore",
+        "backbone",
+        "globalize",
+        "jquery.vitrine",
+        "jquery.vitrine.helpers",
+        "backbone.extensions",
+        "handlebars.helpers",
+        "console",
+        "helpers"
+      ],
+      "main_files": [
+        "listeners",
+        "alerts",
+        "main"
+      ],
+      "applications": [
+        "root",
+        "demos",
+        "demos/todos"
+      ]
+    }
+  }
+}
