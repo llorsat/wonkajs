@@ -6553,7 +6553,7 @@ dl {
 h1,
 h2,
 h3 {
-  font-family: Arvo, Monaco, serif;
+  font-family: 'klavika regular', Arvo, Monaco, serif;
   line-height: 1.3;
   font-weight: normal;
 }
@@ -6667,7 +6667,7 @@ table {
   text-align: left;
 }
 th {
-  font-family: 'Arvo', Helvetica, Arial, sans-serif;
+  font-family: 'klavika regular', 'Arvo', Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-weight: normal;
   padding: 10px;
@@ -7135,6 +7135,18 @@ footer {
 .type-csharp .highlight .sc {
   color: #a31515;
 }
+@font-face {
+  font-family: 'klavika regular';
+  src: url("/fonts/Klavika-Regular.otf");
+}
+@font-face {
+  font-family: 'klavika bold';
+  src: url("/fonts/Klavika-Bold.otf");
+}
+@font-face {
+  font-family: 'klavika light';
+  src: url("/fonts/Klavika-Light.otf");
+}
 /** Wonka colors **/
 body {
   margin: 0!important;
@@ -7217,24 +7229,4 @@ footer p a {
   background: #130722;
   padding: 20px 10px 10px;
   border-radius: 6px;
-}
-#message-container {
-  background: rgba(255, 255, 255, 0.75);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-#message-container #message {
-  width: 400px;
-  margin: 40px auto;
-  border: 1px black solid;
-}
-#message-container #message .title,
-#message-container #message .message {
-  padding: 10px;
-}
-#message-container #message .form-actions {
-  margin: 0;
 }
