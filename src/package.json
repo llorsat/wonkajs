@@ -24,12 +24,12 @@
       ]
     },
     "deploy": {
-      "js": {
-        "src": [
-          "/Users/jceb/wonkaweb/deploy/_main_prototype_.js"
-        ],
-        "dest": "/Users/jceb/wonkaweb/deploy/main.js"
-      }
+      "folders": [
+        "icons",
+        "fonts",
+        "images",
+        "languages"
+      ]
     },
     "environment": {
       "core": [
