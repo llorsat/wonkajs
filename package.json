@@ -1,8 +1,8 @@
 {
   "name": "wonkajs",
+  "version": "1.0.7",
   "description": "Develop 100% client side RIAs with backend style.",
   "keywords": ["framework", "frontend", "javascript", "MVT", "REST", "Web"],
-  "version": "1.0.6",
   "author": {
     "name": "Julian Ceballos",
     "email": "julian@pikhub.com",
@@ -41,11 +41,11 @@
   "engines": {
     "node": "*"
   },
-  "_id": "wonkajs@1.0.6",
+  "_id": "wonkajs@1.0.7",
   "optionalDependencies": {},
   "_engineSupported": true,
-  "_npmVersion": "1.2.0",
-  "_nodeVersion": "v0.8.17",
+  "_npmVersion": "1.2.25",
+  "_nodeVersion": "v0.10.10",
   "_defaultsLoaded": true,
   "_from": "wonkajs"
 }
