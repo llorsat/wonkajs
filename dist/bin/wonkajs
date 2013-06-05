@@ -9,7 +9,7 @@ var fs = require('fs'),
     server = require('../scripts/server.js').builder,
     deploy = require('../scripts/deploy.js').builder,
     i18n = require('../scripts/i18n.js').builder,
-    pkg = require('../scripts/package.js').builder,
+    pack = require('../scripts/package.js').builder,
     candy = require('../scripts/candy.js').builder;
 
 var usage = '\nWonkajs frontend framework for backend developers\n\n'
@@ -39,8 +39,8 @@ var commands = {
   'deploy': deploy,
   'i': i18n,
   'i18n': i18n,
-  'pkg': pkg,
-  'package': pkg,
+  'pkg': pack,
+  'package': pack,
   'c': candy,
   'candy': candy
 };
