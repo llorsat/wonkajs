@@ -1,6 +1,6 @@
 {
   "name": "wonkajs",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Develop 100% client side RIAs with backend style.",
   "keywords": ["framework", "frontend", "javascript", "MVT", "REST", "Web"],
   "author": {
@@ -41,7 +41,7 @@
   "engines": {
     "node": "*"
   },
-  "_id": "wonkajs@1.0.8",
+  "_id": "wonkajs@1.0.9",
   "optionalDependencies": {},
   "_engineSupported": true,
   "_npmVersion": "1.2.25",
