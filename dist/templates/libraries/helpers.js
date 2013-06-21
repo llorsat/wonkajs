@@ -24,8 +24,8 @@ if (!App.has('pkg')) {
 
 //Set languages
 if (App.has('pkg.settings.i18n.languages')) {
-  if(window[App.pkg.settings.storage_engine].hasOwnProperty('language')) {
-    setLanguage(window[App.pkg.settings.storage_engine]['language']);
+  if(window[App.pkg.settings.storage_engine].hasOwnProperty(App.pkg._id + '-language')) {
+    setLanguage(window[App.pkg.settings.storage_engine][App.pkg._id + '-language']);
   } else {
     setLanguage(App.pkg.settings.i18n.languages[0]);
   }  
@@ -59,7 +59,7 @@ function uri() {
 
 // Init the I18n with language specified
 function setLanguage(language) {
-  window[App.pkg.settings.storage_engine]['language'] = language;
+  window[App.pkg.settings.storage_engine][App.pkg._id + '-language'] = language;
 
   var xhr = null;
   var activexmodes = ["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"];
@@ -115,7 +115,7 @@ Handlebars.registerHelper("__", function(string) {
 //Authentication validation
 function isAuthenticated() {
   var storageEngine = App.pkg.settings.storage_engine;
-  var name = App.pkg.name;
+  var name = App.pkg._id;
   var auth = window[App.pkg.settings.auth_module];
   if (window[storageEngine][name + '-session']) {
     var data = JSON.parse(window[storageEngine][name + '-session']);
