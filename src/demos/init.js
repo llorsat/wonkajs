@@ -1,5 +1,5 @@
 (function() {
 
-  App.namespace("demos");
+  namespace("demos");
     
 })();

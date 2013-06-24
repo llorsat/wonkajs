@@ -1,0 +1,102 @@
+<script type="text/x-handlebars-template" id="root-main-template">
+  
+  <div class="btn-group pull-right" data-toggle="buttons-radio">
+    <button type="button" class="btn i18n" data-lang="es">Español</button>
+    <button type="button" class="btn i18n" data-lang="en">English</button>
+  </div>
+
+  <h1 class="spectacular">{{ __ "Tutorial" }}</h1>
+
+  <h1>{{ __ "Install and config" }}</h1>
+
+  <h2>{{ __ "Requirements" }}</h2>
+
+  <p>{{ __ "To run wonka.js you must have installed node.js." }}</p>
+
+  <p><a class="nodejs-button" href="http://nodejs.org" title="Node JS" target="_blank">{{ __ "Install Node.js" }}</a></p>
+
+  <h2>{{ __ "Install" }}</h2>
+
+  <p>{{ __ "Install wonka.js as global node module, on your shell type the command:" }}</p>
+
+  <pre><code>$ sudo npm install -g wonkajs</code></pre>
+
+  <h1>{{ __ "Getting started" }}</h1>
+
+  <h2>{{ __ "Create a project" }}</h2>
+
+  <p>{{ __ "First step is create a new project:" }}</p>
+
+  <pre><code>$ wonkajs project library</code></pre>
+
+  <p>{{ __ "This will create a project template that you can use as base for many kinds of web applications." }}</p>
+
+  <h2>{{ __ "Run server" }}</h2>
+
+  <p>{{ __ "To run wonka.js server and verify that is working, just must run inside the project folder:" }}</p>
+
+  <pre><code>$ wonkajs server</code></pre>
+
+  <p>{{ __ "With this command we launch a server on port 9300 by default, but you can change it:" }}</p>
+
+  <pre><code>$ wonkajs server 9700</code></pre>
+
+  <p>{{ __ "Visit your project on:" }}</p>
+
+  <pre><code>http:&#47;&#47;localhost:9300</code></pre>
+
+  <p>{{ __ "or in their case on:" }}</p>
+
+  <pre><code>http:&#47;&#47;localhost:9700</code></pre>
+
+  <h2>{{ __ "First application" }}</h2>
+
+  <p>{{ __ "To create an app, is necessary be on the project folder and run the app command:" }}</p>
+
+  <pre><code>$ wonkajs app books</code></pre>
+
+  <p>{{ __ "When this command run, a router links the Main view on application with a url." }}</p>
+
+  <p>{{ __ "The nomenclature is similar to:" }}</p>
+
+  <pre><code>/#books -> books.views.Main</code></pre>
+
+  <p>{{ __ "When the app is more complex than one level you can create it typing:" }}</p>
+
+  <pre><code>$ wonkajs app books science</code></pre>
+
+  <p>{{ __ "And the router will build:" }}</p>
+
+  <pre><code>/#books/science -> books.science.views.Main</code></pre>
+
+  <p>{{ __ "So finally you can visit your new application on:" }}</p>
+
+  <pre><code>http:&#47;&#47;localhost:9300&#47;#books</code></pre>
+
+  <p>{{ __ "Or in their case:" }}</p>
+
+  <pre><code>http:&#47;&#47;localhost:9300&#47;#books&#47;science</code></pre>
+
+  <h2>{{ __ "Deploy" }}</h2>
+
+  <p>{{ __ "To deploy your project, we recommend compress the project and upload to a server ready to display static content." }}</p>
+
+  <p>{{ __ "To deploy your project, just need to run:" }}</p>
+
+  <pre><code>$ wonkajs deploy</code></pre>
+
+  <p>{{ __ "With this command, will be created a <strong>deploy</strong> folder, that will has the files:" }}</p>
+
+  <ul>
+  <li>index.html</li>
+  <li>main.css</li>
+  <li>main.js</li>
+  <li>images</li>
+  <li>icons</li>
+  <li>languages</li>
+  </ul><p>{{ __ "Upload this folder to any server path, and points your web server to this path and your application will works."}}</p>
+  <p>{{ __ "For more information" }} <a href="https://github.com/llorsat/wonkajs/wiki">{{ __ "read the docs" }}</a>.</p>
+  <footer>
+      <p>{{ __ "With the technology of:" }} <a href="https://github.com/llorsat">llorsat</a></p>
+  </footer>
+</script>

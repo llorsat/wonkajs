@@ -6,14 +6,16 @@
   "homepage": "",
   "_id": "wonkaweb@0.0.1",
   "settings": {
+    "storage_engine": "localStorage",
     "i18n": {
       "languages": [
-        "es",
-        "en"
+        "en",
+        "es"
       ],
       "files": [
         "js",
-        "html"
+        "html",
+        "hbs"
       ],
       "blacklist": [
         ".git",

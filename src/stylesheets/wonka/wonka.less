@@ -4,6 +4,23 @@
 
 @import "variables.less";
 
+h1, h2, h3, h4, h5 {
+  font-family: 'klavika regular';
+  margin:36px 0 10px;
+  line-height:1.3;
+  font-weight: normal;
+}
+
+.slogan {
+  color: white;
+  font-weight: normal;
+  font-family: 'Klavika regular';
+}
+
+ul.nav li a {
+  font-family: 'Klavika regular';
+}
+
 body {
   margin: 0!important;
   padding: 0!important;
@@ -17,6 +34,10 @@ body {
   h1 {
     color: @white!important;
   }
+}
+
+p, ul, ol, table, dl {
+  margin:0 0 22px;
 }
 
 .wjs-paragraph {
@@ -41,11 +62,24 @@ a {
 }
 
 header {
-  //background: @purple;
+  background: lighten(@black, 60%) !important;
+  margin-top: 40px !important;
 }
 
 pre {
   height: 25px;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  margin-top: -1px;
+}
+
+.octocat {
+    background: url("@{images-route}/octocat-small.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    margin-top: -3px;
 }
 
 .nodejs-button {
@@ -57,8 +91,16 @@ pre {
   padding: 14px;
 }
 
+.brand {
+  font-family: 'Klavika regular';
+}
+
 .spectacular {
   font-size: 48px;
+}
+
+ul li {
+  margin-left: 20px;
 }
 
 header li a.buttons {
@@ -87,23 +129,7 @@ footer p a {
   color: @purple;
 }
 
-#logo-container {
-  border: 0;
-}
-
-#logo {
-  width: 100%;
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.header {
-  color: @gray;
-}
-
-#buttons {
-  background: @purple;
-  padding: 20px 10px 10px;
-  border-radius: 6px;
+/*Carbos ads styles*/
+#carbonads-container {
+  margin-top: 60px;
 }

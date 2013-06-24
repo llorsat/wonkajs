@@ -7,8 +7,9 @@
     },
 
     main: function() {
-      var view = new namespace.views.Main();
-      $('#main').html(view.render().$el);
+      var view = new namespace.views.Main({
+        el: $('#main')
+      });
     },
 
   });

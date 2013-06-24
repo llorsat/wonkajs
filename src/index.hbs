@@ -29,27 +29,44 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
-        <div id="container">
-            <div class="wrapper">
-                <header>
-                  <h1 class="header">
-                    <a id="logo-container" href="#" title="">
-                      <img id="logo" src="images/wonka-320.png" alt="">
-                    </a>
-                  </h1>
-                  <p class="header">
-                    Wonka.js is a javascript client-side framework build to enhance the frontend development experience, prioring fun, productivity, team work and beauty code. Wonka.js works by favoring convention over configuration and has popular javascript libraries like Backbone, jQuery and Handlebars inside.
-                  </p>
-                  <ul id="buttons">
-                    <li><a class="buttons" href="https://github.com/llorsat/wonkajs/wiki"><i class="icon-white icon-file"></i> Documentation</a></li>
-                    <li><a class="buttons" href="#demos"><i class="icon-white icon-file"></i> Demos</a></li>
-                    <li><a class="buttons" href="https://github.com/llorsat/wonkajs/zipball/master"><i class="icon-white icon-download-alt"></i> Download ZIP</a></li>
-                    <li><a class="buttons" href="https://github.com/llorsat/wonkajs/tarball/master"><i class="icon-white icon-download-alt"></i> Download TAR</a></li>
-                    <li><a class="buttons github" href="https://github.com/llorsat/wonkajs">View On GitHub</a></li>
-                  </ul>
-                </header>
-                <section id="main"></section>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="container">
+              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="brand" href="#">Wonka.js</a>
+              <div class="nav-collapse collapse">
+                <ul class="nav">
+                  <li><a href="https://github.com/llorsat/wonkajs/wiki"><i class="icon-white icon-file"></i> Documentation</a></li>
+                  <li><a href="#demos"><i class="icon-white icon-file"></i> Demos</a></li>
+                  <li><a href="https://github.com/llorsat/wonkajs/zipball/master"><i class="icon-white icon-download-alt"></i> Download ZIP</a></li>
+                  <li><a href="https://github.com/llorsat/wonkajs/tarball/master"><i class="icon-white icon-download-alt"></i> Download TAR</a></li>
+                  <li><a href="https://github.com/llorsat/wonkajs"><i class="icon-white octocat"></i>View On GitHub</a></li>
+                </ul>
+              </div>
             </div>
+          </div>
+        </div>
+        <header>
+          <div class="container">
+            <div class="row">
+              <div class="span8">
+                <a id="logo-container" href="#" title="">
+                  <img id="logo" src="images/wonka-320.png" alt="">
+                </a>
+                <p class="slogan">Enhance your experience developing small or very large frontend projects with programming elegance.</p>
+              </div>
+              <div class="span4">
+                <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/47375/azcarbon_2_1_0_HORIZDARK"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="container">
+          <section id="main"></section>
         </div>
 
         <!-- edit under your own risk -->
@@ -64,6 +81,7 @@
           <script type="text/javascript">(function(){window.main();})();</script>
         {{ else }}
           <script type="text/javascript" src="main.js?{{ version }}"></script>
+
           <script type="text/javascript">
 
             var _gaq = _gaq || [];
