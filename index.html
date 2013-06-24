@@ -25,115 +25,136 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
-        <div id="container">
-            <div class="wrapper">
-                <header>
-                  <h1 class="header">
-                    <a id="logo-container" href="#" title="">
-                      <img id="logo" src="images/wonka-320.png" alt="">
-                    </a>
-                  </h1>
-                  <p class="header">
-                    Wonka.js is a javascript client-side framework.
-                  </p>
-                  <ul id="buttons">
-                    <li><a class="buttons" href="https://github.com/llorsat/wonkajs/wiki"><i class="icon-white icon-file"></i> Documentation</a></li>
-                    <li><a class="buttons" href="#demos"><i class="icon-white icon-file"></i> Demos</a></li>
-                    <li><a class="buttons" href="https://github.com/llorsat/wonkajs/zipball/master"><i class="icon-white icon-download-alt"></i> Download ZIP</a></li>
-                    <li><a class="buttons" href="https://github.com/llorsat/wonkajs/tarball/master"><i class="icon-white icon-download-alt"></i> Download TAR</a></li>
-                    <li><a class="buttons github" href="https://github.com/llorsat/wonkajs">View On GitHub</a></li>
-                  </ul>
-                  <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/47375/azcarbon_2_1_0_HORIZDARK"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
-                </header>
-                <section id="main"></section>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="container">
+              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="brand" href="#">Wonka.js</a>
+              <div class="nav-collapse collapse">
+                <ul class="nav">
+                  <li><a href="https://github.com/llorsat/wonkajs/wiki"><i class="icon-white icon-file"></i> Documentation</a></li>
+                  <li><a href="#demos"><i class="icon-white icon-file"></i> Demos</a></li>
+                  <li><a href="https://github.com/llorsat/wonkajs/zipball/master"><i class="icon-white icon-download-alt"></i> Download ZIP</a></li>
+                  <li><a href="https://github.com/llorsat/wonkajs/tarball/master"><i class="icon-white icon-download-alt"></i> Download TAR</a></li>
+                  <li><a href="https://github.com/llorsat/wonkajs"><i class="icon-white octocat"></i>View On GitHub</a></li>
+                </ul>
+              </div>
             </div>
+          </div>
+        </div>
+        <header>
+          <div class="container">
+            <div class="row">
+              <div class="span8">
+                <a id="logo-container" href="#" title="">
+                  <img id="logo" src="images/wonka-320.png" alt="">
+                </a>
+                <p class="slogan">Enhance your experience developing small or very large frontend projects with programming elegance.</p>
+              </div>
+              <div class="span4">
+                <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/47375/azcarbon_2_1_0_HORIZDARK"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="container">
+          <section id="main"></section>
         </div>
 
         <!-- edit under your own risk -->
         
           <script type="text/x-handlebars-template" id="root-main-template">
-  <h1 class="spectacular">Tutorial</h1>
+  
+  <div class="btn-group pull-right" data-toggle="buttons-radio">
+    <button type="button" class="btn i18n" data-lang="es">Español</button>
+    <button type="button" class="btn i18n" data-lang="en">English</button>
+  </div>
 
-  <h1>Install and config</h1>
+  <h1 class="spectacular">{{ __ "Tutorial" }}</h1>
 
-  <h2>Requirements</h2>
+  <h1>{{ __ "Install and config" }}</h1>
 
-  <p>To run wonka.js you must have installed node.js.</p>
+  <h2>{{ __ "Requirements" }}</h2>
 
-  <p><a class="nodejs-button" href="http://nodejs.org" title="Node JS" target="_blank">Install Node.js</a></p>
+  <p>{{ __ "To run wonka.js you must have installed node.js." }}</p>
 
-  <h2>Install</h2>
+  <p><a class="nodejs-button" href="http://nodejs.org" title="Node JS" target="_blank">{{ __ "Install Node.js" }}</a></p>
 
-  <p>Install wonka.js as global node module, on your shell type the command:</p>
+  <h2>{{ __ "Install" }}</h2>
+
+  <p>{{ __ "Install wonka.js as global node module, on your shell type the command:" }}</p>
 
   <pre><code>$ sudo npm install -g wonkajs</code></pre>
 
-  <h1>Getting started</h1>
+  <h1>{{ __ "Getting started" }}</h1>
 
-  <h2>Create a project</h2>
+  <h2>{{ __ "Create a project" }}</h2>
 
-  <p>First step is create a new project:</p>
+  <p>{{ __ "First step is create a new project:" }}</p>
 
   <pre><code>$ wonkajs project library</code></pre>
 
-  <p>This will create a project template that you can use as base for many kinds of web applications.</p>
+  <p>{{ __ "This will create a project template that you can use as base for many kinds of web applications." }}</p>
 
-  <h2>Run server</h2>
+  <h2>{{ __ "Run server" }}</h2>
 
-  <p>To run wonka.js server and verify that is working, just must run inside the project folder:</p>
+  <p>{{ __ "To run wonka.js server and verify that is working, just must run inside the project folder:" }}</p>
 
   <pre><code>$ wonkajs server</code></pre>
 
-  <p>With this command we launch a server on port 9300 by default, but you can change it:</p>
+  <p>{{ __ "With this command we launch a server on port 9300 by default, but you can change it:" }}</p>
 
   <pre><code>$ wonkajs server 9700</code></pre>
 
-  <p>Visit your project on:</p>
+  <p>{{ __ "Visit your project on:" }}</p>
 
   <pre><code>http:&#47;&#47;localhost:9300</code></pre>
 
-  <p>or in their case on:</p>
+  <p>{{ __ "or in their case on:" }}</p>
 
   <pre><code>http:&#47;&#47;localhost:9700</code></pre>
 
-  <h2>First application</h2>
+  <h2>{{ __ "First application" }}</h2>
 
-  <p>To create an app, is necessary be on the project folder and run the app command:</p>
+  <p>{{ __ "To create an app, is necessary be on the project folder and run the app command:" }}</p>
 
   <pre><code>$ wonkajs app books</code></pre>
 
-  <p>When this command run, a router links the Main view on application with a url.</p>
+  <p>{{ __ "When this command run, a router links the Main view on application with a url." }}</p>
 
-  <p>The nomenclature is similar to:</p>
+  <p>{{ __ "The nomenclature is similar to:" }}</p>
 
   <pre><code>/#books -> books.views.Main</code></pre>
 
-  <p>When the app is more complex than one level you can create it typing:</p>
+  <p>{{ __ "When the app is more complex than one level you can create it typing:" }}</p>
 
   <pre><code>$ wonkajs app books science</code></pre>
 
-  <p>And the router will build:</p>
+  <p>{{ __ "And the router will build:" }}</p>
 
   <pre><code>/#books/science -> books.science.views.Main</code></pre>
 
-  <p>So finally you can visit your new application on:</p>
+  <p>{{ __ "So finally you can visit your new application on:" }}</p>
 
   <pre><code>http:&#47;&#47;localhost:9300&#47;#books</code></pre>
 
-  <p>Or in their case:</p>
+  <p>{{ __ "Or in their case:" }}</p>
 
   <pre><code>http:&#47;&#47;localhost:9300&#47;#books&#47;science</code></pre>
 
-  <h2>Deploy</h2>
+  <h2>{{ __ "Deploy" }}</h2>
 
-  <p>To deploy your project, we recommend compress the project and upload to a server ready to display static content.</p>
+  <p>{{ __ "To deploy your project, we recommend compress the project and upload to a server ready to display static content." }}</p>
 
-  <p>To deploy your project, just need to run:</p>
+  <p>{{ __ "To deploy your project, just need to run:" }}</p>
 
-  <pre><code>$ wonkajs deploy
-  </code></pre>
+  <pre><code>$ wonkajs deploy</code></pre>
 
-  <p>With this command, will be created a <strong>deploy</strong> folder, that will has the files:</p>
+  <p>{{ __ "With this command, will be created a <strong>deploy</strong> folder, that will has the files:" }}</p>
 
   <ul>
   <li>index.html</li>
@@ -142,16 +163,10 @@
   <li>images</li>
   <li>icons</li>
   <li>languages</li>
-  </ul><p>Upload this folder to any server path, and points your web server to this path and your application will works.</p>
-  <p>For more information <a href="https://github.com/llorsat/wonkajs/wiki">read the docs</a>.</p>
+  </ul><p>{{ __ "Upload this folder to any server path, and points your web server to this path and your application will works."}}</p>
+  <p>{{ __ "For more information" }} <a href="https://github.com/llorsat/wonkajs/wiki">{{ __ "read the docs" }}</a>.</p>
   <footer>
-      <p>
-          With the technology of:
-      </p>
-      <p>
-          <img src="images/llorsat-nextasp.png" alt="">
-      </p>
-      <p>By: <a href="https://github.com/llorsat">llorsat</a></p>
+      <p>{{ __ "With the technology of:" }} <a href="https://github.com/llorsat">llorsat</a></p>
   </footer>
 </script>
 
@@ -190,21 +205,21 @@
 
         
           <script type="text/javascript" src="main.js?0.0.1"></script>
+
+          <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-37925656-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+          </script>
         
         <!-- /edit under your own risk -->
-
-        <script type="text/javascript">
-
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-37925656-1']);
-          _gaq.push(['_trackPageview']);
-
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
-
-        </script>
     </body>
 </html>
