@@ -1933,7 +1933,7 @@ table th[class*="span"],
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("../img/glyphicons-halflings.png");
+  background-image: url("/images/glyphicons-halflings.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
 }
@@ -1955,7 +1955,7 @@ table th[class*="span"],
 .dropdown-submenu:focus > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"],
 .dropdown-submenu:focus > a > [class*=" icon-"] {
-  background-image: url("../img/glyphicons-halflings-white.png");
+  background-image: url("/images/glyphicons-halflings-white.png");
 }
 .icon-glass {
   background-position: 0      0;
@@ -5270,12 +5270,15 @@ a.badge:focus {
 .visible-desktop {
   display: inherit !important;
 }
+header {
+  margin-top: 40px;
+}
 @media (min-width: 768px) and (max-width: 979px) {
   .hidden-desktop {
     display: inherit !important;
   }
   .visible-desktop {
-    display: none !important ;
+    display: none !important;
   }
   .visible-tablet {
     display: inherit !important;
@@ -5327,6 +5330,9 @@ a.badge:focus {
     float: left;
     min-height: 1px;
     margin-left: 30px;
+  }
+  header {
+    margin-top: 40px;
   }
   .container,
   .navbar-static-top .container,
@@ -6154,8 +6160,8 @@ a.badge:focus {
   .navbar-fixed-bottom {
     position: static;
   }
-  .navbar-fixed-top {
-    margin-bottom: 20px;
+  header {
+    margin-top: 0;
   }
   .navbar-fixed-bottom {
     margin-top: 20px;
@@ -6302,4 +6308,110 @@ a.badge:focus {
     height: auto !important;
     overflow: visible !important;
   }
+}
+@font-face {
+  font-family: 'klavika regular';
+  src: url("/fonts/Klavika-Regular.otf");
+}
+@font-face {
+  font-family: 'klavika bold';
+  src: url("/fonts/Klavika-Bold.otf");
+}
+@font-face {
+  font-family: 'klavika light';
+  src: url("/fonts/Klavika-Light.otf");
+}
+/** Wonka colors **/
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'klavika regular';
+  margin: 36px 0 10px;
+  line-height: 1.3;
+  font-weight: normal;
+}
+.spectacular {
+  font-size: 47px;
+}
+.slogan {
+  color: white;
+  font-weight: normal;
+  font-family: 'Klavika regular';
+}
+ul.nav li a {
+  font-family: 'Klavika regular';
+}
+p,
+ul,
+ol,
+table,
+dl {
+  margin: 0 0 22px;
+}
+a {
+  color: #130722;
+}
+header {
+  background: #999999 !important;
+  margin-bottom: 20px;
+}
+pre {
+  height: 25px;
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  margin-top: -1px;
+}
+.octocat {
+  background: url("/images/octocat-small.png") no-repeat;
+  width: 20px;
+  height: 20px;
+  margin-top: -3px;
+}
+.nodejs-button {
+  background: #8BC84B;
+  color: #46483e;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 14px;
+}
+.brand {
+  font-family: 'Klavika regular';
+}
+ul li {
+  margin-left: 20px;
+}
+footer p {
+  text-align: center;
+  color: #777;
+  font-size: 11px;
+  margin: 3px 0;
+}
+footer p a {
+  text-decoration: underline;
+  color: #130722;
+}
+/*Carbos ads styles*/
+#carbonads-container {
+  margin-top: 65px;
+  border-bottom: 1px #afafaf solid;
+}
+.carbonad {
+  border: 0px green solid!important;
+  background: rgba(0, 0, 0, 0.75) !important;
+  width: inherit !important;
+}
+.carbonad-image {
+  float: left !important;
+}
+.carbonad-text {
+  display: block!important;
+  width: inherit!important;
+}
+.carbonad-tag {
+  display: block!important;
+  width: inherit!important;
 }
