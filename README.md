@@ -1,15 +1,4 @@
-# Wonka.js - Develop 100% client side RIAs with backend framework style.
-
-# Why wonkajs?
-
-* Develop 100% client side javascript code, with backend framework style.
-* Static development server integrated.
-* Deploy assistant with compression of templates, javascript code and stylesheets.
-* Application templates with namespaces, url routes, handlebars templates folder and integration with backbonejs views, models and collections.
-* Session management.
-* Internationalization engine integrated.
-* Modularized development filesystem.
-* Package.json with project description and settings definition.
+# Wonka.js - Enhance your experience developing small or very large frontend projects with elegance.
 
 # Getting started
 
@@ -111,6 +100,7 @@ For more information [read our documentation](https://github.com/llorsat/wonkajs
 * @chentepixtol
 * @josuecamara
 * @jhonfx_
+* @jceb
 
 ## We need your help!
 

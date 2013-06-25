@@ -1,7 +1,7 @@
 {
   "name": "wonkajs",
   "version": "1.1.0",
-  "description": "Develop 100% client side RIAs with backend style.",
+  "description": "Enhance your experience developing small or very large frontend projects with elegance.",
   "keywords": ["framework", "frontend", "javascript", "MVT", "REST", "Web"],
   "author": {
     "name": "Julian Ceballos",
