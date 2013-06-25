@@ -1,0 +1,51 @@
+@import "variables.less";
+
+.wjs-header {
+  background: rgba(19, 7, 34, .90);
+  color: @white;
+  margin: 0;
+  padding: 10px 60px;
+}
+
+.wjs-paragraph {
+  color: @purple;
+  padding: 10px;
+}
+
+.wjs-line {
+  border: 0 none solid;
+  border-top: 1px @purple solid;
+  border-bottom: 1px @black solid;
+}
+
+.no-hero {
+  margin: 0;
+  background: none;
+  padding: 0 60px;
+}
+
+#message-container {
+  background: rgba(255, 255, 255, .75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  #message {
+    .title {
+      font-size: 24px;
+    }
+    .title, .message {
+      padding: 10px;
+    }
+    .form-actions {
+      margin: 0;
+      padding: 10px 15px;
+      text-align: right;
+    }
+    width: 400px;
+    margin: 40px auto;
+    border: 1px black solid;
+    background: white;
+  }
+}

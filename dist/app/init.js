@@ -1,0 +1,5 @@
+(function() {
+
+  namespace(%(namespaceDeclaration)s);
+    
+})();
