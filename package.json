@@ -36,23 +36,15 @@
     "environment": {
       "core": [
         "app",
-        "run",
         "contrib/modernizr"
       ],
       "libraries": [
         "jquery",
-        "jquery.easing",
-        "jquery.ui",
-        "spin",
         "bootstrap",
         "handlebars",
         "underscore",
         "backbone",
         "globalize",
-        "jquery.vitrine",
-        "jquery.vitrine.helpers",
-        "backbone.extensions",
-        "handlebars.helpers",
         "console",
         "helpers"
       ],

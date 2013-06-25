@@ -1,3 +1,7 @@
+@purple: #130722;
+@white: #fff;
+@black: #000;
+
 @font-face { font-family:'klavika regular'; src:url("@{fonts-route}/Klavika-Regular.otf"); }
 @font-face { font-family:'klavika bold'; src:url("@{fonts-route}/Klavika-Bold.otf"); }
 @font-face { font-family:'klavika light'; src:url("@{fonts-route}/Klavika-Light.otf"); }
@@ -11,6 +15,10 @@ h1, h2, h3, h4, h5 {
   font-weight: normal;
 }
 
+.spectacular {
+  font-size: 47px;
+}
+
 .slogan {
   color: white;
   font-weight: normal;
@@ -21,40 +29,8 @@ ul.nav li a {
   font-family: 'Klavika regular';
 }
 
-body {
-  margin: 0!important;
-  padding: 0!important;
-}
-
-.wjs-header {
-  background: rgba(19, 7, 34, .90);
-  color: @white!important;
-  margin: 0!important;
-  padding: 10px 60px;
-  h1 {
-    color: @white!important;
-  }
-}
-
 p, ul, ol, table, dl {
   margin:0 0 22px;
-}
-
-.wjs-paragraph {
-  color: @purple;
-  padding: 10px;
-}
-
-.wjs-line {
-  border: 0 none solid;
-  border-top: 1px @purple solid;
-  border-bottom: 1px @black solid;
-}
-
-.no-hero {
-    margin: 0;
-    background: none;
-    padding: 0 60px;
 }
 
 a {
@@ -63,7 +39,7 @@ a {
 
 header {
   background: lighten(@black, 60%) !important;
-  margin-top: 40px !important;
+  margin-bottom: 20px;
 }
 
 pre {
@@ -95,20 +71,8 @@ pre {
   font-family: 'Klavika regular';
 }
 
-.spectacular {
-  font-size: 48px;
-}
-
 ul li {
   margin-left: 20px;
-}
-
-header li a.buttons {
-  padding: 2px;
-}
-
-header li a.github {
-  padding: 2px 2px 2px 20px;
 }
 
 footer p {
@@ -118,12 +82,6 @@ footer p {
   margin: 3px 0;
 }
 
-footer p img {
-  height: 28px;
-  border: 0;
-  margin: 0;
-}
-
 footer p a {
   text-decoration: underline;
   color: @purple;
@@ -131,5 +89,26 @@ footer p a {
 
 /*Carbos ads styles*/
 #carbonads-container {
-  margin-top: 60px;
+  margin-top: 65px;
+  border-bottom: 1px #afafaf solid;
+}
+
+.carbonad {
+  border: 0px green solid!important;
+  background: rgba(0,0,0,.75)!important;
+  width: inherit !important;
+}
+
+.carbonad-image {
+  float: left !important;
+}
+
+.carbonad-text {
+  display: block!important;
+  width: inherit!important;
+}
+
+.carbonad-tag {
+  display: block!important;
+  width: inherit!important;
 }

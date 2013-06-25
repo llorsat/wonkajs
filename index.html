@@ -1,225 +1,111 @@
+
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <link rel="shortcut icon" href="/icons/favicon.ico">
-        <link rel="apple-touch-icon" sizes="144x144" href="/icons/touch-icon-144x144.png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="/icons/touch-icon-114x114.png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="/icons/touch-icon-72x72.png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="/icons/touch-icon-57x57.png" />
-        <link rel="apple-touch-icon" href="/icons/touch-icon-iphone.png" />
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <!-- edit under your own risk -->
-        
-          <link type="text/css" rel="stylesheet" href="main.css?0.0.1">
-        
-        <!-- /edit under your own risk -->
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-        <![endif]-->
-        <div class="navbar navbar-inverse navbar-fixed-top">
-          <div class="navbar-inner">
-            <div class="container">
-              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="brand" href="#">Wonka.js</a>
-              <div class="nav-collapse collapse">
-                <ul class="nav">
-                  <li><a href="https://github.com/llorsat/wonkajs/wiki"><i class="icon-white icon-file"></i> Documentation</a></li>
-                  <li><a href="#demos"><i class="icon-white icon-file"></i> Demos</a></li>
-                  <li><a href="https://github.com/llorsat/wonkajs/zipball/master"><i class="icon-white icon-download-alt"></i> Download ZIP</a></li>
-                  <li><a href="https://github.com/llorsat/wonkajs/tarball/master"><i class="icon-white icon-download-alt"></i> Download TAR</a></li>
-                  <li><a href="https://github.com/llorsat/wonkajs"><i class="icon-white octocat"></i>View On GitHub</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <header>
-          <div class="container">
-            <div class="row">
-              <div class="span8">
-                <a id="logo-container" href="#" title="">
-                  <img id="logo" src="images/wonka-320.png" alt="">
-                </a>
-                <p class="slogan">Enhance your experience developing small or very large frontend projects with programming elegance.</p>
-              </div>
-              <div class="span4">
-                <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/47375/azcarbon_2_1_0_HORIZDARK"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
-              </div>
-            </div>
-          </div>
-        </header>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <!--
+    <link href="bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="bootstrap-responsive.css" rel="stylesheet">-->
+    <link href="main.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
         <div class="container">
-          <section id="main"></section>
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Project name</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form pull-right">
+              <input class="span2" type="text" placeholder="Email">
+              <input class="span2" type="password" placeholder="Password">
+              <button type="submit" class="btn">Sign in</button>
+            </form>
+          </div><!--/.nav-collapse -->
         </div>
+      </div>
+    </div>
 
-        <!-- edit under your own risk -->
-        
-          <script type="text/x-handlebars-template" id="root-main-template">
-  
-  <div class="btn-group pull-right" data-toggle="buttons-radio">
-    <button type="button" class="btn i18n" data-lang="es">Español</button>
-    <button type="button" class="btn i18n" data-lang="en">English</button>
-  </div>
+    <div class="container">
 
-  <h1 class="spectacular">{{ __ "Tutorial" }}</h1>
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>Hello, world!</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+      </div>
 
-  <h1>{{ __ "Install and config" }}</h1>
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="span4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+       </div>
+        <div class="span4">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+      </div>
 
-  <h2>{{ __ "Requirements" }}</h2>
+      <hr>
 
-  <p>{{ __ "To run wonka.js you must have installed node.js." }}</p>
+      <footer>
+        <p>&copy; Company 2013</p>
+      </footer>
 
-  <p><a class="nodejs-button" href="http://nodejs.org" title="Node JS" target="_blank">{{ __ "Install Node.js" }}</a></p>
+    </div> <!-- /container -->
 
-  <h2>{{ __ "Install" }}</h2>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="main.js"></script>
 
-  <p>{{ __ "Install wonka.js as global node module, on your shell type the command:" }}</p>
-
-  <pre><code>$ sudo npm install -g wonkajs</code></pre>
-
-  <h1>{{ __ "Getting started" }}</h1>
-
-  <h2>{{ __ "Create a project" }}</h2>
-
-  <p>{{ __ "First step is create a new project:" }}</p>
-
-  <pre><code>$ wonkajs project library</code></pre>
-
-  <p>{{ __ "This will create a project template that you can use as base for many kinds of web applications." }}</p>
-
-  <h2>{{ __ "Run server" }}</h2>
-
-  <p>{{ __ "To run wonka.js server and verify that is working, just must run inside the project folder:" }}</p>
-
-  <pre><code>$ wonkajs server</code></pre>
-
-  <p>{{ __ "With this command we launch a server on port 9300 by default, but you can change it:" }}</p>
-
-  <pre><code>$ wonkajs server 9700</code></pre>
-
-  <p>{{ __ "Visit your project on:" }}</p>
-
-  <pre><code>http:&#47;&#47;localhost:9300</code></pre>
-
-  <p>{{ __ "or in their case on:" }}</p>
-
-  <pre><code>http:&#47;&#47;localhost:9700</code></pre>
-
-  <h2>{{ __ "First application" }}</h2>
-
-  <p>{{ __ "To create an app, is necessary be on the project folder and run the app command:" }}</p>
-
-  <pre><code>$ wonkajs app books</code></pre>
-
-  <p>{{ __ "When this command run, a router links the Main view on application with a url." }}</p>
-
-  <p>{{ __ "The nomenclature is similar to:" }}</p>
-
-  <pre><code>/#books -> books.views.Main</code></pre>
-
-  <p>{{ __ "When the app is more complex than one level you can create it typing:" }}</p>
-
-  <pre><code>$ wonkajs app books science</code></pre>
-
-  <p>{{ __ "And the router will build:" }}</p>
-
-  <pre><code>/#books/science -> books.science.views.Main</code></pre>
-
-  <p>{{ __ "So finally you can visit your new application on:" }}</p>
-
-  <pre><code>http:&#47;&#47;localhost:9300&#47;#books</code></pre>
-
-  <p>{{ __ "Or in their case:" }}</p>
-
-  <pre><code>http:&#47;&#47;localhost:9300&#47;#books&#47;science</code></pre>
-
-  <h2>{{ __ "Deploy" }}</h2>
-
-  <p>{{ __ "To deploy your project, we recommend compress the project and upload to a server ready to display static content." }}</p>
-
-  <p>{{ __ "To deploy your project, just need to run:" }}</p>
-
-  <pre><code>$ wonkajs deploy</code></pre>
-
-  <p>{{ __ "With this command, will be created a <strong>deploy</strong> folder, that will has the files:" }}</p>
-
-  <ul>
-  <li>index.html</li>
-  <li>main.css</li>
-  <li>main.js</li>
-  <li>images</li>
-  <li>icons</li>
-  <li>languages</li>
-  </ul><p>{{ __ "Upload this folder to any server path, and points your web server to this path and your application will works."}}</p>
-  <p>{{ __ "For more information" }} <a href="https://github.com/llorsat/wonkajs/wiki">{{ __ "read the docs" }}</a>.</p>
-  <footer>
-      <p>{{ __ "With the technology of:" }} <a href="https://github.com/llorsat">llorsat</a></p>
-  </footer>
-</script>
-
-        
-          <script type="text/x-handlebars-template" id="demos-main-template">
-  <h1 class="spectacular">Demos</h1>
-
-  <ul>
-    <li><a href="#demos/todos" title="">Todo list</a></li>
-  </ul>
-
-</script>
-
-        
-          <script type="text/x-handlebars-template" id="demos-todos-main-template">
-  <div class="wjs-header">
-    <h1>
-      Tiny Todo Demo
-    </h1>
-  </div>
-  <div class="hero-unit">
-    <input id="new-todo" class="input-xlarge" type="text" name="" value="" placeholder="Type a todo" autofocus>
-    <p>
-      <small>Enter to save your todo</small>
-    </p>
-    <ul id="todo-list"></ul>
-  </div>
-</script>
-
-        
-          <script type="text/x-handlebars-template" id="demos-todos-todo-template">
-  <input class="toggle" type="checkbox" name="" value="" {{# if completed }}checked{{/ if }}> 
-  <span class="task">{{ title }}</span>
-</script>
-        
-
-        
-          <script type="text/javascript" src="main.js?0.0.1"></script>
-
-          <script type="text/javascript">
-
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-37925656-1']);
-            _gaq.push(['_trackPageview']);
-
-            (function() {
-              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
-
-          </script>
-        
-        <!-- /edit under your own risk -->
-    </body>
+  </body>
 </html>

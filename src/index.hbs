@@ -14,7 +14,7 @@
         <link rel="apple-touch-icon" href="/icons/touch-icon-iphone.png" />
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- edit under your own risk -->
         {{# if development }}
           <link rel="stylesheet/less" href="stylesheets/ui.less">
@@ -29,6 +29,7 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
+
         <div class="navbar navbar-inverse navbar-fixed-top">
           <div class="navbar-inner">
             <div class="container">
@@ -50,23 +51,24 @@
             </div>
           </div>
         </div>
+
         <header>
           <div class="container">
             <div class="row">
-              <div class="span8">
+              <div class="span7">
                 <a id="logo-container" href="#" title="">
                   <img id="logo" src="images/wonka-320.png" alt="">
                 </a>
-                <p class="slogan">Enhance your experience developing small or very large frontend projects with programming elegance.</p>
+                <p class="slogan">Enhance your experience developing small or very large frontend projects with elegance.</p>
               </div>
-              <div class="span4">
-                <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/47375/azcarbon_2_1_0_HORIZDARK"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
-              </div>
+              
+              <div id="carbonads-container" class="span5"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/47375/azcarbon_2_1_0_HORIZDARK"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
             </div>
           </div>
         </header>
+
         <div class="container">
-          <section id="main"></section>
+          <div id="main" class="row"></div>
         </div>
 
         <!-- edit under your own risk -->
