@@ -1,0 +1,51 @@
+{
+  "name": "wonkajs",
+  "version": "1.1",
+  "description": "Develop 100% client side RIAs with backend style.",
+  "keywords": ["framework", "frontend", "javascript", "MVT", "REST", "Web"],
+  "author": {
+    "name": "Julian Ceballos",
+    "email": "julian@pikhub.com",
+    "url": "http://jceb.info"
+  },
+  "company": "Llorsat",
+  "contributors": [{
+    "name": "Vicente Mendoza",
+    "email": "chentepixtol@gmail.com",
+    "url": "http://github.com/chentepixtol"
+  }, {
+    "name": "Josue Camara",
+    "email": "picharras@gmail.com",
+    "url": "http://josuecamara.me"
+  }, {
+    "name": "Juan Purata",
+    "email": "jhonfx85@gmail.com",
+    "url": "http://jhon-fx.blogspot.mx"
+  }],
+  "homepage": "http://wonkajs.com",
+  "dependencies": {
+    "ncp": "",
+    "less": "",
+    "uglify-js2": "https://github.com/mishoo/UglifyJS/archive/v1.3.4.tar.gz",
+    "handlebars": "",
+    "github": ""
+  },
+  "bin": {
+    "wonkajs": "bin/wonkajs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/llorsat/wonkajs"
+  },
+  "preferGlobal": true,
+  "engines": {
+    "node": "*"
+  },
+  "_id": "wonkajs@1.1",
+  "optionalDependencies": {},
+  "_engineSupported": true,
+  "_npmVersion": "1.2.25",
+  "_nodeVersion": "v0.10.10",
+  "_defaultsLoaded": true,
+  "_from": "wonkajs"
+}

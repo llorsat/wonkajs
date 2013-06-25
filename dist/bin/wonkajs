@@ -1,0 +1,73 @@
+#!/usr/bin/env node
+
+var fs = require('fs'),
+    args = process.argv.slice(2),
+    params = process.argv.slice(3),
+    pkg = JSON.parse(fs.readFileSync(__dirname + '/../package.json').toString()),
+    proj = require('../scripts/project.js').builder,
+    app = require('../scripts/application.js').builder,
+    server = require('../scripts/server.js').builder,
+    deploy = require('../scripts/deploy.js').builder,
+    i18n = require('../scripts/i18n.js').builder,
+    pack = require('../scripts/package.js').builder,
+    candy = require('../scripts/candy.js').builder;
+
+var usage = '\nWonkajs frontend framework for backend developers\n\n'
+  + '{usage} wonkajs subcommand [options] [args]\n\n'
+  + 'Options:\n'
+  + '   -v,   --version   Outputs the version of wonka js that you have installed\n'
+  + '   -h,   --help      Outputs help information\n\n'
+  + 'Available subcommands:\n'
+  + '   p,    project     Create new project\n'
+  + '   a,    app         Create new application\n'
+  + '   s,    server      Run server for development\n'
+  + '   i,    i18n        Generate internationalization files\n'
+  + '   d,    deploy      Compile js, css and html files for deploy\n'
+  + '   pkg,  package     Build a wonka.js module from any application\n'
+  + '   c,    candy       Download and install wonka.js 3th party modules\n';
+
+var command = args[0];
+
+var commands = {
+  'p': proj,
+  'project': proj,
+  's': server,
+  'server': server,
+  'a': app,
+  'app': app,
+  'd': deploy,
+  'deploy': deploy,
+  'i': i18n,
+  'i18n': i18n,
+  'pkg': pack,
+  'package': pack,
+  'c': candy,
+  'candy': candy
+};
+
+var run = function(args) {
+  if(args.length == 2) {
+    var param = args[1];
+    commands[command](param);
+  } else {
+    commands[command](params);
+  }
+}
+
+var stop = function(message) {
+  console.log(message);
+  process.exit();
+}
+
+if(args.length == 0) {
+  stop(usage);
+} else if(command == '-h' || command == '--help') {
+  stop(usage);
+} else if(command == '-v' || command == '--version') {
+  stop(pkg.version);
+} else if(commands.hasOwnProperty(command)) {
+  run(args);
+} else {
+  console.log(command + ': is not a valid argument');
+  console.log('If you need help run: $ wonkajs --help');
+}

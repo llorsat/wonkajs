@@ -1,9 +1,14 @@
 #!/bin/bash
 
-cp -r templates dist/
-cp -r scripts dist/
-cp -r lib dist/
-cp -r bin dist/
+mkdir dist
+mkdir dist/templates
+mkdir dist/scripts
+mkdir dist/lib
+mkdir dist/bin
+cp -r ./templates/* dist/templates/
+cp -r ./scripts/* dist/scripts/
+cp -r ./lib/* dist/lib/
+cp -r ./bin/* dist/bin/
 cp package.json dist/
 cp LICENSE-MIT dist/
 cp README.md dist/
