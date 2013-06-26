@@ -6394,6 +6394,13 @@ footer p a {
   text-decoration: underline;
   color: #130722;
 }
+.text-center {
+  text-align: center;
+}
+.banner {
+  background: #bfbfbf;
+  padding-bottom: 25px;
+}
 /*Carbos ads styles*/
 #carbonads-container {
   margin-top: 65px;
