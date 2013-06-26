@@ -1,10 +1,10 @@
 {
   "name": "wonkaweb",
   "description": "Write a little bit about this project",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "",
   "homepage": "",
-  "_id": "wonkaweb@0.0.1",
+  "_id": "wonkaweb@0.0.2",
   "settings": {
     "storage_engine": "localStorage",
     "i18n": {
