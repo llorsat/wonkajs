@@ -1,42 +1,46 @@
-# Wonka.js - Enhance your experience developing small or very large frontend projects with elegance.
+# Wonka.js
 
-# Getting started
+Enhance your experience developing small or very large frontend projects with elegance.
 
-## Requirements
+## Install and configure
 
-To run wonkajs you must have installed node.js and npm:
+### Requirements
 
-[Follow the instructions](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager)
+To run wonka.js you must have installed node.js.
+
+[Install node](http://nodejs.org)
 
 ## Install
 
 Install wonka.js as global node module, on your shell type the command:
 
-```
+```sh
 $ sudo npm install -g wonkajs
 ```
 
-## Create a project
+## Getting started
+
+### Create a project
 
 First step is create a new project:
 
-```
+```sh
 $ wonkajs project demo
 ```
 
 This will create a project template that you can use as base for many kinds of web applications.
 
-## Run server
+### Run server
 
-To run wonkajs server and verify that's working, just must run inside the project folder:
+To run wonka.js server and verify that is working, just must run inside the project folder:
 
-```
+```sh
 $ wonkajs server
 ```
 
 With this command we launch a server on port 9300 by default, but you can change it:
 
-```
+```sh
 $ wonkajs server 9700
 ```
 
@@ -46,17 +50,17 @@ Visit your project on:
 http://localhost:9300
 ```
 
-or in their case:
+or in their case on:
 
 ```
 http://localhost:9700
 ```
 
-## First application
+### First application
 
 To create an app, is necessary be on the project folder and run the app command:
 
-```
+```sh
 $ wonkajs app books
 ```
 
@@ -64,13 +68,13 @@ When this command run, a router links the Main view on application with a url.
 
 The nomenclature is similar to:
 
-```
+```sh
 /#books -> books.views.Main
 ```
 
 When the app is more complex than one level you can create it typing:
 
-```
+```sh
 $ wonkajs app books science
 ```
 
@@ -93,22 +97,25 @@ Or in their case:
 http://localhost:9300/#books/science
 ```
 
-For more information [read our documentation](https://github.com/llorsat/wonkajs/wiki).
+### Deploy
 
-## Thanks guys, for help
+To deploy your project, we recommend compress the project and upload to a server ready to display static content.
 
-* @chentepixtol
-* @josuecamara
-* @jhonfx_
-* @jceb
+To deploy your project, just need to run:
 
-## We need your help!
+```sh
+$ wonkajs deploy
+```
 
-Wonka.js is a open source project, we need your help, if you want to contribute: 
+With this command, will be created a deploy folder, that will has the files:
 
-* Create an issue on our [issue tracker](https://github.com/julianceballos/wonkajs/issues).
+* index.html
+* main.css
+* main.js
+* images
+* icons
+* languages
 
-* Join to our irc channel on **irc.freenode.net #wonkajs**
-* Suscribe on our email list: https://groups.google.com/d/forum/wonkajs.
-* Follow us on Twitter: https://twitter.com/wonkajs.
+Upload this folder to any server path, and points your web server to this path and your application will works.
 
+For more information [read the docs](https://github.com/llorsat/wonkajs/wiki).
