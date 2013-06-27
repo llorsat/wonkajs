@@ -2,27 +2,35 @@
   "name": "wonkajs",
   "version": "1.1.0",
   "description": "Enhance your experience developing small or very large frontend projects with elegance.",
+  "homepage": "http://wonkajs.com",
+  "company": "Llorsat",
   "keywords": ["framework", "frontend", "javascript", "MVT", "REST", "Web"],
   "author": {
     "name": "Julian Ceballos",
-    "email": "julian@pikhub.com",
-    "url": "http://jceb.info"
+    "email": "julian@lastroom.mx",
+    "url": "https://github.com/julianceballos"
   },
-  "company": "Llorsat",
   "contributors": [{
     "name": "Vicente Mendoza",
     "email": "chentepixtol@gmail.com",
-    "url": "http://github.com/chentepixtol"
+    "url": "https://github.com/chentepixtol"
   }, {
     "name": "Josue Camara",
     "email": "picharras@gmail.com",
-    "url": "http://josuecamara.me"
+    "url": "https://github.com/picharras"
+  }, {
+    "name": "Rich Peniche",
+    "email": "richpeniche@gmail.com",
+    "url": "https://twitter.com/richpeniche"
   }, {
     "name": "Juan Purata",
     "email": "jhonfx85@gmail.com",
-    "url": "http://jhon-fx.blogspot.mx"
+    "url": "https://github.com/jhonfx"
+  }, {
+    "name": "Christian Rodriguez",
+    "email": "crodriguez@llorsat.com.mx",
+    "url": "https://github.com/kalmecak"
   }],
-  "homepage": "http://wonkajs.com",
   "dependencies": {
     "ncp": "",
     "less": "",
