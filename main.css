@@ -5288,6 +5288,10 @@ header {
   }
 }
 @media (max-width: 767px) {
+  header {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
   .hidden-desktop {
     display: inherit !important;
   }
