@@ -6351,7 +6351,7 @@ dl {
   margin: 0 0 22px;
 }
 a {
-  color: #130722;
+  color: #61449a;
 }
 header {
   background: #999999 !important;
@@ -6392,7 +6392,7 @@ footer p {
 }
 footer p a {
   text-decoration: underline;
-  color: #130722;
+  color: #61449a;
 }
 .text-center {
   text-align: center;
@@ -6400,6 +6400,26 @@ footer p a {
 .banner {
   background: #bfbfbf;
   padding-bottom: 25px;
+}
+.human p {
+  font-size: 24px;
+  font-family: 'Klavika Regular';
+  line-height: 10px;
+  color: gray;
+}
+.human a {
+  color: #000000;
+  text-decoration: none;
+}
+.human a img {
+  border: none;
+  border-radius: 300px;
+  -webkit-filter: hue-rotate(180deg) grayscale(100%);
+  -moz-filter: hue-rotate(180deg) grayscale(100%);
+  -o-filter: hue-rotate(180deg) grayscale(100%);
+  -ms-filter: hue-rotate(180deg) grayscale(100%);
+  filter: hue-rotate(180deg) grayscale(100%);
+  margin-bottom: 20px;
 }
 /*Carbos ads styles*/
 #carbonads-container {
