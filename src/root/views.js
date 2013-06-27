@@ -17,7 +17,7 @@
         },
         render: function() {
             var me = this;
-            me.$html(me.template());
+            me.$el.html(me.template());
             me.$('[data-lang="' + getLanguage() + '"]').addClass('active');
             return me;
         },
@@ -26,6 +26,19 @@
             var target = me.$(e.currentTarget);
             setLanguage(target.data('lang'));
             location.reload(true);
+        }
+    });
+
+    views.Credits = Bb.View.extend({
+        template: getTemplate('credits'),
+        initialize: function() {
+            var me = this;
+            me.render();
+        },
+        render: function() {
+            var me = this;
+            me.$el.html(me.template());
+            return me;
         }
     })
 
