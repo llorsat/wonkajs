@@ -10,7 +10,7 @@ To run wonka.js you must have installed node.js.
 
 [Install node](http://nodejs.org)
 
-## Install
+### Install
 
 Install wonka.js as global node module, on your shell type the command:
 
