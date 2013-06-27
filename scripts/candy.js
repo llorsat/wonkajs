@@ -57,33 +57,53 @@ var githubClone = function(user, repo, name) {
   });
 }
 
-module.exports.builder = function(name) {
+var getCandy = function(name) {
+  var candiesURL = 'http://candiesapi.rcchristiane.com.mx/candies';
 
-  var githubURL = modules[name];
+  var http = require('http');
 
-  var urlComs = githubURL.replace('https://', '').replace('http://', '').split('/');
-
-  var user = urlComs[1];
-
-  var repo = urlComs[2];
-
-  var https = require('https');
-  
   var options = {
-    host : 'raw.github.com',
-    path : '/' + user + '/' + repo + '/master/package.json',
-    method : 'GET'
+    host: 'candiesapi.rcchristiane.com.mx',
+    path: '/candies',
+    method: 'GET'
   };
 
-  var request = https.request(options, function(response) {
-    var body = '';
+  var request = http.request(options, function(response) {
     response.on('data', function(chunk) {
-      var pkg = JSON.parse(chunk);
-      if (pkg.name == name) {
-        githubClone(user, repo, name);
-      }
-    });  
-  });  
+      var candies = JSON.parse(chunk);
+      console.log(candies);
+    });
+  });
   request.end();
+}
 
+module.exports.builder = function(name) {
+  getCandy(name, function(candy) {
+    var githubURL = modules[name];
+
+    var urlComs = githubURL.replace('https://', '').replace('http://', '').split('/');
+
+    var user = urlComs[1];
+
+    var repo = urlComs[2];
+
+    var https = require('https');
+    
+    var options = {
+      host : 'raw.github.com',
+      path : '/' + user + '/' + repo + '/master/package.json',
+      method : 'GET'
+    };
+
+    var request = https.request(options, function(response) {
+      var body = '';
+      response.on('data', function(chunk) {
+        var pkg = JSON.parse(chunk);
+        if (pkg.name == name) {
+          githubClone(user, repo, name);
+        }
+      });  
+    });  
+    request.end();
+  });
 }
