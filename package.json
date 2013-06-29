@@ -7,6 +7,10 @@
   "_id": "wonkaweb@0.0.1",
   "settings": {
     "storage_engine": "localStorage",
+    "api": "https://api.foursquare.com/v2/",
+    "endpoints": [
+      "venues"
+    ],
     "i18n": {
       "languages": [
         "en",
@@ -56,7 +60,8 @@
       "applications": [
         "root",
         "demos",
-        "demos/todos"
+        "demos/todos",
+        "demos/apiconsole"
       ]
     }
   }

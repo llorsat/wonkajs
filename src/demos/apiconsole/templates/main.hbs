@@ -1,0 +1,44 @@
+<script type="text/x-handlebars-template" id="demos-apiconsole-main-template">
+  <div class="wjs-header">
+    <h1>
+      <p class="container">API Console</p>
+    </h1>
+  </div>
+  <div class="container">
+    <br>
+    <form action="" class="form-inline">
+      <table class="table">
+        <tr>
+          <td>
+            <select name="verb" class="input-small">
+              <option value="get">GET</option>
+              <option value="post">POST</option>
+              <option value="put">PUT</option>
+              <option value="delete">DELETE</option>
+            </select>
+          </td>
+          <td>
+            <label>{{ base_url }}</label>
+            <select name="endpoint" class="input-normal">
+              {{# each endpoints }}
+              <option value="{{ this }}">{{ this }}</option>
+              {{/ each }}
+            </select>
+            <label>/</label>
+            <input name="id" type="text" class="input-normal">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <textarea name="params" id="" cols="30" rows="10"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><button class="btn btn-large btn-primary" type="submit">Make request</button></td>
+        </tr>
+      </table>
+    </form>
+    <br>
+    <div id="results"></div>
+  </div>
+</script>

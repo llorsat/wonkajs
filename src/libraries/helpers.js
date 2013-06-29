@@ -84,10 +84,6 @@ function setLanguage(language) {
   }
 };
 
-function getLanguage() {
-  return window[App.pkg.settings.storage_engine][App.pkg._id + '-language'];
-}
-
 //Create a new namespace
 function namespace() {
   var args = Array.prototype.slice.call(arguments);
@@ -114,11 +110,6 @@ function __(stringToTranslate) {
 //Handlebars helper for localize string
 Handlebars.registerHelper("__", function(string) {
   return __(string);
-});
-
-Handlebars.registerHelper("equals", function(arg0, arg1) {
-  console.log(arg0, arg1);
-  return arg0 == arg1;
 });
 
 //Authentication validation

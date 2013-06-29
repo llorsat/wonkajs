@@ -1,12 +1,11 @@
 {
-  "name": "wonkaweb",
-  "description": "Write a little bit about this project",
-  "version": "0.0.2",
-  "author": "",
-  "homepage": "",
-  "_id": "wonkaweb@0.0.2",
   "settings": {
     "storage_engine": "localStorage",
+    "api": "https://api.foursquare.com/v2/",
+    "endpoints": [
+      "venues/search",
+      "venues"
+    ],
     "i18n": {
       "languages": [
         "en",
@@ -41,19 +40,20 @@
       ],
       "libraries": [
         "jquery",
-        "jquery.easing",
-        "jquery.ui",
-        "spin",
         "bootstrap",
         "handlebars",
         "underscore",
         "backbone",
         "globalize",
-        "jquery.vitrine",
-        "jquery.vitrine.helpers",
-        "backbone.extensions",
-        "handlebars.helpers",
+        "codemirror",
+        "placeholder",
+        "runmode",
+        "matchbrackets",
+        "closebrackets",
+        "active-line",
+        "javascript",
         "console",
+        "apitest",
         "helpers"
       ],
       "main_files": [
@@ -64,8 +64,15 @@
       "applications": [
         "root",
         "demos",
-        "demos/todos"
+        "demos/todos",
+        "demos/apiconsole"
       ]
     }
-  }
+  },
+  "name": "wonkaweb",
+  "description": "Write a little bit about this project",
+  "version": "0.0.2",
+  "author": "",
+  "homepage": "",
+  "_id": "wonkaweb@0.0.2"
 }
