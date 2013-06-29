@@ -23,7 +23,7 @@
     },
     render: function() {
       var me = this;
-      me.$html(me.template());
+      me.$el.html(me.template());
       return me;
     },
     onAddTodo: function(e) {
@@ -54,7 +54,7 @@
     },
     render: function() {
       var me = this;
-      me.$html(me.template(me.model.toJSON()));
+      me.$el.html(me.template(me.model.toJSON()));
       return me;
     },
     onToggle: function(e) {
