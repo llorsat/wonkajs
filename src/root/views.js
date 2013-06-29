@@ -40,6 +40,19 @@
             me.$el.html(me.template());
             return me;
         }
+    });
+
+    views.Companies = Bb.View.extend({
+        template: getTemplate('companies'),
+        initialize: function() {
+            var me = this;
+            me.render();
+        },
+        render: function() {
+            var me = this;
+            me.$el.html(me.template());
+            return me;
+        }
     })
 
 })(root);

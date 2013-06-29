@@ -4,7 +4,8 @@
     
     routes: {
       '': 'main',
-      'credits': 'credits'
+      'credits': 'credits',
+      'companies': 'companies'
     },
 
     main: function() {
@@ -15,6 +16,12 @@
 
     credits: function() {
       var view = new namespace.views.Credits({
+        el: $('#main')
+      });
+    },
+
+    companies: function() {
+      var view = new namespace.views.Companies({
         el: $('#main')
       });
     }
