@@ -3,9 +3,7 @@ var fs = require('fs'),
     exec = require('child_process').exec,
     utils = require('../lib/utils.js');
 
-var modules = {
-  'auth': 'https://github.com/julianceballos/candydemo'
-}
+var CANDIES_HOST = 'candiesapi.rcchristiane.com.mx';
 
 var githubClone = function(user, repo, name) {
   var projectDir = process.cwd();
@@ -24,9 +22,9 @@ var githubClone = function(user, repo, name) {
 
   github.repos.get({
     'user': user,
-    'repo': repo
+    'repo': repo.replace('.git', '')
   }, function(a, info) {
-    exec('git clone ' + info.clone_url + ' ' + name, function() {
+    exec('git clone ' + info.clone_url.replace('.git', '') + ' ' + name, function() {
       var pkgModPath = path.join(projectDir, name, 'package.json');
       var pkgMod = JSON.parse(fs.readFileSync(pkgModPath).toString());
 
@@ -57,29 +55,32 @@ var githubClone = function(user, repo, name) {
   });
 }
 
-var getCandy = function(name) {
-  var candiesURL = 'http://candiesapi.rcchristiane.com.mx/candies';
-
+var getCandy = function(name, callback) {
   var http = require('http');
 
   var options = {
-    host: 'candiesapi.rcchristiane.com.mx',
-    path: '/candies',
+    host: CANDIES_HOST,
+    path: '/candies/candy/' + name,
     method: 'GET'
   };
 
   var request = http.request(options, function(response) {
     response.on('data', function(chunk) {
-      var candies = JSON.parse(chunk);
-      console.log(candies);
+      var candy = JSON.parse(chunk);
+      if (candy.hasOwnProperty('Candy')) {
+        callback(candy.Candy.url);
+      } else {
+        console.info('Sorry, but', name, 'candy was not found!');
+      }
     });
   });
   request.end();
 }
 
 module.exports.builder = function(name) {
-  getCandy(name, function(candy) {
-    var githubURL = modules[name];
+  getCandy(name, function(githubURL) {
+
+    console.log(githubURL);
 
     var urlComs = githubURL.replace('https://', '').replace('http://', '').split('/');
 
@@ -91,7 +92,7 @@ module.exports.builder = function(name) {
     
     var options = {
       host : 'raw.github.com',
-      path : '/' + user + '/' + repo + '/master/package.json',
+      path : '/' + user + '/' + repo.replace('.git', '') + '/master/package.json',
       method : 'GET'
     };
 
