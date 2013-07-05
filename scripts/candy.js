@@ -80,8 +80,6 @@ var getCandy = function(name, callback) {
 module.exports.builder = function(name) {
   getCandy(name, function(githubURL) {
 
-    console.log(githubURL);
-
     var urlComs = githubURL.replace('https://', '').replace('http://', '').split('/');
 
     var user = urlComs[1];

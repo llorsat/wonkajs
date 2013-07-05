@@ -1,6 +1,7 @@
 var utils = require('../lib/utils.js'),
     fs = require('fs'),
-    path = require('path');
+    path = require('path'),
+    exec = require('child_process').exec;
 
 var arch = {
   'root': 'root',
@@ -18,6 +19,14 @@ var arch = {
   'security/crossdomain.xml': 'crossdomain.xml',
   'index.hbs': 'index.hbs'
 };
+
+var done = function(name) {
+  console.info('Project created');
+  console.info('=============================================');
+  console.info('Now run:');
+  console.info('$ cd ' + name);
+  console.info('$ wonkajs server');
+}
 
 module.exports.builder = function(name) {
   var existsSync = fs.existsSync || path.existsSync;
@@ -39,15 +48,21 @@ module.exports.builder = function(name) {
     name: name
   });
   utils.writeFile('package.json', output);
+  var counter = 0;
   for (var i in arch) {
     var src = path.join(__dirname, '..', 'templates', i);
     var dest = path.join(projectDir, arch[i]);
-    utils.copy(src, dest);
+    utils.copy(src, dest, function() {
+      if (counter==13) {
+        try {
+          exec('git init && git add * && git commit -a -m "first commit"', {cwd: projectDir}, function() {
+            done(name);
+          });
+        } catch(e) {
+          done(name);
+        }
+      }
+      counter++;
+    });
   }
-  console.info('Project created');
-  console.info('=============================================');
-  console.info('Now run:');
-  console.info('$ cd ' + name);
-  console.info('$ wonkajs server');
-  
 }
