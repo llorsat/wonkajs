@@ -1,6 +1,6 @@
 {
-    "name": "%(name)s",
     "version": "0.0.1",
+    "name": "%(name)s",
     "description": "Write a little bit about this project",
     "launch_path": "/index.html",
     "fullscreen": false,
