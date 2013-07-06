@@ -5,7 +5,7 @@
     "launch_path": "/index.html",
     "fullscreen": "false",
     "orientation": ["portrait"],
-    "type": "privileged",
+    "type": "web",
     "icons": {
         "16": "/icons/icon-16.png",
         "48": "/icons/icon-48.png",
@@ -16,8 +16,5 @@
         "url": "http://jceb.info"
     },
     "installs_allowed_from": ["*"],
-    "default_locale": "en",
-    "permissions": {
-        "systemXHR": {}
-    }
+    "default_locale": "en"
 }
