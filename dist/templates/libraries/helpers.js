@@ -127,6 +127,49 @@ function isAuthenticated() {
   return !window.user.get('empty');
 }
 
+window.isMobile = {
+  Android: function() {
+    return navigator.userAgent.match(/Android/i);
+  },
+  BlackBerry: function() {
+    return navigator.userAgent.match(/BlackBerry/i);
+  },
+  iOS: function() {
+    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+  },
+  Opera: function() {
+    return navigator.userAgent.match(/Opera Mini/i);
+  },
+  Windows: function() {
+    return navigator.userAgent.match(/IEMobile/i);
+  },
+  FXOS: function() {
+    var re = new RegExp('^(.*)Mobile(.*)Firefox(.*)$', 'gi');
+    return re.test(navigator.userAgent);
+  },
+  any: function() {
+    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows() || isMobile.FXOS);
+  }
+};
+
+function checkInstallation(callback) {
+  var install = false;
+  if (isMobile.FXOS) {
+    var test = navigator.mozApps.checkInstalled(App.pkg.homepage);
+    test.onerror = function(e) {
+      alert('ERROR:' + request.error.name);
+    }
+    test.onsuccess = function(e) {
+      if (test.result) {
+        install = false;
+      } else {
+        install = true;
+      }
+      callback(install);
+    }
+  }
+};
+
 //Backbone Router extensions
 _.extend(Backbone.Router.prototype, {
   route: function(route, name, callback) {

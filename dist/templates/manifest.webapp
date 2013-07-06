@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "description": "Write a little bit about this project",
     "launch_path": "/index.html",
-    "fullscreen": false,
+    "fullscreen": "false",
     "orientation": ["portrait"],
     "type": "web",
     "icons": {
@@ -12,26 +12,9 @@
         "128": "/icons/icon-128.png"
     },
     "developer": {
-        "name": "",
-        "url": ""
+        "name": "JCeb",
+        "url": "http://jceb.info"
     },
     "installs_allowed_from": ["*"],
-    "locales": {
-        "es": {
-            "description": "",
-            "developer": {
-                "url": ""
-            }
-        },
-        "it": {
-            "description": "",
-            "developer": {
-                "url": ""
-            }
-        }
-    },
-    "default_locale": "en",
-    "permissions": {
-        "systemXHR": {}
-    }
+    "default_locale": "en"
 }

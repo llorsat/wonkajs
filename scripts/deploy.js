@@ -51,6 +51,12 @@ module.exports.builder = function() {
   fs.writeFile(path.join(projectDir, 'deploy', 'manifest.webapp'), JSON.stringify(manifest, null, 2), function (err) {
     if (err) throw err;
   });
+
+  if (pkg.settings.fxos.type == 'native+web') {
+    //TODO: generate zipfile on deploy folder
+  } else if(pkg.settings.fxos.type == 'native') {
+    //TODO: generate zipfile and remove content on deploy folder
+  }
   
   console.info('Project ready for deploy');
   console.info('=============================================');

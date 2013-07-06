@@ -1,5 +1,8 @@
 {
   "settings": {
+    "fxos": {
+      "type": "web"
+    },
     "storage_engine": "localStorage",
     "api": "",
     "i18n": {
