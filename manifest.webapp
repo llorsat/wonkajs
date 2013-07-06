@@ -3,7 +3,7 @@
     "version": "0.0.2",
     "description": "Write a little bit about this project",
     "launch_path": "/index.html",
-    "fullscreen": false,
+    "fullscreen": "false",
     "orientation": ["portrait"],
     "type": "privileged",
     "icons": {
