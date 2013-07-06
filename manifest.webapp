@@ -12,24 +12,10 @@
         "128": "/icons/icon-128.png"
     },
     "developer": {
-        "name": "",
-        "url": ""
+        "name": "JCeb",
+        "url": "http://jceb.info"
     },
     "installs_allowed_from": ["*"],
-    "locales": {
-        "es": {
-            "description": "",
-            "developer": {
-                "url": ""
-            }
-        },
-        "it": {
-            "description": "",
-            "developer": {
-                "url": ""
-            }
-        }
-    },
     "default_locale": "en",
     "permissions": {
         "systemXHR": {}
