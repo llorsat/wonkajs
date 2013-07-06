@@ -152,24 +152,6 @@ window.isMobile = {
   }
 };
 
-function checkInstallation(callback) {
-  var install = false;
-  if (isMobile.FXOS) {
-    var test = navigator.mozApps.checkInstalled(App.pkg.homepage);
-    test.onerror = function(e) {
-      alert('ERROR:' + request.error.name);
-    }
-    test.onsuccess = function(e) {
-      if (test.result) {
-        install = false;
-      } else {
-        install = true;
-      }
-      callback(install);
-    }
-  }
-};
-
 //Backbone Router extensions
 _.extend(Backbone.Router.prototype, {
   route: function(route, name, callback) {

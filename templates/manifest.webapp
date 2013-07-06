@@ -1,20 +1,24 @@
 {
-    "name": "%(name)s",
-    "version": "0.0.1",
-    "description": "Write a little bit about this project",
-    "launch_path": "/index.html",
-    "fullscreen": "false",
-    "orientation": ["portrait"],
-    "type": "web",
-    "icons": {
-        "16": "/icons/icon-16.png",
-        "48": "/icons/icon-48.png",
-        "128": "/icons/icon-128.png"
-    },
-    "developer": {
-        "name": "JCeb",
-        "url": "http://jceb.info"
-    },
-    "installs_allowed_from": ["*"],
-    "default_locale": "en"
+  "name": "%(name)s",
+  "version": "0.0.1",
+  "description": "Write a little bit about this project",
+  "launch_path": "index.html",
+  "fullscreen": "false",
+  "type": "web",
+  "orientation": [
+    "portrait"
+  ],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "developer": {
+    "name": "name",
+    "url": "http://url.com"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en"
 }

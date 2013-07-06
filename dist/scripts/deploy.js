@@ -1,7 +1,8 @@
 var fs = require('fs'),
     path = require('path'),
     hbs = require('handlebars'),
-    utils = require('../lib/utils.js');
+    utils = require('../lib/utils.js'),
+    zip = require("adm-zip");
 
 module.exports.builder = function() {
   var existsSync = fs.existsSync || path.existsSync;
@@ -52,10 +53,10 @@ module.exports.builder = function() {
     if (err) throw err;
   });
 
-  if (pkg.settings.fxos.type == 'native+web') {
-    //TODO: generate zipfile on deploy folder
-  } else if(pkg.settings.fxos.type == 'native') {
-    //TODO: generate zipfile and remove content on deploy folder
+  if(manifest.type == 'privileged' || manifest.type == 'certified') {
+    var archive = new zip();
+    archive.addLocalFolder(path.join(projectDir, 'deploy'));
+    archive.writeZip(path.join(projectDir, 'deploy.zip'));
   }
   
   console.info('Project ready for deploy');

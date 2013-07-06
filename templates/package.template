@@ -1,8 +1,5 @@
 {
   "settings": {
-    "fxos": {
-      "type": "web"
-    },
     "storage_engine": "localStorage",
     "api": "",
     "i18n": {
@@ -42,7 +39,8 @@
         "backbone",
         "handlebars",
         "globalize",
-        "helpers"
+        "helpers",
+        "install"
       ],
       "main_files": [
         "listeners",
