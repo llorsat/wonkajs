@@ -51,6 +51,9 @@ var githubClone = function(user, repo, name) {
 
       fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
 
+      fs.unlinkSync(path.join(modulePath, 'package.json'));
+      fs.unlinkSync(path.join(modulePath, 'README.md'));
+
     });
   });
 }
