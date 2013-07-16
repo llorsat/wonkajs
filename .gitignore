@@ -14,3 +14,4 @@ results
 npm-debug.log
 
 src/deploy
+node_modules
