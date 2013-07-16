@@ -143,6 +143,13 @@
     } else if (install.state == 'installed' || install.state == 'unsupported') {
       $('#install-bar').hide();
     }
+
+    //If FXOS and is installable show
+    if (window.isMobile.FXOS() && App.pkg.settings.installable) {
+      $('#install-bar').slideDown('slow');
+    } else {
+      $('#install-bar').hide();
+    }
   }
 
   $('#install-button').on('click', function() {

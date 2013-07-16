@@ -1,5 +1,6 @@
 {
   "settings": {
+    "installable": true,
     "storage_engine": "localStorage",
     "api": "",
     "i18n": {
