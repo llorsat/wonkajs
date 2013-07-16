@@ -84,6 +84,10 @@ function setLanguage(language) {
   }
 };
 
+function getLanguage() {
+  return window[App.pkg.settings.storage_engine][App.pkg._id + '-language'];
+}
+
 //Create a new namespace
 function namespace() {
   var args = Array.prototype.slice.call(arguments);

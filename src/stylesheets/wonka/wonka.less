@@ -39,8 +39,9 @@ a {
 }
 
 header {
-  background: lighten(@black, 60%) !important;
-  margin-bottom: 20px;
+  background: url("@{images-route}/bg.png") center center no-repeat;
+  padding-top: 40px;
+  margin-top: 20px;
 }
 
 [class^="icon-"],
@@ -118,13 +119,27 @@ footer p a {
 
 /*Carbos ads styles*/
 #carbonads-container {
-  margin-top: 65px;
-  border-bottom: 1px #afafaf solid;
+  margin-top: 33px;
+  border-bottom: 1px #341c52 solid;
+  border-top: 1px #200f31 solid;
 }
 
 .carbonad {
   border: 0px green solid!important;
-  background: rgba(0,0,0,.75)!important;
+  //background: rgba(0,0,0,.75)!important;
+  background-image: linear-gradient(bottom, #2B1742 100%, #1F0E30 0%);
+  background-image: -o-linear-gradient(bottom, #2B1742 100%, #1F0E30 0%);
+  background-image: -moz-linear-gradient(bottom, #2B1742 100%, #1F0E30 0%);
+  background-image: -webkit-linear-gradient(bottom, #2B1742 100%, #1F0E30 0%);
+  background-image: -ms-linear-gradient(bottom, #2B1742 100%, #1F0E30 0%);
+
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(1, #2B1742),
+    color-stop(0, #1F0E30)
+  );
   width: inherit !important;
 }
 
@@ -135,9 +150,20 @@ footer p a {
 .carbonad-text {
   display: block!important;
   width: inherit!important;
+  color: #e1dceb;
 }
 
 .carbonad-tag {
   display: block!important;
   width: inherit!important;
+  color: #e1dceb;
+}
+
+.twitter-follow-button {
+  margin-bottom: -15px;
+  margin-left: 50px;
+}
+
+ul.nav li {
+  margin-left: 0!important;
 }
