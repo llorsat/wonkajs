@@ -54,9 +54,7 @@ module.exports.builder = function() {
   });
 
   if(manifest.type == 'privileged' || manifest.type == 'certified') {
-    var archive = new zip();
-    archive.addLocalFolder(path.join(projectDir, 'deploy'));
-    archive.writeZip(path.join(projectDir, 'deploy.zip'));
+    //TODO: Generate zip file for marketplace
   }
   
   console.info('Project ready for deploy');

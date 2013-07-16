@@ -22,8 +22,6 @@
    *
    */
   App.install = function() {
-    console.log(install.type + 'Install');
-    console.log(install[install.type + 'Install']);
     var fn = install[install.type + 'Install'];
     if (fn) {
       fn();
@@ -55,7 +53,6 @@
     if (navigator.mozApps) {
       //Mozilla web apps
       install.type = 'mozilla';
-      console.log(navigator.mozApps);
       request = navigator.mozApps.checkInstalled(install.mozillaInstallUrl);
       request.onsuccess = function() {
         if (this.result) {
@@ -141,10 +138,16 @@
   install.check();
 
   var updateIndex = function() {
-    console.log(install.state);
     if (install.state == 'uninstalled') {
       $('#install-bar').show();
     } else if (install.state == 'installed' || install.state == 'unsupported') {
+      $('#install-bar').hide();
+    }
+
+    //If FXOS and is installable show
+    if (window.isMobile.FXOS() && App.pkg.settings.installable) {
+      $('#install-bar').slideDown('slow');
+    } else {
       $('#install-bar').hide();
     }
   }

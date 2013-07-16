@@ -9,6 +9,7 @@
     },
 
     main: function() {
+      App.loadingBar.show();
       new views.Main({
         el: $('#container')
       });

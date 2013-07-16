@@ -84,6 +84,10 @@ function setLanguage(language) {
   }
 };
 
+function getLanguage() {
+  return window[App.pkg.settings.storage_engine][App.pkg._id + '-language'];
+}
+
 //Create a new namespace
 function namespace() {
   var args = Array.prototype.slice.call(arguments);
@@ -151,6 +155,45 @@ window.isMobile = {
     return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows() || isMobile.FXOS);
   }
 };
+
+App.loadingBar = {
+  show: function() {
+    $('#progress-bar').val(0);
+    $('#loading-bar').slideDown('fast');
+  },
+  deferred: $.Deferred(),
+  changed: function(callback) {
+    var me = this;
+    me.deferred.done(callback);
+  },
+  set: function(percent) {
+    var me = this;
+    var value = $('#progress-bar').val(),
+    max = percent,
+    time = 500/max;
+
+    var loading = function() {
+      value ++;
+      addValue = $('#progress-bar').val(value);
+      
+      if (value == max) {
+        clearInterval(animate);
+        me.deferred.resolve();
+      }
+    };
+    var animate = setInterval(function() {
+      loading();
+    }, time);
+  },
+  hide: function() {
+    var wait = setInterval(function() {
+      $('#loading-bar').slideUp('fast', function() {
+        $('#progress-bar').val(0);
+        clearInterval(wait);
+      });
+    }, 300);
+  }
+}
 
 //Backbone Router extensions
 _.extend(Backbone.Router.prototype, {
