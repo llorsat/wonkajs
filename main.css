@@ -5294,7 +5294,6 @@ header {
     margin-top: 0!important;
     margin-bottom: 10px!important;
     padding-top: 10px!important;
-    background: #211233 !important;
   }
   .twitter-follow-button {
     margin: 10px 0 10px 15px!important;
@@ -6370,7 +6369,7 @@ a {
   color: #130722;
 }
 header {
-  background: url("/images/bg.png") center center no-repeat;
+  background: url("/images/bg.jpg") center center no-repeat;
   padding-top: 40px;
   margin-top: 20px;
 }
