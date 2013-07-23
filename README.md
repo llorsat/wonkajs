@@ -1,6 +1,6 @@
 # Wonka.js
 
-Write javascript webapps easy and fast.
+Write javascript webapps right, easy and fast.
 
 ## Install and configure
 
