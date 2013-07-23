@@ -145,7 +145,8 @@
     }
 
     //If FXOS and is installable show
-    if (window.isMobile.FXOS() && App.pkg.settings.installable) {
+    var installable = App.pkg.settings.installable || false;
+    if (window.isMobile.FXOS() && installable) {
       $('#install-bar').slideDown('slow');
     } else {
       $('#install-bar').hide();
