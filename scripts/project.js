@@ -12,11 +12,6 @@ var arch = {
   'core': 'core',
   'fonts': 'fonts',
   'icons': 'icons',
-  'security/404.html': '404.html',
-  'security/500.html': '500.html',
-  'security/robots.txt': 'robots.txt',
-  'security/humans.txt': 'humans.txt',
-  'security/crossdomain.xml': 'crossdomain.xml',
   'index.hbs': 'index.hbs'
 };
 
