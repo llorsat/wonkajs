@@ -13,7 +13,7 @@ var fs = require('fs'),
 
 var response404 = function(response) {
   response.writeHead(404, {"Content-Type": "text/plain"});
-  response.write(fs.readFileSync(path.join(process.cwd(), '404.html')));
+  response.write('Not found');
   response.end();
 }
 
@@ -31,7 +31,7 @@ var responseDir = function(response, filename) {
 
 var response500 = function(response) {
   response.writeHead(500, {"Content-Type": "text/plain"});
-  response.write(fs.readFileSync(path.join(process.cwd(), '500.html')));
+  response.write('Internal server error');
   response.end();
 }
 
