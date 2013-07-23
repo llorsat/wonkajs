@@ -1,6 +1,6 @@
 # Wonka.js
 
-Enhance your experience developing small or very large frontend projects with elegance.
+Write javascript webapps easy and fast.
 
 ## Install and configure
 
