@@ -36,8 +36,7 @@
     "less": "",
     "uglify-js2": "https://github.com/mishoo/UglifyJS/archive/v1.3.4.tar.gz",
     "handlebars": "",
-    "github": "",
-    "adm-zip": ""
+    "github": ""
   },
   "bin": {
     "wonkajs": "bin/wonkajs"
