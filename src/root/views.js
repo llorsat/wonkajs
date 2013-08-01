@@ -19,6 +19,8 @@
             var me = this;
             me.$el.html(me.template());
             me.$('[data-lang="' + getLanguage() + '"]').addClass('active');
+            App.loadingBar.set(100);
+            App.loadingBar.changed(App.loadingBar.hide);
             return me;
         },
         seti18n: function(e) {
@@ -38,6 +40,8 @@
         render: function() {
             var me = this;
             me.$el.html(me.template());
+            App.loadingBar.set(100);
+            App.loadingBar.changed(App.loadingBar.hide);
             return me;
         }
     });
@@ -51,6 +55,8 @@
         render: function() {
             var me = this;
             me.$el.html(me.template());
+            App.loadingBar.set(100);
+            App.loadingBar.changed(App.loadingBar.hide);
             return me;
         }
     })
