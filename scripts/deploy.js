@@ -1,8 +1,7 @@
 var fs = require('fs'),
     path = require('path'),
     hbs = require('handlebars'),
-    utils = require('../lib/utils.js'),
-    zip = require("adm-zip");
+    utils = require('../lib/utils.js');
 
 module.exports.builder = function() {
   var existsSync = fs.existsSync || path.existsSync;
