@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <link rel="shortcut icon" href="http://24.media.tumblr.com/avatar_7691e9839ef3_128.png">
+        <link rel="shortcut icon" href="/icons/favicon.ico">
         <link rel="apple-touch-icon" sizes="144x144" href="/icons/touch-icon-144x144.png" />
         <link rel="apple-touch-icon" sizes="114x114" href="/icons/touch-icon-114x114.png" />
         <link rel="apple-touch-icon" sizes="72x72" href="/icons/touch-icon-72x72.png" />
@@ -14,7 +14,7 @@
         <link rel="apple-touch-icon" href="/icons/touch-icon-iphone.png" />
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width">
         <!-- edit under your own risk -->
         
           <link type="text/css" rel="stylesheet" href="main.css?0.0.2">
@@ -25,7 +25,12 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
-
+        <div id="loading-bar" class="container-fluid" style="display:none;">
+          <progress id="progress-bar" class="row-fluid" value="0" max="100"></progress>
+        </div>
+        <div id="install-bar" style="display:none;">
+          <button id="install-button">Install</button>
+        </div>
         <div class="navbar navbar-inverse navbar-fixed-top">
           <div class="navbar-inner">
             <div class="container">
@@ -34,15 +39,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="brand" href="#">Wonka.js</a>
+              <a class="brand choice" href="#">Wonka.js</a>
               <div class="nav-collapse collapse">
                 <ul class="nav">
                   <li><a target="_blank" href="https://github.com/llorsat/wonkajs/wiki"><i class="icon-white icon-file"></i> Documentation</a></li>
                   <li><a target="_blank" href="https://github.com/llorsat/wonkajs"><i class="icon-white icon-book"></i> Source code</a></li>
-                  <li><a href="#demos"><i class="icon-white icon-cog"></i> Demos</a></li>
+                  <li><a class="choice" href="#demos"><i class="icon-white icon-cog"></i> Demos</a></li>
                   <li><a target="_blank" href="http://blog.wonkajs.com"><i class="icon-white icon-comment"></i> Blog</a></li>
-                  <li><a href="#credits"><i class="icon-white icon-user"></i> Credits</a></li>
-                  <li><a href="#companies"><i class="icon-white icon-user"></i> Companies</a></li>
+                  <li><a class="choice" href="#credits"><i class="icon-white icon-user"></i> Credits</a></li>
+                  <li><a class="choice" href="#companies"><i class="icon-white icon-user"></i> Companies</a></li>
                   <li><a href="https://twitter.com/wonkajs" class="twitter-follow-button" data-show-count="false">Follow @wonkajs</a>
                   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></li>
                 </ul>
@@ -67,7 +72,7 @@
         </header>
 
         <div class="container">
-          <div id="main" class="row"></div>
+          <div id="container" class="row"></div>
         </div>
 
         <!-- edit under your own risk -->
@@ -333,21 +338,20 @@
 
         
           <script type="text/javascript" src="main.js?0.0.2"></script>
-
-          <script type="text/javascript">
-
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-37925656-1']);
-            _gaq.push(['_trackPageview']);
-
-            (function() {
-              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
-
-          </script>
         
         <!-- /edit under your own risk -->
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-37925656-1']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
     </body>
 </html>

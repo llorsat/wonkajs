@@ -20,7 +20,7 @@
   clear: both;
 }
 .hide-text {
-  font: NaN a;
+  font: 0/0 a;
   color: transparent;
   text-shadow: none;
   background-color: transparent;
@@ -6323,6 +6323,98 @@ header {
     overflow: visible !important;
   }
 }
+/** Wonka colors **/
+.wjs-header {
+  background: rgba(19, 7, 34, 0.9);
+  color: #ffffff;
+  margin: 0;
+  padding: 10px 60px;
+}
+.wjs-paragraph {
+  color: #130722;
+  padding: 10px;
+}
+.wjs-line {
+  border: 0 none solid;
+  border-top: 1px #130722 solid;
+  border-bottom: 1px #000000 solid;
+}
+.no-hero {
+  margin: 0;
+  background: none;
+  padding: 0 60px;
+}
+#message-container {
+  background: rgba(255, 255, 255, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#message-container #message {
+  width: 400px;
+  margin: 40px auto;
+  border: 1px black solid;
+  background: white;
+}
+#message-container #message .title {
+  font-size: 24px;
+}
+#message-container #message .title,
+#message-container #message .message {
+  padding: 10px;
+}
+#message-container #message .form-actions {
+  margin: 0;
+  padding: 10px 15px;
+  text-align: right;
+}
+#fxos-install-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  text-align: right;
+  padding: 10px 0;
+}
+#install-button {
+  margin-right: 10px;
+}
+#close-installation-bar-button {
+  margin-right: 10px;
+}
+#loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999999;
+  width: 98%;
+  padding: 0 1%!important;
+  background: none;
+}
+#progress-bar {
+  position: relative;
+  margin: 47px auto!important;
+  height: 4px;
+  background: rgba(19, 7, 34, 0.9);
+  border: 0!important;
+}
+@media (min-width: 979px) {
+  #progress-bar {
+    margin: 40px auto!important;
+  }
+}
+#progress-bar::-webkit-progress-bar {
+  background: #999;
+}
+#progress-bar::-webkit-progress-value {
+  background: #999;
+}
+#progress-bar::-moz-progress-bar {
+  background: #999;
+}
 @font-face {
   font-family: 'klavika regular';
   src: url("/fonts/Klavika-Regular.otf");
@@ -6335,7 +6427,6 @@ header {
   font-family: 'klavika light';
   src: url("/fonts/Klavika-Light.otf");
 }
-/** Wonka colors **/
 h1,
 h2,
 h3,

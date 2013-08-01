@@ -1,7 +1,7 @@
 {
-  "name": "demo",
+  "name": "wonkajs",
   "version": "0.0.1",
-  "description": "Write a little bit about this project",
+  "description": "Wonka.js website",
   "launch_path": "index.html",
   "fullscreen": "false",
   "type": "web",
@@ -14,8 +14,8 @@
     "128": "icons/icon-128.png"
   },
   "developer": {
-    "name": "name",
-    "url": "http://url.com"
+    "name": "Julian",
+    "url": "http://jceb.info"
   },
   "installs_allowed_from": [
     "*"
