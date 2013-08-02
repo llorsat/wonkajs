@@ -22,10 +22,7 @@
     },
     "deploy": {
       "folders": [
-        "icons",
-        "fonts",
-        "images",
-        "languages"
+        "icons"
       ]
     },
     "environment": {
