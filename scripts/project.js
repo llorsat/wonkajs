@@ -52,7 +52,7 @@ module.exports.builder = function(name) {
     var src = path.join(__dirname, '..', 'templates', i);
     var dest = path.join(projectDir, arch[i]);
     utils.copy(src, dest, function() {
-      if (counter == 8) {
+      if (counter == 6) {
         try {
           exec('git init && git add * && git commit -a -m "first commit"', {cwd: projectDir}, function() {
             done(name);
