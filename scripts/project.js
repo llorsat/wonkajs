@@ -7,10 +7,8 @@ var arch = {
   'root': 'root',
   'stylesheets': 'stylesheets',
   'libraries': 'libraries',
-  'images': 'images',
   'main': 'main',
   'core': 'core',
-  'fonts': 'fonts',
   'icons': 'icons',
   'index.hbs': 'index.hbs'
 };
