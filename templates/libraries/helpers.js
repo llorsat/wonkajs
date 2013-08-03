@@ -19,7 +19,8 @@ if (!App.has('pkg')) {
   }
   xhr.open('GET', 'package.json', false);
   xhr.send(null);
-  App.set('pkg', JSON.parse(xhr.responseText));  
+  App.set('pkg', JSON.parse(xhr.responseText));
+  App.pkg.settings.storage_engine = App.pkg.settings.storage_engine || "localStorage";
 }
 
 //Set languages

@@ -1,23 +1,10 @@
 {
   "settings": {
     "installable": true,
-    "storage_engine": "localStorage",
     "api": "",
     "i18n": {
       "languages": [
         "en"
-      ],
-      "files": [
-        "js",
-        "html",
-        "hbs"
-      ],
-      "blacklist": [
-        ".git",
-        "images",
-        "icons",
-        "stylesheets",
-        "libraries"
       ]
     },
     "deploy": {
@@ -26,10 +13,6 @@
       ]
     },
     "environment": {
-      "core": [
-        "app",
-        "contrib/modernizr"
-      ],
       "libraries": [
         "jquery",
         "bootstrap",
@@ -40,19 +23,15 @@
         "helpers",
         "install"
       ],
-      "main_files": [
-        "listeners",
-        "main"
-      ],
       "applications": [
         "root"
       ]
     }
   },
   "name": "%(name)s",
-  "description": "Write a little bit about this project",
-  "version": "0.0.1",
-  "author": "",
+  "description": "%(description)s",
+  "version": "%(version)s",
+  "author": "%(author)s",
   "homepage": "",
-  "_id": "%(name)s@0.0.1"
+  "_id": "%(name)s@%(version)s"
 }

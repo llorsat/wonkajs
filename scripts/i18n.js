@@ -31,7 +31,7 @@ function start() {
     settings = JSON.parse(readOrElse(Path.join(basePath, 'package.json'), '{"settings":{"i18n":{}}}')).settings.i18n;
   } catch(e){}
   var languages = settings.languages || ['en'],
-      blacklist = settings.blacklist || [".git", "images", "icons", "stylesheets", "libraries"],
+      blacklist = settings.blacklist || [".git", "libraries", "stylesheets", "icons", "core"],
       files = settings.files || ["js", "html", "hbs"];
 
   var results = [];

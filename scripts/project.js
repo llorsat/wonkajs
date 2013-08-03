@@ -7,7 +7,6 @@ var arch = {
   'root': 'root',
   'stylesheets': 'stylesheets',
   'libraries': 'libraries',
-  'main': 'main',
   'core': 'core',
   'icons': 'icons',
   'index.hbs': 'index.hbs'
@@ -21,7 +20,7 @@ var done = function(name) {
   console.info('$ wonkajs server');
 }
 
-module.exports.builder = function(name) {
+module.exports.builder = function(name, kwargs) {
   var existsSync = fs.existsSync || path.existsSync;
 
   if(existsSync(path.join(process.cwd(), name))) {
@@ -37,22 +36,24 @@ module.exports.builder = function(name) {
   var projectDir = utils.mkdir(name);
   var pkgPath = path.join(__dirname, '..', 'templates', 'package.template');
   var pkgTemplate = fs.readFileSync(pkgPath).toString();
-  var pkgOutput = utils.buildTemplate(pkgTemplate, {
-    name: name
-  });
+  var projectData = {
+    name: name,
+    description: kwargs.description || 'Write a description',
+    version: kwargs.version || '0.0.1',
+    author: kwargs.author || ''
+  };
+  var pkgOutput = utils.buildTemplate(pkgTemplate, projectData);
   utils.writeFile('package.json', pkgOutput);
   var manifestPath = path.join(__dirname, '..', 'templates', 'manifest.webapp');
   var manifestTemplate = fs.readFileSync(manifestPath).toString();
-  var manifestOutput = utils.buildTemplate(manifestTemplate, {
-    name: name
-  });
+  var manifestOutput = utils.buildTemplate(manifestTemplate, projectData);
   utils.writeFile('manifest.webapp', manifestOutput);
   var counter = 0;
   for (var i in arch) {
     var src = path.join(__dirname, '..', 'templates', i);
     var dest = path.join(projectDir, arch[i]);
     utils.copy(src, dest, function() {
-      if (counter == 6) {
+      if (counter == 5) {
         try {
           exec('git init && git add * && git commit -a -m "first commit"', {cwd: projectDir}, function() {
             done(name);
