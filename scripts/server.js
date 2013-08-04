@@ -74,12 +74,15 @@ module.exports.builder = function() {
           return false;
         }
         if (indexFlag) {
+          var pkg = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json')).toString());
           var templateString = fs.readFileSync(path.join(process.cwd(), 'index.hbs'), 'utf-8');
           var template = hbs.compile(templateString);
           var data = {
             'development': true,
             'scripts': utils.getScripts(),
-            'templates': utils.getTemplates()
+            'templates': utils.getTemplates(),
+            'name': pkg.name.charAt(0).toUpperCase() + pkg.name.slice(1),
+            'description': pkg.description
           };
           var index = template(data);
           
