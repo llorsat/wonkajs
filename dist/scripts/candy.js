@@ -5,6 +5,8 @@ var fs = require('fs'),
 
 var CANDIES_HOST = 'candiesapi.rcchristiane.com.mx';
 
+var existsSync = fs.existsSync || path.existsSync;
+
 var githubClone = function(user, repo, name) {
   var projectDir = process.cwd();
 
@@ -19,8 +21,6 @@ var githubClone = function(user, repo, name) {
       version: "3.0.0",
       timeout: 5000
   });
-
-  console.log(user, repo);
 
   github.repos.get({
     'user': user,
@@ -39,7 +39,9 @@ var githubClone = function(user, repo, name) {
         var src = path.join(modulePath, 'libraries', libs[i] + '.js');
         var dest = path.join(projectDir, 'libraries', libs[i] + '.js');
         utils.copy(src, dest, function() {
-          pkg.settings.environment.libraries.push(libs[i]);
+          if (pkg.settings.environment.libraries.indexOf(libs[i]) == -1) {
+            pkg.settings.environment.libraries.push(libs[i]);
+          }
           fs.unlinkSync(src);
           if (libsCount == libs.length) {
             var resourcesCount = 0;
@@ -51,15 +53,15 @@ var githubClone = function(user, repo, name) {
               for (var item in pkgMod.resources[resource]) {
                 resourcesCounter++;
                 var orig = path.join(modulePath, resource)
+                if (!existsSync(path.join(projectDir, resource))) {
+                  fs.mkdirSync(path.join(projectDir, resource), '0755')
+                }
                 var dest = path.join(projectDir, resource, pkgMod.resources[resource][item]);
                 utils.copy(orig, dest, function() {
                   utils.rmdirRecursiveSync(orig);
-                  console.log(resourcesCount, resourcesCounter);
                   if (resourcesCount == resourcesCounter) {
 
                     var initFile = path.join(modulePath, 'init.js');
-
-                    var existsSync = fs.existsSync || path.existsSync;
 
                     if (existsSync(initFile)) {
                       if (pkg.settings.environment.applications.indexOf(name) == -1) {
