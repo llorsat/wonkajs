@@ -1,75 +1,34 @@
 @import "variables.less";
 
-body {
-  font-family: arial;
-}
-
-.wjs-header {
-  background: rgba(19, 7, 34, .90);
-  color: @white;
-  margin: 0;
-  padding: 10px 60px;
-}
-
-.wjs-paragraph {
-  color: @purple;
-  padding: 10px;
-}
-
-.wjs-line {
-  border: 0 none solid;
-  border-top: 1px @purple solid;
-  border-bottom: 1px @black solid;
-}
-
-.no-hero {
-  margin: 0;
-  background: none;
-  padding: 0 60px;
-}
-
-#message-container {
-  background: rgba(255, 255, 255, .75);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  #message {
-    .title {
-      font-size: 24px;
-    }
-    .title, .message {
-      padding: 10px;
-    }
-    .form-actions {
-      margin: 0;
-      padding: 10px 15px;
-      text-align: right;
-    }
-    width: 400px;
-    margin: 40px auto;
-    border: 1px black solid;
-    background: white;
+@keyframes changeShadow {
+  from {
+    text-shadow: 0 0 2px white;
+  }
+  to {
+    text-shadow: 0 0 10px white;
   }
 }
 
-#fxos-install-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, .75);
-  text-align: right;
-  padding: 10px 0;
+body {
+  background: @purple;
 }
 
-#install-button {
-  margin-right: 10px;
+h1 {
+  font-size: 60px;
 }
 
-#close-installation-bar-button {
-  margin-right: 10px;
+h2 {
+  font-size: 48px;
+}
+
+h1, h2 {
+  text-align: center;
+  font-family: Zapf Chancery, cursive;
+  color: white;
+  animation-duration: .6s;
+  animation-name: changeShadow;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #loading-bar {

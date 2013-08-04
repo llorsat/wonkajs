@@ -4,7 +4,6 @@ var utils = require('../lib/utils.js'),
     exec = require('child_process').exec;
 
 var arch = {
-  'root': 'root',
   'stylesheets': 'stylesheets',
   'libraries': 'libraries',
   'core': 'core',
@@ -53,7 +52,7 @@ module.exports.builder = function(name, kwargs) {
     var src = path.join(__dirname, '..', 'templates', i);
     var dest = path.join(projectDir, arch[i]);
     utils.copy(src, dest, function() {
-      if (counter == 5) {
+      if (counter == 4) {
         try {
           exec('git init && git add * && git commit -a -m "first commit"', {cwd: projectDir}, function() {
             done(name);

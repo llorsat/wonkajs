@@ -23,9 +23,7 @@
         "helpers",
         "install"
       ],
-      "applications": [
-        "root"
-      ]
+      "applications": []
     }
   },
   "name": "%(name)s",
