@@ -51,7 +51,7 @@ function formToJSON(selector) {
 
 //API uri builder
 function uri() {
-  var uri = App.pkg.settings.api;
+  var uri = App.pkg.settings.api || "";
   _.each(arguments, function(item) {
     uri += item + '/';
   });

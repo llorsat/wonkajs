@@ -1,7 +1,6 @@
 {
   "settings": {
     "installable": %(installable)s,
-    "api": "",
     "deploy": {
       "folders": [
         "icons"
