@@ -9,7 +9,7 @@ ncp.limit = 300;
 
 var projectDir = ''
 
-module.exports.replaceAll = function(text, query, newStr){
+module.exports.replaceAll = function(text, query, newStr) {
   while (text.toString().indexOf(query) != -1)
     text = text.toString().replace(query,newStr);
   return text;
@@ -198,9 +198,7 @@ module.exports.getScripts = function() {
       scripts.push(env.applications[i] + components[j]);
     }
   }
-  for (var i = 0; i < env.main_files.length; i++) {
-    scripts.push('main/' + env.main_files[i] + '.js');
-  }
+  scripts.push('core/main.js');
   return scripts;
 }
 

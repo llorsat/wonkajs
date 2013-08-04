@@ -1,7 +1,7 @@
 {
   "name": "%(name)s",
-  "version": "0.0.1",
-  "description": "Write a little bit about this project",
+  "version": "%(version)s",
+  "description": "%(description)s",
   "launch_path": "index.html",
   "fullscreen": "false",
   "type": "web",
@@ -14,7 +14,7 @@
     "128": "icons/icon-128.png"
   },
   "developer": {
-    "name": "name",
+    "name": "%(author)s",
     "url": "http://url.com"
   },
   "installs_allowed_from": [

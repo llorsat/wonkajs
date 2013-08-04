@@ -20,6 +20,8 @@ var githubClone = function(user, repo, name) {
       timeout: 5000
   });
 
+  console.log(user, repo);
+
   github.repos.get({
     'user': user,
     'repo': repo.replace('.git', '')
@@ -28,8 +30,8 @@ var githubClone = function(user, repo, name) {
       var pkgModPath = path.join(projectDir, name, 'package.json');
       var pkgMod = JSON.parse(fs.readFileSync(pkgModPath).toString());
 
-      for(var resource in pkgMod.resources) {
-        for(var item in pkgMod.resources[resource]) {
+      for (var resource in pkgMod.resources) {
+        for (var item in pkgMod.resources[resource]) {
           var orig = path.join(modulePath, resource)
           var dest = path.join(projectDir, resource, pkgMod.resources[resource][item]);
           utils.copy(orig, dest, function() {
@@ -45,15 +47,24 @@ var githubClone = function(user, repo, name) {
           utils.rmdirRecursiveSync(src);
         });
       }
+      
+      var initFile = path.join(modulePath, 'init.js');
 
-      if(pkg.settings.environment.applications.indexOf(name) == -1)
-        pkg.settings.environment.applications.push(name);
+      var existsSync = fs.existsSync || path.existsSync;
 
-      fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
+      if (existsSync(initFile)) {
+        if (pkg.settings.environment.applications.indexOf(name) == -1) {
+          pkg.settings.environment.applications.push(name);
+        }
+        fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
 
-      fs.unlinkSync(path.join(modulePath, 'package.json'));
-      fs.unlinkSync(path.join(modulePath, 'README.md'));
-
+        fs.unlinkSync(path.join(modulePath, 'package.json'));
+        try {
+          fs.unlinkSync(path.join(modulePath, 'README.md'));
+        } catch(e) {}
+      } else {
+        
+      }
     });
   });
 }

@@ -1,71 +1,32 @@
 @import "variables.less";
 
-.wjs-header {
-  background: rgba(19, 7, 34, .90);
-  color: @white;
-  margin: 0;
-  padding: 10px 60px;
+body {
+  background: @purple;
 }
 
-.wjs-paragraph {
-  color: @purple;
-  padding: 10px;
+h1 {
+  font-size: 60px;
 }
 
-.wjs-line {
-  border: 0 none solid;
-  border-top: 1px @purple solid;
-  border-bottom: 1px @black solid;
+h2 {
+  font-size: 32px;
 }
 
-.no-hero {
-  margin: 0;
-  background: none;
-  padding: 0 60px;
+h1, h2 {
+  text-align: center;
+  font-family: Zapf Chancery, cursive;
+  color: white;
 }
 
-#message-container {
-  background: rgba(255, 255, 255, .75);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  #message {
-    .title {
-      font-size: 24px;
-    }
-    .title, .message {
-      padding: 10px;
-    }
-    .form-actions {
-      margin: 0;
-      padding: 10px 15px;
-      text-align: right;
-    }
-    width: 400px;
-    margin: 40px auto;
-    border: 1px black solid;
-    background: white;
-  }
-}
-
-#fxos-install-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, .75);
-  text-align: right;
-  padding: 10px 0;
-}
-
-#install-button {
-  margin-right: 10px;
-}
-
-#close-installation-bar-button {
-  margin-right: 10px;
+.wjs-instructions {
+  background: white;
+  font-family: helvetica, arial;
+  color: #4d4d4d;
+  width: 60%;
+  padding: 1%;
+  margin: 0 auto;
+  box-shadow: inset 0 0 15px black;
+  border-radius: 6px;
 }
 
 #loading-bar {
