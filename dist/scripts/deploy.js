@@ -22,6 +22,10 @@ module.exports.builder = function() {
 
   //Copy folders defined to deploy
   var folders = pkg.settings.deploy.folders;
+
+  // if i18n specified add languages folder to deploy
+  folders.push('languages');
+
   for (var i = 0; i < folders.length; i++) {
     var src = path.join(projectDir, folders[i]);
     var dest = path.join(projectDir, 'deploy', folders[i]);
@@ -39,10 +43,14 @@ module.exports.builder = function() {
   var data = {
     'development': false,
     'templates': utils.getTemplates(),
-    'version': pkg.version
+    'version': pkg.version,
+    'name': pkg.name.charAt(0).toUpperCase() + pkg.name.slice(1),
+    'description': pkg.description
   }
 
   fs.writeFileSync(path.join(projectDir, 'deploy', 'index.html'), template(data));
+
+  delete pkg.settings['deploy']
 
   fs.writeFile(path.join(projectDir, 'deploy', 'package.json'), JSON.stringify(pkg, null, 2), function (err) {
     if (err) throw err;

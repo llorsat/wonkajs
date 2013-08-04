@@ -112,9 +112,9 @@ With this command, will be created a deploy folder, that will has the files:
 * index.html
 * main.css
 * main.js
-* images
+* package.json
+* manifest.webapp
 * icons
-* languages
 
 Upload this folder to any server path, and points your web server to this path and your application will works.
 

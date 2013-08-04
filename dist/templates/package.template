@@ -1,12 +1,7 @@
 {
   "settings": {
-    "installable": true,
+    "installable": %(installable)s,
     "api": "",
-    "i18n": {
-      "languages": [
-        "en"
-      ]
-    },
     "deploy": {
       "folders": [
         "icons"
@@ -15,7 +10,6 @@
     "environment": {
       "libraries": [
         "jquery",
-        "bootstrap",
         "underscore",
         "backbone",
         "handlebars",

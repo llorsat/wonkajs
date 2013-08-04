@@ -138,16 +138,13 @@
   install.check();
 
   var updateIndex = function() {
-    if (install.state == 'uninstalled') {
-      $('#install-bar').show();
-    } else if (install.state == 'installed' || install.state == 'unsupported') {
-      $('#install-bar').hide();
-    }
-
     //If FXOS and is installable show
-    var installable = App.pkg.settings.installable || false;
-    if (window.isMobile.FXOS() && installable) {
-      $('#install-bar').slideDown('slow');
+    if (window.isMobile.FXOS() && App.pkg.settings.installable) {
+      if (install.state == 'uninstalled') {
+        $('#install-bar').show();
+      } else if (install.state == 'installed' || install.state == 'unsupported') {
+        $('#install-bar').hide();
+      }
     } else {
       $('#install-bar').hide();
     }

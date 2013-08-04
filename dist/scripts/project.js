@@ -40,12 +40,14 @@ module.exports.builder = function(name, kwargs) {
     name: name,
     description: kwargs.description || 'Write a description',
     version: kwargs.version || '0.0.1',
-    author: kwargs.author || ''
+    author: kwargs.author || '',
+    installable: kwargs.installable || false
   };
   var pkgOutput = utils.buildTemplate(pkgTemplate, projectData);
   utils.writeFile('package.json', pkgOutput);
   var manifestPath = path.join(__dirname, '..', 'templates', 'manifest.webapp');
   var manifestTemplate = fs.readFileSync(manifestPath).toString();
+  projectData['name'] = name.charAt(0).toUpperCase() + name.slice(1);
   var manifestOutput = utils.buildTemplate(manifestTemplate, projectData);
   utils.writeFile('manifest.webapp', manifestOutput);
   var counter = 0;
