@@ -30,40 +30,57 @@ var githubClone = function(user, repo, name) {
       var pkgModPath = path.join(projectDir, name, 'package.json');
       var pkgMod = JSON.parse(fs.readFileSync(pkgModPath).toString());
 
-      for (var resource in pkgMod.resources) {
-        for (var item in pkgMod.resources[resource]) {
-          var orig = path.join(modulePath, resource)
-          var dest = path.join(projectDir, resource, pkgMod.resources[resource][item]);
-          utils.copy(orig, dest, function() {
-            utils.rmdirRecursiveSync(orig);
-          });
-        }
-      }
+      var libs = pkgMod.libraries;
 
-      if (pkgMod.libraries.length > 0) {
-        var src = path.join(modulePath, 'libraries');
-        var dest = path.join(projectDir, 'libraries');
+      var libsCount = 0;
+
+      for(var i in libs) {
+        libsCount++;
+        var src = path.join(modulePath, 'libraries', libs[i] + '.js');
+        var dest = path.join(projectDir, 'libraries', libs[i] + '.js');
         utils.copy(src, dest, function() {
-          utils.rmdirRecursiveSync(src);
+          pkg.settings.environment.libraries.push(libs[i]);
+          fs.unlinkSync(src);
+          if (libsCount == libs.length) {
+            var resourcesCount = 0;
+            var resourcesCounter = 0;
+            for (var resource in pkgMod.resources) {
+              if (pkgMod.resources[resource].length > 0) {
+                resourcesCount += pkgMod.resources[resource].length;
+              }
+              for (var item in pkgMod.resources[resource]) {
+                resourcesCounter++;
+                var orig = path.join(modulePath, resource)
+                var dest = path.join(projectDir, resource, pkgMod.resources[resource][item]);
+                utils.copy(orig, dest, function() {
+                  utils.rmdirRecursiveSync(orig);
+                  console.log(resourcesCount, resourcesCounter);
+                  if (resourcesCount == resourcesCounter) {
+
+                    var initFile = path.join(modulePath, 'init.js');
+
+                    var existsSync = fs.existsSync || path.existsSync;
+
+                    if (existsSync(initFile)) {
+                      if (pkg.settings.environment.applications.indexOf(name) == -1) {
+                        pkg.settings.environment.applications.push(name);
+                      }
+                      fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
+
+                      fs.unlinkSync(path.join(modulePath, 'package.json'));
+                      try {
+                        fs.unlinkSync(path.join(modulePath, 'README.md'));
+                      } catch(e) {}
+                    } else {
+                      utils.rmdirRecursiveSync(modulePath);
+                    }
+
+                  }
+                });
+              }
+            }
+          }
         });
-      }
-      
-      var initFile = path.join(modulePath, 'init.js');
-
-      var existsSync = fs.existsSync || path.existsSync;
-
-      if (existsSync(initFile)) {
-        if (pkg.settings.environment.applications.indexOf(name) == -1) {
-          pkg.settings.environment.applications.push(name);
-        }
-        fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
-
-        fs.unlinkSync(path.join(modulePath, 'package.json'));
-        try {
-          fs.unlinkSync(path.join(modulePath, 'README.md'));
-        } catch(e) {}
-      } else {
-        
       }
     });
   });
