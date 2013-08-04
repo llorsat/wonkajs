@@ -10,7 +10,6 @@
     "environment": {
       "libraries": [
         "jquery",
-        "bootstrap",
         "underscore",
         "backbone",
         "handlebars",
