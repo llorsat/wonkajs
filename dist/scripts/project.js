@@ -41,7 +41,7 @@ module.exports.builder = function(name, kwargs) {
     description: kwargs.description || 'Write a description',
     version: kwargs.version || '0.0.1',
     author: kwargs.author || '',
-    installable: kwargs.installable || false
+    install_button: kwargs.install_button || false
   };
   var pkgOutput = utils.buildTemplate(pkgTemplate, projectData);
   utils.writeFile('package.json', pkgOutput);

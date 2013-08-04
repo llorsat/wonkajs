@@ -1,6 +1,6 @@
 {
   "settings": {
-    "installable": %(installable)s,
+    "install_button": %(install_button)s,
     "deploy": {
       "folders": [
         "icons"

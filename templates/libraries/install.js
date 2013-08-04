@@ -138,8 +138,8 @@
   install.check();
 
   var updateIndex = function() {
-    //If FXOS and is installable show
-    if (window.isMobile.FXOS() && App.pkg.settings.installable) {
+    //If FXOS and is hosted app
+    if (window.isMobile.FXOS() && App.pkg.settings.install_button) {
       if (install.state == 'uninstalled') {
         $('#install-bar').show();
       } else if (install.state == 'installed' || install.state == 'unsupported') {
