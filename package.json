@@ -32,11 +32,11 @@
     "url": "https://github.com/kalmecak"
   }],
   "dependencies": {
-    "fs.extra": "",
     "less": "",
     "uglify-js2": "https://github.com/mishoo/UglifyJS/archive/v1.3.4.tar.gz",
     "handlebars": "",
-    "github": ""
+    "github": "",
+    "wrench": ""
   },
   "bin": {
     "wonkajs": "bin/wonkajs"
