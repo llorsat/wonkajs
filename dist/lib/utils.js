@@ -1,11 +1,10 @@
 var fs = require('fs'),
     path = require('path'),
-    ncp = require('ncp').ncp,
+    wrench = require('wrench'),
     less = require('less'),
     jsp = require("uglify-js").parser,
-    pro = require("uglify-js").uglify;
-
-ncp.limit = 300;
+    pro = require("uglify-js").uglify,
+    fs = require('fs');
 
 var projectDir = ''
 
@@ -53,10 +52,13 @@ module.exports.buildTemplate = function(content, params) {
 };
 
 module.exports.copy = function(source, target, callback) {
-  var callback = callback || function(err) {
-    if (err) { if(err.length > 0) console.error(err)};
-  };
-  ncp(source, target, callback);
+  var fileStat = fs.statSync(source);
+  if (fileStat.isDirectory()) {
+    wrench.copyDirSyncRecursive(source, target);
+  } else {
+    var content = fs.readFileSync(source);
+    fs.writeFileSync(target, content);
+  }
 }
 
 module.exports.PathObject = function(args) {
