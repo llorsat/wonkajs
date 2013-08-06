@@ -1,7 +1,7 @@
 {
   "name": "wonkajs",
   "version": "1.5.0",
-  "description": "Enhance your experience developing small or very large frontend projects with elegance.",
+  "description": "Write javascript webapps right, easy and fast.",
   "homepage": "http://wonkajs.com",
   "company": "Llorsat",
   "keywords": ["framework", "frontend", "javascript", "MVT", "REST", "Web"],
