@@ -18,13 +18,19 @@ var usage = '\nWonkajs frontend framework for backend developers\n\n'
   + '   -v,   --version   Outputs the version of wonka js that you have installed\n'
   + '   -h,   --help      Outputs help information\n\n'
   + 'Available subcommands:\n'
-  + '   p,    project     Create new project\n'
-  + '   a,    app         Create new application\n'
-  + '   s,    server      Run server for development\n'
-  + '   i,    i18n        Generate internationalization files\n'
-  + '   d,    deploy      Compile js, css and html files for deploy\n'
-  + '   pkg,  package     Build a wonka.js module from any application\n'
-  + '   c,    candy       Download and install wonka.js 3th party modules\n';
+  + '   p,    project [options]   Create new project\n'
+  + '   a,    app                 Create new application\n'
+  + '   s,    server              Run server for development\n'
+  + '   i,    i18n                Generate internationalization files\n'
+  + '   d,    deploy              Compile js, css and html files for deploy\n'
+  + '   pkg,  package             Build a wonka.js module from any application\n'
+  + '   c,    candy               Download and install wonka.js 3th party modules\n'
+  + '\n'
+  + 'Project command options:\n'
+  + '   description     <string>\n'
+  + '   author          <string>\n'
+  + '   version         <string>\n'
+  + '   install_button  <boolean>\n';
 
 var command = args[0];
 
