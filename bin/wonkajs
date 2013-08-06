@@ -12,7 +12,7 @@ var fs = require('fs'),
     pack = require('../scripts/package.js').builder,
     candy = require('../scripts/candy.js').builder;
 
-var usage = '\nWonkajs frontend framework for backend developers\n\n'
+var usage = '\nWonkajs - Write javascript webapps right, easy and fast.\n\n'
   + '{usage} wonkajs subcommand [options]\n\n'
   + 'Options:\n'
   + '   -v,   --version   Outputs the version of wonka js that you have installed\n'
