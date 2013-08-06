@@ -1,6 +1,6 @@
 {
   "name": "wonkajs",
-  "version": "1.5",
+  "version": "1.5.0",
   "description": "Enhance your experience developing small or very large frontend projects with elegance.",
   "homepage": "http://wonkajs.com",
   "company": "Llorsat",
@@ -49,7 +49,7 @@
   "engines": {
     "node": "*"
   },
-  "_id": "wonkajs@1.5",
+  "_id": "wonkajs@1.5.0",
   "optionalDependencies": {},
   "_engineSupported": true,
   "_npmVersion": "1.2.25",
