@@ -54,17 +54,13 @@ module.exports.builder = function(name, kwargs) {
   for (var i in arch) {
     var src = path.join(__dirname, '..', 'templates', i);
     var dest = path.join(projectDir, arch[i]);
-    utils.copy(src, dest, function() {
-      if (counter == 5) {
-        try {
-          exec('git init && git add * && git commit -a -m "first commit"', {cwd: projectDir}, function() {
-            done(name);
-          });
-        } catch(e) {
-          done(name);
-        }
-      }
-      counter++;
+    utils.copy(src, dest);
+  }
+  try {
+    exec('git init && git add * && git commit -a -m "first commit"', {cwd: projectDir}, function() {
+      done(name);
     });
+  } catch(e) {
+    done(name);
   }
 }
