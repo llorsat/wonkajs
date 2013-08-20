@@ -10,6 +10,8 @@ To run wonka.js you must have installed node.js.
 
 [Install node](http://nodejs.org)
 
+Also you'll need to install [git](http://git-scm.com).
+
 ### Install
 
 Install wonka.js as global node module, on your shell type the command:
@@ -17,6 +19,14 @@ Install wonka.js as global node module, on your shell type the command:
 ```sh
 $ sudo npm install -g wonkajs
 ```
+
+At the end, verify that wonka has been installed successfuly:
+
+```sh
+$ wonkajs --version
+```
+
+This command must return the version number 1.6.0.
 
 ## Getting started
 
