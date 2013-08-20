@@ -1,0 +1,166 @@
+Version 0.0.1 (Jan 25, 2013)
+----------------------------
+
+* i18n finished
+* modules creation(Apps) finished
+* development server finished
+* project initialization finished
+* deploy assistant finished
+
+Version 0.0.2 (Jan 26, 2013)
+----------------------------
+
+* scripts dynamic paths for different os
+* deploy bugs fixed
+* client-side language function finished
+* images path dynamic
+* enhancements to scripts
+
+Version 0.0.3 (Jan 28, 2013)
+----------------------------
+
+* backbone.extensions extended
+* App object extended
+* backbone.viewhelpers added to core
+* many nexth5 llorsat private project libraries included on core
+
+Version 0.0.4 (Jan 31, 2013)
+----------------------------
+
+* activexobject support
+* deploy enhancement
+* less parser path updated
+* wonka folder added
+
+Version 0.0.4rev2 (Feb 01, 2013)
+--------------------------------
+
+* permissions when create project or app
+* variable not defined bug fixed
+
+Version 0.0.4rev3 (Feb 04, 2013)
+--------------------------------
+
+* libraries base64 and oauth added to core
+* command not found validation
+
+Version 0.0.4rev5 (Feb 08, 2013)
+--------------------------------
+
+* Events persistence after view remove bug fixed
+
+Version 1.0.0 (Feb 08, 2013)
+----------------------------
+
+* New app architectire
+* Events persistence fix try two
+
+Version 1.0.0r1 (Feb 09, 2013)
+------------------------------
+
+* Backbone updated to 0.9.10
+
+Version 1.0.0r3 (Feb 09, 2013)
+------------------------------
+
+* dist files removed
+* index template for development and another for deploy
+
+Version 1.0.0r5 (Feb 10, 2013)
+------------------------------
+
+* fonts and images path change for devel and deploy
+* loginOrHome fn removed
+* command help after run
+* scripts on lib moved to scripts folder
+
+Version 1.0.1 (Feb 13, 2013)
+----------------------------
+
+* less is more(wonka core minified)
+* dist folder cleaned
+
+Version 1.0.2 (Feb 20, 2013)
+----------------------------
+
+* session management engine added
+
+Version 1.0.3 (Feb 23, 2013)
+----------------------------
+
+* index template has been migrate to handlebars for deploy and development index.html build.
+* handlebars, new dependency
+
+Version 1.0.4 (Feb 23, 2013)
+----------------------------
+
+* version added on index.hbs template with javascript file and css file on deploy environment.
+* new dist folder added
+* perfect app templates added
+
+Version 1.0.5 (Mar 06, 2013)
+----------------------------
+
+* utf-8 support
+* candies support, basic functionality test
+* README updated
+
+Version 1.0.6 (Mar 25, 2013)
+----------------------------
+
+* updated node and npm versions
+* router with jquery dom object as view param
+
+Version 1.0.8 (Jun 20, 2013)
+----------------------------
+
+* Bootstrap images route updated
+* libraries unnecesary removed
+
+Version 1.0.9 (Jun 20, 2013)
+
+* session key concat with _id package
+* language key concat with _id package
+
+Version 1.1.0 (Jan 24, 2013)
+----------------------------
+
+* wonka colors changed
+* stable
+
+Version 1.2.0 (Jul 23, 2013)
+----------------------------
+
+* candies command working with production api
+* git initialization ready
+* firefox os support
+* install library added to core
+* loadingBar object created for views load indication
+
+
+Version 1.2.1 (Jul 23, 2013)
+
+* security folder removed
+* server command enhancement
+
+Version 1.5.0 (Aug 6, 2013)
+---------------------------
+
+* Firefox OS support stable and easy
+* Candies script finished with candies.wonkajs.com on production
+* Project initialization tiniest than ever
+* Welcome style changed
+* manifest.webapp minified
+* package.json minified
+* bootstrap out the core
+
+Version 1.5.1 (Aug 8, 2013)
+---------------------------
+
+* loadingBar removed from routers on apps created via wonkajs app command, now you have to call the functions if you want to use them.
+
+Version 1.6.0 (Aug 20, 2013)
+----------------------------
+
+* Windows support, everything was reviewed on windows.
+* Stable release
