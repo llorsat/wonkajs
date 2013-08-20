@@ -1,10 +1,10 @@
 {
   "name": "wonkajs",
   "version": "1.6.0",
-  "description": "Write javascript webapps right, easy and fast.",
+  "description": "Wonka.js is a javascript client-side framework MVC like, built to enhance the frontend development, prioring team work and clean code.",
   "homepage": "http://wonkajs.com",
   "company": "Llorsat",
-  "keywords": ["framework", "frontend", "javascript", "MVT", "REST", "Web"],
+  "keywords": ["framework", "frontend", "javascript", "mvc", "webapp"],
   "author": {
     "name": "Julian Ceballos",
     "email": "julian@lastroom.mx",

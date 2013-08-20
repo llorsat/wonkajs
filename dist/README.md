@@ -1,6 +1,6 @@
 # Wonka.js
 
-Write javascript webapps right, easy and fast.
+Wonka.js is a javascript client-side framework MVC like, built to enhance the frontend development, prioring team work and clean code.
 
 ## Install and configure
 
