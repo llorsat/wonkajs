@@ -7,7 +7,7 @@ var fs = require('fs'),
     http = require('http'),
     url = require('url'),
     hbs = require('handlebars'),
-    utils = require('../lib/utils.js'),
+    utils = require(path.join(__dirname, '..', 'lib', 'utils.js')),
     port = process.argv[3] || 9300,
     isExists = fs.exists || path.exists;
 
@@ -54,7 +54,7 @@ module.exports.builder = function() {
         filename = path.join(process.cwd(), uri),
         indexFlag = false;
 
-    if (filename == process.cwd() + '/') {
+    if (filename == process.cwd() + '/' || filename == process.cwd() + '\\') {
       indexFlag = true;
       filename += 'index.hbs';
     }
