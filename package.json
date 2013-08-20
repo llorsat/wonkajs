@@ -1,6 +1,6 @@
 {
   "name": "wonkajs",
-  "version": "1.5.1",
+  "version": "1.6",
   "description": "Write javascript webapps right, easy and fast.",
   "homepage": "http://wonkajs.com",
   "company": "Llorsat",
@@ -49,7 +49,7 @@
   "engines": {
     "node": "*"
   },
-  "_id": "wonkajs@1.5.1",
+  "_id": "wonkajs@1.6",
   "optionalDependencies": {},
   "_engineSupported": true,
   "_npmVersion": "1.2.25",
