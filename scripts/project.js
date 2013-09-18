@@ -9,7 +9,8 @@ var arch = {
   'libraries': 'libraries',
   'core': 'core',
   'icons': 'icons',
-  'index.hbs': 'index.hbs'
+  'index.hbs': 'index.hbs',
+  'manifest.appcache': 'manifest.appcache'
 };
 
 var done = function(name) {
@@ -34,7 +35,7 @@ module.exports.builder = function(name, kwargs) {
   }
 
   var projectDir = utils.mkdir(name);
-  var pkgPath = path.join(__dirname, '..', 'templates', 'package.template');
+  var pkgPath = path.join(__dirname, '..', 'templates', 'package.json');
   var pkgTemplate = fs.readFileSync(pkgPath).toString();
   var projectData = {
     name: name,
