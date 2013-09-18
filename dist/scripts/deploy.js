@@ -23,12 +23,23 @@ module.exports.builder = function() {
   //Copy folders defined to deploy
   var folders = pkg.settings.deploy.folders;
 
+  //Copy files defined to deploy
+  var files = pkg.settings.deploy.files;
+
   // if i18n specified add languages folder to deploy
   folders.push('languages');
 
   for (var i = 0; i < folders.length; i++) {
     var src = path.join(projectDir, folders[i]);
     var dest = path.join(projectDir, 'deploy', folders[i]);
+    if (existsSync(src)) {
+      utils.copy(src, dest);
+    }
+  }
+
+  for (var i = 0; i < files.length; i++) {
+    var src = path.join(projectDir, files[i]);
+    var dest = path.join(projectDir, 'deploy', files[i]);
     if (existsSync(src)) {
       utils.copy(src, dest);
     }
@@ -59,11 +70,6 @@ module.exports.builder = function() {
   fs.writeFile(path.join(projectDir, 'deploy', 'manifest.webapp'), JSON.stringify(manifest, null, 2), function (err) {
     if (err) throw err;
   });
-
-  var appcacheSource = path.join(projectDir, 'manifest.appcache');
-  var appcacheDest = path.join(projectDir, 'deploy', 'manifest.appcache');
-
-  utils.copy(appcacheSource, appcacheDest);
 
   if(manifest.type == 'privileged' || manifest.type == 'certified') {
     //TODO: Generate zip file for marketplace

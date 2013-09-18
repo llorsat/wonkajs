@@ -4,6 +4,9 @@
     "deploy": {
       "folders": [
         "icons"
+      ],
+      "files": [
+        "manifest.appcache"
       ]
     },
     "environment": {
