@@ -1,0 +1,11 @@
+CACHE MANIFEST
+# manifest for your wonka project
+
+NETWORK:
+*
+
+CACHE:
+icons/icon-128.png
+icons/icon-60.png
+icons/icon-30.png
+icons/icon.png

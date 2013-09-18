@@ -60,6 +60,11 @@ module.exports.builder = function() {
     if (err) throw err;
   });
 
+  var appcacheSource = path.join(projectDir, 'manifest.appcache');
+  var appcacheDest = path.join(projectDir, 'deploy', 'manifest.appcache');
+
+  utils.copy(appcacheSource, appcacheDest);
+
   if(manifest.type == 'privileged' || manifest.type == 'certified') {
     //TODO: Generate zip file for marketplace
   }

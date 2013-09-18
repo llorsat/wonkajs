@@ -1,0 +1,30 @@
+{
+  "settings": {
+    "install_button": %(install_button)s,
+    "deploy": {
+      "folders": [
+        "icons"
+      ]
+    },
+    "environment": {
+      "libraries": [
+        "jquery",
+        "underscore",
+        "backbone",
+        "handlebars",
+        "globalize",
+        "helpers",
+        "install"
+      ],
+      "applications": [
+        "root"
+      ]
+    }
+  },
+  "name": "%(name)s",
+  "description": "%(description)s",
+  "version": "%(version)s",
+  "author": "%(author)s",
+  "homepage": "",
+  "_id": "%(name)s@%(version)s"
+}
