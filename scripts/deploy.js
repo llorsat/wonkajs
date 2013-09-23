@@ -14,7 +14,6 @@ module.exports.builder = function() {
   var pkgPath = path.join(projectDir, 'package.json');
   var manifestPath = path.join(projectDir, 'manifest.webapp');
   var pkg = JSON.parse(fs.readFileSync(pkgPath).toString());
-  var manifest = JSON.parse(fs.readFileSync(manifestPath).toString());
 
   try {
     fs.mkdirSync(path.join(projectDir, 'deploy'), 0755);
@@ -64,10 +63,6 @@ module.exports.builder = function() {
   delete pkg.settings['deploy']
 
   fs.writeFile(path.join(projectDir, 'deploy', 'package.json'), JSON.stringify(pkg, null, 2), function (err) {
-    if (err) throw err;
-  });
-
-  fs.writeFile(path.join(projectDir, 'deploy', 'manifest.webapp'), JSON.stringify(manifest, null, 2), function (err) {
     if (err) throw err;
   });
 

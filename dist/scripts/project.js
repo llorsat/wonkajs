@@ -9,8 +9,7 @@ var arch = {
   'libraries': 'libraries',
   'core': 'core',
   'icons': 'icons',
-  'index.hbs': 'index.hbs',
-  'manifest.appcache': 'manifest.appcache'
+  'index.hbs': 'index.hbs'
 };
 
 var done = function(name) {
