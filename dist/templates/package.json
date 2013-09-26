@@ -5,7 +5,9 @@
       "folders": [
         "icons"
       ],
-      "files": []
+      "files": [
+        "manifest.webapp"
+      ]
     },
     "environment": {
       "libraries": [
