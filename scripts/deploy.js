@@ -66,6 +66,10 @@ module.exports.builder = function() {
   fs.writeFile(path.join(projectDir, 'deploy', 'package.json'), JSON.stringify(pkg, null, 2), function (err) {
     if (err) throw err;
   });
+
+  fs.writeFile(path.join(projectDir, 'deploy', 'manifest.webapp'), JSON.stringify(manifest, null, 2), function (err) {
+    if (err) throw err;
+  });
   
   console.info('Project ready for deploy');
   console.info('=============================================');
