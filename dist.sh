@@ -12,4 +12,4 @@ cp -r ./bin/* dist/bin/
 cp package.json dist/
 cp LICENSE-MIT dist/
 cp README.md dist/
-
+cp RELEASE.txt dist/
