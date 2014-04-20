@@ -19,13 +19,14 @@ if (!App.has('pkg')) {
   }
   xhr.open('GET', 'package.json', false);
   xhr.send(null);
-  App.set('pkg', JSON.parse(xhr.responseText));  
+  App.set('pkg', JSON.parse(xhr.responseText));
+  App.pkg.settings.storage_engine = App.pkg.settings.storage_engine || 'localStorage';
 }
 
 //Set languages
 if (App.has('pkg.settings.i18n.languages')) {
-  if(window[App.pkg.settings.storage_engine].hasOwnProperty(App.pkg._id + '-language')) {
-    setLanguage(window[App.pkg.settings.storage_engine][App.pkg._id + '-language']);
+  if(window[App.pkg.settings.storage_engine || 'localStorage'].hasOwnProperty(App.pkg._id + '-language')) {
+    setLanguage(window[App.pkg.settings.storage_engine || 'localStorage'][App.pkg._id + '-language']);
   } else {
     setLanguage(App.pkg.settings.i18n.languages[0]);
   }  
@@ -50,7 +51,7 @@ function formToJSON(selector) {
 
 //API uri builder
 function uri() {
-  var uri = App.pkg.settings.api;
+  var uri = App.pkg.settings.api || "";
   _.each(arguments, function(item) {
     uri += item + '/';
   });
@@ -59,7 +60,7 @@ function uri() {
 
 // Init the I18n with language specified
 function setLanguage(language) {
-  window[App.pkg.settings.storage_engine][App.pkg._id + '-language'] = language;
+  window[App.pkg.settings.storage_engine || 'localStorage'][App.pkg._id + '-language'] = language;
 
   var xhr = null;
   var activexmodes = ["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"];
@@ -85,7 +86,7 @@ function setLanguage(language) {
 };
 
 function getLanguage() {
-  return window[App.pkg.settings.storage_engine][App.pkg._id + '-language'];
+  return window[App.pkg.settings.storage_engine || 'localStorage'][App.pkg._id + '-language'];
 }
 
 //Create a new namespace
@@ -118,7 +119,7 @@ Handlebars.registerHelper("__", function(string) {
 
 //Authentication validation
 function isAuthenticated() {
-  var storageEngine = App.pkg.settings.storage_engine;
+  var storageEngine = App.pkg.settings.storage_engine || 'localStorage';
   var name = App.pkg._id;
   var auth = window[App.pkg.settings.auth_module];
   if (window[storageEngine][name + '-session']) {
