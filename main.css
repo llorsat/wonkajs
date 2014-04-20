@@ -181,7 +181,7 @@ textarea {
   img {
     max-width: 100% !important;
   }
-  @page  {
+  @page {
     margin: 0.5cm;
   }
   p,
@@ -971,7 +971,6 @@ input[type="color"]:focus,
   outline: 0;
   outline: thin dotted \9;
   /* IE6-9 */
-
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
@@ -996,10 +995,8 @@ select,
 input[type="file"] {
   height: 30px;
   /* In IE7, the height of the select element cannot be changed by height, only font-size */
-
   *margin-top: 4px;
   /* For IE7, add top margin to align select with labels */
-
   line-height: 30px;
 }
 select {
@@ -1546,7 +1543,6 @@ input.search-query {
   padding-left: 14px;
   padding-left: 4px \9;
   /* IE7-8 doesn't have border-radius, so don't indent the padding */
-
   margin-bottom: 0;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -3219,7 +3215,6 @@ input[type="submit"].btn.btn-mini {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
-
   *zoom: 1;
 }
 .btn-group-vertical > .btn {
@@ -6460,7 +6455,7 @@ a {
   color: #130722;
 }
 header {
-  background: url("/images/bg.jpg") center center no-repeat;
+  background: #231941;
   padding-top: 40px;
   margin-top: 20px;
 }
@@ -6481,6 +6476,11 @@ header {
   font-size: 14px;
   font-weight: bold;
   padding: 14px;
+}
+.nodejs-button:hover {
+  text-decoration: none;
+  background: #487518;
+  color: white;
 }
 .brand {
   font-family: 'Klavika regular';
@@ -6564,31 +6564,26 @@ ul.nav li {
 /* BASICS */
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
-
   font-family: monospace;
   height: 150px;
 }
 .CodeMirror-scroll {
   /* Set scrolling behaviour here */
-
   overflow: auto;
 }
 /* PADDING */
 .CodeMirror-lines {
   padding: 4px 0;
   /* Vertical padding around content */
-
 }
 .CodeMirror pre {
   padding: 0 4px;
   /* Horizontal padding of content */
-
 }
 .CodeMirror-scrollbar-filler,
 .CodeMirror-gutter-filler {
   background-color: white;
   /* The little square between H and V scrollbars */
-
 }
 /* GUTTER */
 .CodeMirror-gutters {
@@ -6732,9 +6727,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 }
 .CodeMirror-scroll {
   /* 30px is the magic margin used to hide the element's real scrollbars */
-
   /* See overflow: hidden in .CodeMirror */
-
   margin-bottom: -30px;
   margin-right: -30px;
   padding-bottom: 30px;
@@ -6742,7 +6735,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   height: 100%;
   outline: none;
   /* Prevent dragging from highlighting the element */
-
   position: relative;
 }
 .CodeMirror-sizer {
@@ -6793,7 +6785,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   margin-bottom: -32px;
   display: inline-block;
   /* Hack to make IE7 behave */
-
   *zoom: 1;
   *display: inline;
 }
@@ -6807,7 +6798,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 }
 .CodeMirror pre {
   /* Reset some styles that the rest of the page might have set */
-
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;

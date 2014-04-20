@@ -30,7 +30,8 @@
         "fonts",
         "images",
         "languages"
-      ]
+      ],
+      "files": []
     },
     "environment": {
       "core": [

@@ -24,14 +24,6 @@
         "libraries"
       ]
     },
-    "deploy": {
-      "folders": [
-        "icons",
-        "fonts",
-        "images",
-        "languages"
-      ]
-    },
     "environment": {
       "core": [
         "app",
