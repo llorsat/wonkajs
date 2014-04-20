@@ -12,9 +12,7 @@ module.exports.builder = function() {
 
   var projectDir = process.cwd();
   var pkgPath = path.join(projectDir, 'package.json');
-  var manifestPath = path.join(projectDir, 'manifest.webapp');
   var pkg = JSON.parse(fs.readFileSync(pkgPath).toString());
-  var manifest = JSON.parse(fs.readFileSync(manifestPath).toString());
 
   try {
     fs.mkdirSync(path.join(projectDir, 'deploy'), 0755);

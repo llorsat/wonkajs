@@ -37,7 +37,7 @@ module.exports.builder = function(name, kwargs) {
   var pkgPath = path.join(__dirname, '..', 'templates', 'package.json');
   var pkgTemplate = fs.readFileSync(pkgPath).toString();
   var projectData = {
-    name: name,
+    name: name.charAt(0).toUpperCase() + name.slice(1),
     description: kwargs.description || 'Write a description',
     version: kwargs.version || '0.0.1',
     author: kwargs.author || '',
@@ -45,11 +45,6 @@ module.exports.builder = function(name, kwargs) {
   };
   var pkgOutput = utils.buildTemplate(pkgTemplate, projectData);
   utils.writeFile('package.json', pkgOutput);
-  var manifestPath = path.join(__dirname, '..', 'templates', 'manifest.webapp');
-  var manifestTemplate = fs.readFileSync(manifestPath).toString();
-  projectData['name'] = name.charAt(0).toUpperCase() + name.slice(1);
-  var manifestOutput = utils.buildTemplate(manifestTemplate, projectData);
-  utils.writeFile('manifest.webapp', manifestOutput);
   var counter = 0;
   for (var i in arch) {
     var src = path.join(__dirname, '..', 'templates', i);

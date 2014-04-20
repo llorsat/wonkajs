@@ -1,23 +1,20 @@
 {
   "settings": {
-    "install_button": %(install_button)s,
     "deploy": {
       "folders": [
         "icons"
       ],
-      "files": [
-        "manifest.webapp"
-      ]
+      "files": []
     },
     "environment": {
       "libraries": [
         "jquery",
         "underscore",
         "backbone",
+        "backbone.extensions",
         "handlebars",
         "globalize",
-        "helpers",
-        "install"
+        "helpers"
       ],
       "applications": [
         "root"
