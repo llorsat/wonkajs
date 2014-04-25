@@ -11,6 +11,7 @@ var fs = require('fs'),
     i18n = require('../scripts/i18n.js').builder,
     pack = require('../scripts/package.js').builder,
     candy = require('../scripts/candy.js').builder;
+	backup= require('../scripts/backup.js').builder;
 
 var usage = '\nWonkajs - Write javascript webapps right, easy and fast.\n\n'
   + '{usage} wonkajs subcommand [options]\n\n'
@@ -25,6 +26,7 @@ var usage = '\nWonkajs - Write javascript webapps right, easy and fast.\n\n'
   + '   d,    deploy              Compile js, css and html files for deploy\n'
   + '   pkg,  package             Build a wonka.js module from any application\n'
   + '   c,    candy               Download and install wonka.js 3th party modules\n'
+  + '   b,    backup              For creating backup of the project.\n'
   + '\n'
   + 'Project command options:\n'
   + '   description     <string>\n'
@@ -48,7 +50,9 @@ var commands = {
   'pkg': pack,
   'package': pack,
   'c': candy,
-  'candy': candy
+  'candy': candy,
+  'b': backup,
+  'backup': backup 
 };
 
 var serialize = function(attributes) {
