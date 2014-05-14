@@ -128,4 +128,15 @@ With this command, will be created a deploy folder, that will has the files:
 
 Upload this folder to any server path, and points your web server to this path and your application will works.
 
+### Backup
+
+To create backup of your project, run :
+
+```sh
+$ wonkajs backup [directory]
+```
+
+This will create backup of your project in given directory. If directory is not specified, it will create backup in root directory.
+
+
 For more information [read the docs](https://github.com/llorsat/wonkajs/wiki).
