@@ -37,7 +37,7 @@
   }],
   "dependencies": {
     "less": "",
-    "uglify-js2": "https://github.com/mishoo/UglifyJS/archive/v1.3.4.tar.gz",
+    "uglify-js2": "2.1.11",
     "handlebars": "",
     "github": "",
     "wrench": "",
