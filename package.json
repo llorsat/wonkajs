@@ -37,11 +37,11 @@
   }],
   "dependencies": {
     "less": "2.2.0",
-    "uglify-js2": "2.1.11",
+    "uglify-js": "2.4.16",
     "handlebars": "2.0.0",
     "github": "0.2.3",
     "wrench": "1.5.8",
-	  "adm-zip":"0.4.4"
+    "adm-zip":"0.4.4"
   },
   "bin": {
     "wonkajs": "bin/wonkajs"
