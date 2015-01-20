@@ -26,10 +26,8 @@ function start() {
   }
 
   var basePath = Path.resolve(".");
-  var settings = {};
-  try {
-    settings = JSON.parse(readOrElse(Path.join(basePath, 'package.json'), '{"settings":{"i18n":{}}}')).settings.i18n;
-  } catch(e){}
+  var settings = JSON.parse(fs.readFileSync(basePath + '/package.json')).settings.i18n || {};
+  
   var languages = settings.languages || ['en'],
       blacklist = settings.blacklist || [".git", "libraries", "stylesheets", "icons", "core"],
       files = settings.files || ["js", "html", "hbs"];
