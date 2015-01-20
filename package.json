@@ -36,12 +36,12 @@
     "url": "https://github.com/josuevera"
   }],
   "dependencies": {
-    "less": "",
+    "less": "2.2.0",
     "uglify-js2": "2.1.11",
-    "handlebars": "",
-    "github": "",
-    "wrench": "",
-	"adm-zip":""
+    "handlebars": "2.0.0",
+    "github": "0.2.3",
+    "wrench": "1.5.8",
+	  "adm-zip":"0.4.4"
   },
   "bin": {
     "wonkajs": "bin/wonkajs"
