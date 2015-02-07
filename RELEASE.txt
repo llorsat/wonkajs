@@ -170,3 +170,8 @@ Version 1.7.0 (Apr 20, 2014)
 
 * Firefox OS Support removed
 * New Backbone extensions support
+
+Version 1.8.0 (Feb 20, 2015)
+----------------------------
+
+* Dependencies updated
