@@ -1,5 +1,7 @@
 # Wonka.js
 
+[![Join the chat at https://gitter.im/llorsat/wonkajs](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/llorsat/wonkajs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Wonka.js is a javascript client-side framework MVC like, built to enhance the frontend development, prioring team work and clean code.
 
 ## Install and configure
